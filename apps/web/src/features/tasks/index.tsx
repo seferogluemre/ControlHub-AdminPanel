@@ -10,11 +10,11 @@ export default function Tasks() {
   return (
     <TasksProvider>
       <Main>
-        <div className="mb-2 flex flex-wrap items-center justify-between space-y-2 gap-x-4">
+        <div className="mb-6 flex flex-wrap items-center justify-between space-y-2 gap-x-4">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight">Tasks</h2>
+            <h1 className="text-3xl font-bold tracking-tight">Task Management</h1>
             <p className="text-muted-foreground">
-              Here&apos;s a list of your tasks for this month!
+              Organize, track, and manage your project tasks efficiently.
             </p>
           </div>
           <TasksPrimaryButtons />

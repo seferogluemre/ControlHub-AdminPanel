@@ -9,8 +9,11 @@ import {
   DropdownMenuTrigger,
 } from "#/components/ui/dropdown-menu";
 import { InfoPanel } from "./components/info-panel";
+import { ProjectList } from "./components/project-list";
+import { ProjectArea } from "./components/project-area";
+import { NewProject } from "./components/new-project";
 import { DROPDOWN_OPTIONS, UI_TEXTS } from "./data/constants";
-import {  useDisplayOptions } from "./hooks";
+import { useProjectState, useDisplayOptions } from "./hooks";
 
 
 export default function Projects() {
@@ -144,7 +147,5 @@ export default function Projects() {
     </>
   );
 }
-function useProjectState(): { projects: any; selectedProject: any; mobileSelectedProject: any; createProjectDialogOpened: any; handleProjectSelect: any; handleBackClick: any; handleCloseProject: any; handleTogglePin: any; openNewProjectDialog: any; setCreateProjectDialog: any; } {
-  throw new Error("Function not implemented.");
-}
+
 

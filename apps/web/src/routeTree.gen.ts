@@ -26,6 +26,7 @@ import { Route as AuthenticatedPanelRouteRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
 import { Route as AuthenticatedPanelSettingsRouteRouteImport } from './routes/_authenticated/panel/settings/route'
 import { Route as AuthenticatedPanelSettingsIndexRouteImport } from './routes/_authenticated/panel/settings/index'
+import { Route as AuthenticatedPanelProjectsIndexRouteImport } from './routes/_authenticated/panel/projects/index'
 import { Route as AuthenticatedPanelDashboardIndexRouteImport } from './routes/_authenticated/panel/dashboard/index'
 import { Route as AuthenticatedPanelChatsIndexRouteImport } from './routes/_authenticated/panel/chats/index'
 import { Route as AuthenticatedPanelAnalyticsIndexRouteImport } from './routes/_authenticated/panel/analytics/index'
@@ -133,6 +134,12 @@ const AuthenticatedPanelSettingsIndexRoute =
     id: '/',
     path: '/',
     getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
+  } as any)
+const AuthenticatedPanelProjectsIndexRoute =
+  AuthenticatedPanelProjectsIndexRouteImport.update({
+    id: '/projects/',
+    path: '/projects/',
+    getParentRoute: () => AuthenticatedPanelRouteRoute,
   } as any)
 const AuthenticatedPanelDashboardIndexRoute =
   AuthenticatedPanelDashboardIndexRouteImport.update({
@@ -295,6 +302,7 @@ export interface FileRoutesByFullPath {
   '/panel/analytics': typeof AuthenticatedPanelAnalyticsIndexRoute
   '/panel/chats': typeof AuthenticatedPanelChatsIndexRoute
   '/panel/dashboard': typeof AuthenticatedPanelDashboardIndexRoute
+  '/panel/projects': typeof AuthenticatedPanelProjectsIndexRoute
   '/panel/settings/': typeof AuthenticatedPanelSettingsIndexRoute
   '/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
   '/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
@@ -333,6 +341,7 @@ export interface FileRoutesByTo {
   '/panel/analytics': typeof AuthenticatedPanelAnalyticsIndexRoute
   '/panel/chats': typeof AuthenticatedPanelChatsIndexRoute
   '/panel/dashboard': typeof AuthenticatedPanelDashboardIndexRoute
+  '/panel/projects': typeof AuthenticatedPanelProjectsIndexRoute
   '/panel/settings': typeof AuthenticatedPanelSettingsIndexRoute
   '/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
   '/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
@@ -375,6 +384,7 @@ export interface FileRoutesById {
   '/_authenticated/panel/analytics/': typeof AuthenticatedPanelAnalyticsIndexRoute
   '/_authenticated/panel/chats/': typeof AuthenticatedPanelChatsIndexRoute
   '/_authenticated/panel/dashboard/': typeof AuthenticatedPanelDashboardIndexRoute
+  '/_authenticated/panel/projects/': typeof AuthenticatedPanelProjectsIndexRoute
   '/_authenticated/panel/settings/': typeof AuthenticatedPanelSettingsIndexRoute
   '/_authenticated/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
   '/_authenticated/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
@@ -416,6 +426,7 @@ export interface FileRouteTypes {
     | '/panel/analytics'
     | '/panel/chats'
     | '/panel/dashboard'
+    | '/panel/projects'
     | '/panel/settings/'
     | '/admin/global-settings/agents/new'
     | '/admin/global-settings/departments/new'
@@ -454,6 +465,7 @@ export interface FileRouteTypes {
     | '/panel/analytics'
     | '/panel/chats'
     | '/panel/dashboard'
+    | '/panel/projects'
     | '/panel/settings'
     | '/admin/global-settings/agents/new'
     | '/admin/global-settings/departments/new'
@@ -495,6 +507,7 @@ export interface FileRouteTypes {
     | '/_authenticated/panel/analytics/'
     | '/_authenticated/panel/chats/'
     | '/_authenticated/panel/dashboard/'
+    | '/_authenticated/panel/projects/'
     | '/_authenticated/panel/settings/'
     | '/_authenticated/admin/global-settings/agents/new'
     | '/_authenticated/admin/global-settings/departments/new'
@@ -638,6 +651,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/panel/settings/'
       preLoaderRoute: typeof AuthenticatedPanelSettingsIndexRouteImport
       parentRoute: typeof AuthenticatedPanelSettingsRouteRoute
+    }
+    '/_authenticated/panel/projects/': {
+      id: '/_authenticated/panel/projects/'
+      path: '/projects'
+      fullPath: '/panel/projects'
+      preLoaderRoute: typeof AuthenticatedPanelProjectsIndexRouteImport
+      parentRoute: typeof AuthenticatedPanelRouteRoute
     }
     '/_authenticated/panel/dashboard/': {
       id: '/_authenticated/panel/dashboard/'
@@ -897,6 +917,7 @@ interface AuthenticatedPanelRouteRouteChildren {
   AuthenticatedPanelAnalyticsIndexRoute: typeof AuthenticatedPanelAnalyticsIndexRoute
   AuthenticatedPanelChatsIndexRoute: typeof AuthenticatedPanelChatsIndexRoute
   AuthenticatedPanelDashboardIndexRoute: typeof AuthenticatedPanelDashboardIndexRoute
+  AuthenticatedPanelProjectsIndexRoute: typeof AuthenticatedPanelProjectsIndexRoute
 }
 
 const AuthenticatedPanelRouteRouteChildren: AuthenticatedPanelRouteRouteChildren =
@@ -909,6 +930,7 @@ const AuthenticatedPanelRouteRouteChildren: AuthenticatedPanelRouteRouteChildren
     AuthenticatedPanelChatsIndexRoute: AuthenticatedPanelChatsIndexRoute,
     AuthenticatedPanelDashboardIndexRoute:
       AuthenticatedPanelDashboardIndexRoute,
+    AuthenticatedPanelProjectsIndexRoute: AuthenticatedPanelProjectsIndexRoute,
   }
 
 const AuthenticatedPanelRouteRouteWithChildren =

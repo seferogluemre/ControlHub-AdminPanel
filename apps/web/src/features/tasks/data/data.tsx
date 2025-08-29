@@ -11,16 +11,28 @@ import {
 
 export const labels = [
   {
-    value: "bug",
-    label: "Bug",
+    value: "frontend",
+    label: "Frontend",
   },
   {
-    value: "feature",
-    label: "Feature",
+    value: "backend",
+    label: "Backend",
+  },
+  {
+    value: "design",
+    label: "Design",
+  },
+  {
+    value: "testing",
+    label: "Testing",
   },
   {
     value: "documentation",
     label: "Documentation",
+  },
+  {
+    value: "devops",
+    label: "DevOps",
   },
 ];
 
@@ -67,5 +79,10 @@ export const priorities = [
     label: "High",
     value: "high",
     icon: IconArrowUp,
+  },
+  {
+    label: "Urgent",
+    value: "urgent",
+    icon: IconExclamationCircle,
   },
 ];

@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { type ChatUser, type Convo } from "../../features/chats/data/chat-types";
+import { type ChatUser, type Convo } from "../../features/projects/data/chat-types";
 
 // Common Turkish cities
 const turkishCities = [
