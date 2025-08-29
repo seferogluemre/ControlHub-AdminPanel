@@ -1,0 +1,6 @@
+import Departments from '#/features/admin/global-settings/departments';
+import { createFileRoute } from '@tanstack/react-router';
+
+export const Route = createFileRoute('/(admin)/global-settings/departments/')({
+  component: Departments,
+}); 

@@ -1,0 +1,358 @@
+{
+  "availablePermissions": [
+    {
+      "id": "all",
+      "name": "All Permissions",
+      "description": "Tüm sistem yetkileri"
+    },
+    {
+      "id": "department_management",
+      "name": "Department Management",
+      "description": "Departman yönetimi"
+    },
+    {
+      "id": "agent_management",
+      "name": "Agent Management",
+      "description": "Agent yönetimi"
+    },
+    {
+      "id": "chat_management",
+      "name": "Chat Management",
+      "description": "Sohbet yönetimi"
+    },
+    {
+      "id": "customer_support",
+      "name": "Customer Support",
+      "description": "Müşteri desteği"
+    },
+    {
+      "id": "view_reports",
+      "name": "View Reports",
+      "description": "Raporları görüntüleme"
+    },
+    {
+      "id": "manage_settings",
+      "name": "Manage Settings",
+      "description": "Ayarları yönetme"
+    },
+    {
+      "id": "user_management",
+      "name": "User Management",
+      "description": "Kullanıcı yönetimi"
+    },
+    {
+      "id": "system_admin",
+      "name": "System Admin",
+      "description": "Sistem yöneticisi"
+    },
+    {
+      "id": "billing_management",
+      "name": "Billing Management",
+      "description": "Fatura yönetimi"
+    },
+    {
+      "id": "analytics_view",
+      "name": "Analytics View",
+      "description": "Analitik görüntüleme"
+    }
+  ],
+  "agents": [
+    {
+      "id": "1",
+      "name": "Aras",
+      "email": "arascas6@gmail.com",
+      "bio": "",
+      "departments": ["1", "2"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/07/05 18:54:16",
+      "isActive": true,
+      "profileImage": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&q=80"
+    },
+    {
+      "id": "2",
+      "name": "Asil",
+      "email": "asil@casivera.com",
+      "bio": "",
+      "departments": ["2"],
+      "roleIds": ["1"],
+      "isAdministrator": true,
+      "lastLogin": "2025/07/06 07:54:23",
+      "isActive": true
+    },
+    {
+      "id": "3",
+      "name": "Aziz",
+      "email": "aziz@casivera.com",
+      "bio": "",
+      "departments": ["3"],
+      "roleIds": ["1"],
+      "isAdministrator": true,
+      "lastLogin": "2025/07/06 16:04:23",
+      "isActive": true,
+      "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&q=80"
+    },
+    {
+      "id": "4",
+      "name": "Bekir",
+      "email": "bekir@casivera.com",
+      "bio": "",
+      "departments": ["4"],
+      "roleIds": ["2"],
+      "isAdministrator": true,
+      "lastLogin": "2025/07/06 16:01:39",
+      "isActive": true
+    },
+    {
+      "id": "5",
+      "name": "Birkan",
+      "email": "birkan@casivera.com",
+      "bio": "",
+      "departments": ["1", "2"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/07/05 19:52:58",
+      "isActive": true,
+      "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face&q=80"
+    },
+    {
+      "id": "6",
+      "name": "Duru",
+      "email": "duru@casivera.com",
+      "bio": "",
+      "departments": ["3"],
+      "roleIds": ["2"],
+      "isAdministrator": true,
+      "lastLogin": "2025/07/05 23:46:07",
+      "isActive": true,
+      "profileImage": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face&q=80"
+    },
+    {
+      "id": "7",
+      "name": "Efe",
+      "email": "efe@casivera.com",
+      "bio": "",
+      "departments": ["2"],
+      "roleIds": ["3"],
+      "isAdministrator": true,
+      "lastLogin": "2024/11/05 17:38:28",
+      "isActive": false
+    },
+    {
+      "id": "8",
+      "name": "Ekrem",
+      "email": "ekrem@casivera.com",
+      "bio": "",
+      "departments": ["4"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/07/06 15:52:42",
+      "isActive": true
+    },
+    {
+      "id": "9",
+      "name": "Emrah",
+      "email": "emrah@casivera.com",
+      "bio": "",
+      "departments": ["1", "4"],
+      "roleIds": ["2"],
+      "isAdministrator": true,
+      "lastLogin": "2025/07/06 15:34:53",
+      "isActive": false
+    },
+    {
+      "id": "10",
+      "name": "Fatma Yılmaz",
+      "email": "fatma@casivera.com",
+      "bio": "Marketing uzmanı",
+      "departments": ["5"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/07/07 09:15:30",
+      "isActive": true
+    },
+    {
+      "id": "11",
+      "name": "Gökhan Demir",
+      "email": "gokhan@casivera.com",
+      "bio": "Sales Manager",
+      "departments": ["6"],
+      "roleIds": ["2"],
+      "isAdministrator": true,
+      "lastLogin": "2025/07/07 08:42:15",
+      "isActive": false
+    },
+    {
+      "id": "12",
+      "name": "Hülya Çelik",
+      "email": "hulya@casivera.com",
+      "bio": "Quality Assurance Engineer",
+      "departments": ["2", "7"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/07/07 10:20:45",
+      "isActive": true
+    },
+    {
+      "id": "13",
+      "name": "İbrahim Kaya",
+      "email": "ibrahim@casivera.com",
+      "bio": "Customer Relations Specialist",
+      "departments": ["8"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/07/07 11:30:22",
+      "isActive": true
+    },
+    {
+      "id": "14",
+      "name": "Jale Özkan",
+      "email": "jale@casivera.com",
+      "bio": "Multi-department coordinator",
+      "departments": ["1", "3", "5"],
+      "roleIds": ["1"],
+      "isAdministrator": true,
+      "lastLogin": "2025/07/07 07:55:18",
+      "isActive": true
+    },
+    {
+      "id": "15",
+      "name": "Kemal Arslan",
+      "email": "kemal@casivera.com",
+      "bio": "Ex-developer, suspended account",
+      "departments": ["2"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/05/15 14:20:30",
+      "isActive": false
+    },
+    {
+      "id": "16",
+      "name": "Leyla Akın",
+      "email": "leyla@casivera.com",
+      "bio": "Former HR manager",
+      "departments": ["3"],
+      "roleIds": ["2"],
+      "isAdministrator": true,
+      "lastLogin": "2025/06/10 16:45:12",
+      "isActive": false
+    },
+    {
+      "id": "17",
+      "name": "Murat Yıldız",
+      "email": "murat@casivera.com",
+      "bio": "Maternity leave",
+      "departments": ["1"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/04/28 09:30:45",
+      "isActive": false
+    },
+    {
+      "id": "18",
+      "name": "Neslihan Güler",
+      "email": "neslihan@casivera.com",
+      "bio": "Temporarily suspended",
+      "departments": ["5", "8"],
+      "roleIds": ["3"],
+      "isAdministrator": false,
+      "lastLogin": "2025/07/01 12:15:33",
+      "isActive": false
+    }
+  ],
+  "departments": [
+    {
+      "id": "1",
+      "name": "1 - Finansal İşlemler",
+      "description": "Para yatırma, para çekme ve üye hesaplarıyla alakalı yapılan manuel işlemler ile alakalı yaşanan sorunlara yönelik aktif departmandır.",
+      "memberIds": ["1", "5", "9", "14", "17"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "2",
+      "name": "2 - Development",
+      "description": "Yazılım geliştirme, sistem bakımı ve teknik destek faaliyetlerinin yürütüldüğü departmandır.",
+      "memberIds": ["1", "2", "5", "7", "12", "15"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "3",
+      "name": "3 - Human Resources",
+      "description": "İnsan kaynakları yönetimi, işe alım süreçleri ve personel gelişimi faaliyetlerinin koordine edildiği departmandır.",
+      "memberIds": ["3", "6", "14", "16"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "4",
+      "name": "4 - Support",
+      "description": "Müşteri destek hizmetleri ve teknik yardım süreçlerinin yönetildiği departmandır.",
+      "memberIds": ["4", "8", "9"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "5",
+      "name": "5 - Marketing",
+      "description": "Pazarlama stratejileri, kampanya yönetimi ve marka iletişimi faaliyetlerinin planlandığı departmandır.",
+      "memberIds": ["10", "14", "18"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "6",
+      "name": "6 - Sales",
+      "description": "Satış süreçleri, müşteri ilişkileri yönetimi ve gelir artırma stratejilerinin uygulandığı departmandır.",
+      "memberIds": ["11"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "7",
+      "name": "7 - Quality Assurance",
+      "description": "Kalite güvence süreçleri, test yönetimi ve ürün kalitesi kontrolünün yapıldığı departmandır.",
+      "memberIds": ["12"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "8",
+      "name": "8 - Customer Relations",
+      "description": "Müşteri ilişkileri yönetimi, şikayet çözme ve müşteri memnuniyeti süreçlerinin koordine edildiği departmandır.",
+      "memberIds": ["13", "18"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "name": "Super Admin",
+      "description": "Tüm sistem yetkileri",
+      "permissions": ["all"],
+      "memberIds": ["2", "3", "14"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "2",
+      "name": "Department Manager",
+      "description": "Departman yönetimi yetkileri",
+      "permissions": ["department_management", "agent_management"],
+      "memberIds": ["4", "6", "9", "11", "16"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    },
+    {
+      "id": "3",
+      "name": "Agent",
+      "description": "Temel agent yetkileri",
+      "permissions": ["chat_management", "customer_support"],
+      "memberIds": ["1", "5", "7", "8", "10", "12", "13", "15", "17", "18"],
+      "isActive": true,
+      "createdAt": "2025/01/01 10:00:00"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+import { createFileRoute } from '@tanstack/react-router'
+
+export const Route = createFileRoute('/(admin)/live-chat/pre-chats')({
+  component: RouteComponent,
+})
+
+function RouteComponent() {
+  return <div>Hello "/(admin)/live-chat/pre-chats"!</div>
+}

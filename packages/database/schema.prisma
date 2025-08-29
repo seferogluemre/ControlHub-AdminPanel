@@ -1,0 +1,685 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "./client"
+
+  runtime                = "bun"
+  moduleFormat           = "esm"
+  generatedFileExtension = "ts"
+  importFileExtension    = "ts"
+  previewFeatures        = ["postgresqlExtensions"]
+}
+
+generator json {
+  provider = "prisma-json-types-generator"
+}
+
+generator prismabox {
+  provider                    = "prismabox"
+  // you can optionally specify the output location. Defaults to ./prismabox
+  output                      = "./prismabox"
+  // if you want, you can customize the imported variable name that is used for the schemes. Defaults to "Type" which is what the standard typebox package offers
+  typeboxImportVariableName   = "t"
+  // you also can specify the dependency from which the above import should happen. This is useful if a package re-exports the typebox package and you would like to use that
+  typeboxImportDependencyName = "elysia"
+  // by default the generated schemes do not allow additional properties. You can allow them by setting this to true
+  // additionalProperties        = true
+  // optionally enable the data model generation. See the data model section below for more info
+  inputModel                  = true
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [vector(schema: "public")]
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  NON_BINARY
+
+  @@map("gender")
+}
+
+enum FileType {
+  USER_IMAGE
+  RAG_DOCUMENT
+
+  @@map("file_type")
+}
+
+enum FileFileType {
+  IMAGE
+  VIDEO
+  DOCUMENT
+
+  @@map("file_file_type")
+}
+
+enum FileMimeType {
+  IMAGE_JPEG // image/jpeg
+  IMAGE_PNG // image/png
+  IMAGE_GIF // image/gif
+  IMAGE_WEBP // image/webp
+  IMAGE_SVG // image/svg+xml
+  IMAGE_BMP // image/bmp
+  IMAGE_TIFF // image/tiff
+
+  VIDEO_MP4 // video/mp4
+  VIDEO_AVI // video/avi
+  VIDEO_MPEG // video/mpeg
+  VIDEO_WEBM // video/webm
+  VIDEO_OGG // video/ogg
+
+  DOCUMENT_PDF // application/pdf
+  DOCUMENT_DOC // application/msword
+  DOCUMENT_DOCX // application/vnd.openxmlformats-officedocument.wordprocessingml.document
+
+  @@map("file_mime_type")
+}
+
+model User {
+  id String @id @default(uuid())
+
+  /// @prismabox.options{minLength:3,maxLength:255}
+  email String @unique @db.VarChar(255)
+
+  /// @prismabox.options{minLength:2,maxLength:50}
+  firstName String @map("first_name") @db.VarChar(50)
+  /// @prismabox.options{minLength:2,maxLength:50}
+  lastName  String @map("last_name") @db.VarChar(50)
+  /// @prismabox.hide.input
+  name      String @map("full_name") @db.VarChar(101)
+
+  gender Gender
+
+  createdBy   User?   @relation("UserToCreator", fields: [createdById], references: [id], onDelete: SetNull)
+  /// @prismabox.hide
+  createdById String? @map("created_by_id")
+
+  rolesSlugs String[] @default([]) @map("roles_slugs")
+
+  emailVerified Boolean
+
+  image      String? @db.VarChar(255)
+  imageId    Int?    @map("image_id")
+  imageAsset File?   @relation(fields: [imageId], references: [id])
+
+  isActive Boolean @default(true) @map("is_active")
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  /// @prismabox.input.hide
+  deletedAt DateTime? @map("deleted_at")
+
+  isBanned     Boolean?
+  banReason    String?
+  banExpiresAt DateTime?
+
+  createdUsers   User[]     @relation("UserToCreator")
+  auditLogs      AuditLog[] @relation("AuditLogsToUser")
+  userRoles      UserRole[] @relation("UserRoleToUser")
+  sessions       Session[]
+  accounts       Account[]
+  impersonations Session[]  @relation("SessionToImpersonatedBy")
+
+  @@index([deletedAt])
+  @@map("users")
+}
+
+model Role {
+  /// @prismabox.hide
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  /// @prismabox.options{minLength:2,maxLength:32}
+  name String @unique @db.VarChar(32)
+
+  /// @prismabox.options{minLength:2,maxLength:64}
+  slug String @unique @db.VarChar(64)
+
+  /// @prismabox.options{minLength:0,maxLength:255}
+  description String? @db.VarChar(255)
+
+  permissions Json @default("[]") @db.JsonB
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  /// @prismabox.input.hide
+  deletedAt DateTime? @map("deleted_at")
+
+  userRoles UserRole[] @relation("UserRoleToRole")
+
+  @@map("roles")
+}
+
+model AuditLog {
+  /// @prismabox.hide
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  user   User   @relation("AuditLogsToUser", fields: [userId], references: [id])
+  /// @prismabox.hide
+  userId String @map("user_id")
+
+  actionType String @map("action_type")
+  entityType String @map("entity_type")
+  entityUuid String @map("entity_uuid")
+
+  /// @prismabox.options{minLength:0,maxLength:1024}
+  description String? @map("description") @db.Text
+
+  metadata Json? @db.JsonB
+
+  ipAddress String? @map("ip_address") @db.VarChar(45)
+  userAgent String? @map("user_agent") @db.VarChar(255)
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt])
+  @@index([actionType])
+  @@index([entityType])
+  @@index([entityUuid])
+  @@map("audit_logs")
+}
+
+model UserRole {
+  /// @prismabox.hide
+  id Int @id @default(autoincrement())
+
+  user   User   @relation("UserRoleToUser", fields: [userId], references: [id], onDelete: Cascade)
+  // We can't put prismabox.hide here because of bug
+  userId String @map("user_id")
+
+  role   Role @relation("UserRoleToRole", fields: [roleId], references: [id], onDelete: Cascade)
+  // We can't put prismabox.hide here because of bug
+  roleId Int  @map("role_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([userId, roleId])
+  @@index([roleId])
+  @@index([userId])
+  @@map("user_roles")
+}
+
+model Session {
+  id     String @id @default(uuid())
+  userId String @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  /// @prismabox.hide
+  token String
+
+  impersonatedById String? @map("impersonated_by_id")
+  impersonatedBy   User?   @relation("SessionToImpersonatedBy", fields: [impersonatedById], references: [id], onDelete: SetNull)
+
+  ipAddress String? @map("ip_address")
+  userAgent String? @map("user_agent")
+
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @map("created_at")
+  updatedAt DateTime @map("updated_at")
+
+  @@unique([token])
+  @@map("sessions")
+}
+
+model Account {
+  id         String @id @default(uuid())
+  accountId  String @map("account_id")
+  providerId String @map("provider_id")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @map("user_id")
+
+  accessToken  String? @map("access_token")
+  refreshToken String? @map("refresh_token")
+
+  idToken  String? @map("id_token")
+  scope    String?
+  password String?
+
+  accessTokenExpiresAt  DateTime? @map("access_token_expires_at")
+  refreshTokenExpiresAt DateTime? @map("refresh_token_expires_at")
+
+  createdAt DateTime @map("created_at")
+  updatedAt DateTime @map("updated_at")
+
+  @@map("accounts")
+}
+
+model Verification {
+  id         String @id @default(uuid())
+  identifier String
+
+  value String
+
+  expiresAt DateTime  @map("expires_at")
+  createdAt DateTime? @map("created_at")
+  updatedAt DateTime? @map("updated_at")
+
+  @@map("verifications")
+}
+
+model Region {
+  id       Int  @id @default(autoincrement())
+  sourceId Int? @unique @map("source_id")
+
+  name String @unique
+
+  translations Json?
+  wikiDataId   String?  @map("wiki_data_id")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  countries  Country[]
+  subregions Subregion[]
+
+  @@map("regions")
+}
+
+model Subregion {
+  id       Int  @id @default(autoincrement())
+  sourceId Int? @unique @map("source_id")
+
+  name String @unique
+
+  translations Json?
+  wikiDataId   String?  @map("wiki_data_id")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  regionName String @map("region_name")
+  regionId   Int    @map("region_id")
+  region     Region @relation(fields: [regionId], references: [id])
+
+  countries Country[]
+
+  @@index([regionId])
+  @@map("subregions")
+}
+
+model Country {
+  id       Int  @id @default(autoincrement())
+  sourceId Int? @unique @map("source_id")
+
+  name           String
+  iso3           String  @unique @db.Char(3)
+  iso2           String  @unique @db.Char(2)
+  numericCode    String? @map("numeric_code") @db.Char(3)
+  phoneCode      String? @map("phone_code")
+  capital        String?
+  currency       String?
+  currencyName   String? @map("currency_name")
+  currencySymbol String? @map("currency_symbol")
+  tld            String?
+  native         String?
+
+  latitude     Decimal? @db.Decimal(10, 8)
+  longitude    Decimal? @db.Decimal(11, 8)
+  emoji        String?
+  emojiU       String?  @map("emoji_u")
+  timezones    Json?
+  translations Json?
+  wikiDataId   String?  @map("wiki_data_id")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  regionName String? @map("region_name")
+  regionId   Int?    @map("region_id")
+  region     Region? @relation(fields: [regionId], references: [id])
+
+  subregionName String?    @map("subregion_name")
+  subregionId   Int?       @map("subregion_id")
+  subregion     Subregion? @relation(fields: [subregionId], references: [id])
+
+  states State[]
+  cities City[]
+
+  @@index([regionId])
+  @@index([subregionId])
+  @@map("countries")
+}
+
+model State {
+  id       Int  @id @default(autoincrement())
+  sourceId Int? @unique @map("source_id")
+
+  name String
+
+  stateCode  String?  @map("state_code")
+  fipsCode   String?  @map("fips_code")
+  iso2       String?
+  type       String?
+  latitude   Decimal? @db.Decimal(10, 8)
+  longitude  Decimal? @db.Decimal(11, 8)
+  wikiDataId String?  @map("wiki_data_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  countryName String  @map("country_name")
+  countryCode String  @map("country_code") @db.Char(2)
+  countryId   Int     @map("country_id")
+  country     Country @relation(fields: [countryId], references: [id])
+
+  cities City[]
+
+  @@index([countryId])
+  @@map("states")
+}
+
+model City {
+  id       Int  @id @default(autoincrement())
+  sourceId Int? @unique @map("source_id")
+
+  name String
+
+  latitude   Decimal? @db.Decimal(10, 8)
+  longitude  Decimal? @db.Decimal(11, 8)
+  wikiDataId String?  @map("wiki_data_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  stateName String @map("state_name")
+  stateCode String @map("state_code")
+  stateId   Int    @map("state_id")
+  state     State  @relation(fields: [stateId], references: [id])
+
+  countryCode String  @map("country_code")
+  countryName String  @map("country_name")
+  countryId   Int     @map("country_id")
+  country     Country @relation(fields: [countryId], references: [id])
+
+  @@index([stateId])
+  @@index([countryId])
+  @@map("cities")
+}
+
+model File {
+  id Int @id @default(autoincrement())
+
+  uuid String @unique @default(uuid())
+
+  name String @map("name") @db.VarChar(512)
+
+  type     FileType     @map("type")
+  fileType FileFileType @map("file_type")
+  mimeType FileMimeType @map("mime_type")
+
+  size BigInt @map("size") @db.BigInt
+  path String @map("path") @db.VarChar(512)
+
+  //Özellik eklenebilir
+  //uploaderId String? @map("uploader_id")
+  //uploader   User?   @relation(fields: [uploaderId], references: [id])
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  user User[]
+
+  @@map("files")
+}
+
+model Website {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  name String @map("name") @db.VarChar(512)
+
+  logoFileId  Int?    @map("logo_file_id")
+  logoFileSrc String? @map("logo_file_src")
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  chatExtension WebsiteChatExtension?
+
+  @@map("websites")
+}
+
+model WebsiteChatExtension {
+  websiteId   Int     @id
+  websiteUuid String  @unique
+  website     Website @relation(fields: [websiteId], references: [id])
+
+  @@map("websites_chat_ext")
+}
+
+model ChatWebsiteUIConfig {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  /// [ChatWebsiteUIConfigData]
+  data Json @db.JsonB
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+}
+
+model ChatWebsiteAIConfig {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  name   String @map("name") @db.VarChar(512)
+  prompt String @map("prompt") @db.Text
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("chat_website_uis")
+}
+
+model ChatWebsiteConfig {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  token String @unique @map("token") @db.VarChar(512)
+
+  websiteId   Int    @map("website_id")
+  websiteUuid String @map("website_uuid")
+
+  uiConfigId   Int    @map("ui_config_id")
+  uiConfigUuid String @map("ui_config_uuid")
+
+  aiConfigId   Int    @map("ai_config_id")
+  aiConfigUuid String @map("ai_config_uuid")
+
+  isActive Boolean @default(true) @map("is_active")
+
+  /// [ChatWebsiteAIConfigData]
+  aiConfigData Json? @db.JsonB
+  /// [ChatWebsiteUIConfigData]
+  uiConfigData Json? @db.JsonB
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("chat_website_configs")
+}
+
+model ChatCannedMessage {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  websiteId   Int    @map("website_id")
+  websiteUuid String @map("website_uuid")
+
+  slug        String  @map("slug") @db.VarChar(512)
+  content     String  @map("content") @db.Text
+  description String? @map("description") @db.Text
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("chat_canned_messages")
+}
+
+enum ChatConversationType {
+  STAFF_GROUP
+  STAFF_TO_STAFF
+  VISITOR
+
+  @@map("chat_conversation_type")
+}
+
+model ChatConversation {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  websiteId   Int                  @map("website_id")
+  websiteUuid String               @map("website_uuid")
+  type        ChatConversationType @map("type")
+
+  /// [ChatConversationParticipants]
+  participants Json @db.JsonB
+
+  /// [ChatConversationStates]
+  states Json? @db.JsonB
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("chat_conversations")
+}
+
+model ChatConversationParticipant {
+  websiteId   Int    @map("website_id")
+  websiteUuid String @map("website_uuid")
+
+  conversationId   Int    @map("conversation_id")
+  conversationUuid String @map("conversation_uuid")
+
+  participantId   Int    @map("participant_id")
+  participantUuid String @map("participant_uuid")
+
+  /// [ChatConversationParticipations]
+  participations Json @db.JsonB
+
+  @@unique([conversationId, participantId])
+  @@map("chat_conversation_participants")
+}
+
+model ChatVisitorVisit {
+  id        BigInt   @id @default(autoincrement())
+  visitorId Int      @map("visitor_id")
+  url       String   @map("url")
+  pageTitle String   @map("page_title")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("chat_visitor_visits")
+}
+
+model ChatVisitor {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  websiteId Int    @map("website_id")
+  token     String @unique @map("token") @db.VarChar(512)
+
+  ipAddress   String @map("ip_address")
+  userAgent   String @map("user_agent")
+  deviceInfo  String @map("device_info")
+  browserInfo String @map("browser_info")
+  osInfo      String @map("os_info")
+
+  /// [ChatVisitorStaffNotes]
+  staffNotes Json? @db.JsonB
+
+  /// [ChatVisitorRecord]
+  record Json? @db.JsonB
+
+  /// [ChatVisitorCurrentVisit]
+  currentVisit Json? @db.JsonB
+
+  bannedAt     DateTime? @map("banned_at")
+  banExpiresAt DateTime? @map("ban_expires_at")
+  banReason    String?   @map("ban_reason")
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("chat_visitors")
+}
+
+model ChatVisitorStaffNote {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  websiteId   Int    @map("website_id")
+  websiteUuid String @map("website_uuid")
+
+  content String @map("content") @db.Text
+
+  createdById   Int    @map("created_by_id")
+  createdByUuid String @map("created_by_uuid")
+
+  conversationId   Int    @map("conversation_id")
+  conversationUuid String @map("conversation_uuid")
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("chat_visitor_staff_notes")
+}
+
+enum ChatConversationActorType {
+  VISITOR
+  STAFF
+  AGENT
+
+  @@map("chat_conversation_actor_type")
+}
+
+enum ChatConversationEventType {
+  MESSAGE
+  MESSAGE_EDIT
+  MESSAGE_DELETE
+  CONVERSATION_TRANSFER
+  CONVERSATION_JOIN
+  CONVERSATION_LEAVE
+
+  @@map("chat_conversation_event_type")
+}
+
+model ChatConversationEvent {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  websiteId   Int    @map("website_id")
+  websiteUuid String @map("website_uuid")
+
+  conversationId   Int    @map("conversation_id")
+  conversationUuid String @map("conversation_uuid")
+
+  actorType ChatConversationActorType @map("actor_type")
+  actorId   Int?                      @map("actor_id")
+  actorUuid String?                   @map("actor_uuid")
+
+  type ChatConversationEventType @map("event_type")
+
+  /// [ChatConversationEventData]
+  data Json? @db.JsonB
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("chat_conversation_events")
+}

@@ -1,0 +1,55 @@
+{
+  "name": "@devflow/api",
+  "version": "0.0.1",
+  "config": {
+    "envFile": "../../config/apps/api/.env"
+  },
+  "scripts": {
+    "build": "dotenvx run --quiet -f ../../config/apps/api/.env -- bun ./src/core/build.ts",
+    "emails:preview": "email dev --dir src/emails --port 3333",
+    "knip": "knip --workspace apps/api",
+    "dev": "dotenvx run --quiet -f ../../config/apps/api/.env -- nodemon",
+    "serve": "dotenvx run --quiet -f ../../config/apps/api/.env -- bun run dev",
+    "start": "dotenvx run --quiet -f ../../config/apps/api/.env -- bun ../../dist/apps/api/index.js",
+    "prisma": "cd ../../packages/database && bun run prisma"
+  },
+  "type": "module",
+  "dependencies": {
+    "@ai-sdk/langchain": "^1.0.8",
+    "@elysiajs/bearer": "1.3.0",
+    "@elysiajs/cors": "1.3.3",
+    "@elysiajs/cron": "1.3.0",
+    "@elysiajs/static": "1.3.0",
+    "@elysiajs/swagger": "1.3.1",
+    "@langchain/core": "^0.3.68",
+    "@langchain/langgraph": "^0.4.3",
+    "@langchain/ollama": "^0.2.3",
+    "@langchain/openai": "^0.6.7",
+    "@onlyjs/db": "workspace:*",
+    "@react-email/components": "^0.5.0",
+    "ai": "^5.0.8",
+    "better-auth": "^1.3.4",
+    "elysia": "1.3.8",
+    "http-errors": "^2.0.0",
+    "langfuse": "^3.38.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "redis": "^5.8.0",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "@types/http-errors": "^2.0.5",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "bun-plugin-dts": "0.3.0",
+    "nodemon": "^3.1.10",
+    "prisma-case-format": "^2.2.1",
+    "prismabox": "^1.1.25",
+    "react-email": "^4.2.8"
+  },
+  "main": "./src/index.ts",
+  "private": true,
+  "imports": {
+    "#*": "./src/*"
+  }
+}

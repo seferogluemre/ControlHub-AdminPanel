@@ -1,0 +1,334 @@
+{
+  "conversations": [
+    {
+      "id": "conv1",
+      "profile": "https://randomuser.me/api/portraits/men/32.jpg",
+      "username": "fatih47",
+      "fullName": "Fatih",
+      "title": "Yatırımcı",
+      "unreadCount": 2,
+      "lastMessageTime": "2m ago",
+      "department": "2 - Piyasa Analizi",
+      "isOngoing": true,
+      "messages": [
+        {
+          "sender": "Fatih",
+          "message": "Fatih",
+          "timestamp": "2024-12-10T13:29:00"
+        },
+        {
+          "sender": "Fatih",
+          "message": "Yatırım deneyimim 2 yıl",
+          "timestamp": "2024-12-10T13:28:45"
+        },
+        {
+          "sender": "Yatırım Danışmanı",
+          "message": "İsminizi ve yatırım deneyiminizi paylaşır mısınız?",
+          "timestamp": "2024-12-10T13:28:30"
+        },
+        {
+          "sender": "Fatih",
+          "message": "Merhaba, ASELS hissesi hakkında bilgi alabilir miyim?",
+          "timestamp": "2024-12-10T13:28:15"
+        },
+        {
+          "sender": "Yatırım Danışmanı",
+          "message": "Merhaba, hoş geldiniz.\nHangi hisse senedi hakkında bilgi almak istiyorsunuz?",
+          "timestamp": "2024-12-10T13:28:00"
+        },
+        {
+          "sender": "Fatih",
+          "message": "Selam, BIST 100 endeksi hakkında bilgi alabilir miyim?",
+          "timestamp": "2024-12-10T13:27:45"
+        },
+        {
+          "sender": "Yatırım Danışmanı",
+          "message": "📈 Borsa İstanbul'a hoş geldiniz!\n💼 BIST 100 endeksi %2.5 yükselişte! Yatırım fırsatlarını kaçırmayın.",
+          "timestamp": "2024-12-10T13:27:30"
+        }
+      ],
+      "sessionInfo": {
+        "chatId": "1b0cc4c0-280b-40dc-b518-919bd8d85726",
+        "location": "İzmir, İzmir Province, Türkiye(5.24.138.75)",
+        "campaign": "Temel Yatırım Paketi",
+        "campaignDisplay": "Turkish",
+        "referredFrom": "https://tr.tradingview.com/markets/stocks-turkey/",
+        "currentlyBrowsing": "Borsa İstanbul - Hisse Senedi Analiz ve Yatırım Platformu",
+        "deviceInfo": "tr-TR, 393x852, GMT +03:00",
+        "allChats": 27,
+        "visits": 1
+      },
+      "userInfo": {
+        "country": "Turkey",
+        "browser": "Chrome",
+        "os": "Android",
+        "device": "Mobile"
+      }
+    },
+    {
+      "id": "conv2",
+      "profile": "https://randomuser.me/api/portraits/men/45.jpg",
+      "username": "kemal_k",
+      "fullName": "Kemal Kızıkoğlu",
+      "title": "Yatırımcı",
+      "unreadCount": 13,
+      "lastMessageTime": "5m ago",
+      "department": "1 - Yatırım Danışmanlığı",
+      "isOngoing": true,
+      "messages": [
+        {
+          "sender": "Kemal Kızıkoğlu",
+          "message": "Hisselerimi satamıyorum",
+          "timestamp": "2024-12-10T13:26:00"
+        },
+        {
+          "sender": "Kemal Kızıkoğlu",
+          "message": "Emir veriyorum ama işlem gerçekleşmiyor, sürekli hata alıyorum",
+          "timestamp": "2024-12-10T13:25:50"
+        },
+        {
+          "sender": "Yatırım Danışmanı",
+          "message": "Hisse alım satım konusunda nasıl yardımcı olabilirim? Hangi hisse için emir vermeye çalışıyorsunuz?",
+          "timestamp": "2024-12-10T13:25:40"
+        },
+        {
+          "sender": "Kemal Kızıkoğlu",
+          "message": "İşlem emirleriyle ilgili sorunum var",
+          "timestamp": "2024-12-10T13:25:35"
+        },
+        {
+          "sender": "Yatırım Danışmanı",
+          "message": "Merhaba! Yatırım işlemlerinizde size nasıl yardımcı olabilirim?",
+          "timestamp": "2024-12-10T13:25:30"
+        },
+        {
+          "sender": "Kemal Kızıkoğlu",
+          "message": "Merhaba, acil yardım gerekiyor",
+          "timestamp": "2024-12-10T13:25:15"
+        },
+        {
+          "sender": "Yatırım Danışmanı",
+          "message": "📈 Borsa İstanbul'a hoş geldiniz!\n💼 BIST 100 endeksi %2.5 yükselişte! Yatırım fırsatlarını kaçırmayın.",
+          "timestamp": "2024-12-10T13:25:00"
+        }
+      ],
+      "sessionInfo": {
+        "chatId": "2c1dd5d1-391c-51ed-c629-020ce9f96837",
+        "location": "Ankara, Ankara Province, Türkiye(5.24.140.82)",
+        "campaign": "VIP Plan",
+        "campaignDisplay": "Turkish",
+        "referredFrom": "https://games.casivera176.com/",
+        "currentlyBrowsing": "Casivera-Türkiye'nin En Çok Tercih Edilen Canlı Casino ve Bahis Sitesi",
+        "deviceInfo": "tr-TR, 1920x1080, GMT +03:00",
+        "allChats": 15,
+        "visits": 3
+      },
+      "userInfo": {
+        "country": "Turkey",
+        "browser": "Chrome",
+        "os": "Windows",
+        "device": "Desktop"
+      }
+    },
+    {
+      "id": "conv3",
+      "profile": "https://randomuser.me/api/portraits/men/25.jpg",
+      "username": "serkan_aci",
+      "fullName": "Serkan Açı",
+      "title": "Misafir Kullanıcı",
+      "unreadCount": 0,
+      "lastMessageTime": "1h ago",
+      "department": "3 - Diğer",
+      "isOngoing": false,
+      "messages": [
+        {
+          "sender": "Casivera Bot",
+          "message": "Teşekkürler! Size yardımcı olabildiğim için mutluyum. İyi günler!",
+          "timestamp": "2024-12-10T12:30:00"
+        },
+        {
+          "sender": "Serkan Açı",
+          "message": "Tamam, anladım. Teşekkürler.",
+          "timestamp": "2024-12-10T12:29:30"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "Bonus kuralları hakkında detaylı bilgi almak için hesabınıza giriş yapmanız gerekiyor.",
+          "timestamp": "2024-12-10T12:29:00"
+        },
+        {
+          "sender": "Serkan Açı",
+          "message": "Peki bonus ne kadar süreyle geçerli?",
+          "timestamp": "2024-12-10T12:28:45"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "Hoş geldin bonusu ilk para yatırma işleminizde %100 bonus olarak verilir.",
+          "timestamp": "2024-12-10T12:28:30"
+        },
+        {
+          "sender": "Serkan Açı",
+          "message": "Bonus sistemini anlamadım, açıklayabilir misiniz?",
+          "timestamp": "2024-12-10T12:28:15"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "Hoş geldiniz! Bonus konusunda size yardımcı olabilirim.",
+          "timestamp": "2024-12-10T12:28:00"
+        }
+      ],
+      "sessionInfo": {
+        "chatId": "3d2ee6e2-402d-62fe-d73a-131df0a07948",
+        "location": "İstanbul, İstanbul Province, Türkiye(5.24.142.95)",
+        "campaign": "Standard Plan",
+        "campaignDisplay": "Turkish",
+        "referredFrom": "https://games.casivera176.com/promotions/",
+        "currentlyBrowsing": "Casivera-Türkiye'nin En Çok Tercih Edilen Canlı Casino ve Bahis Sitesi",
+        "deviceInfo": "tr-TR, 414x896, GMT +03:00",
+        "allChats": 8,
+        "visits": 2
+      },
+      "userInfo": {
+        "country": "Turkey",
+        "browser": "Safari",
+        "os": "iOS",
+        "device": "Mobile"
+      }
+    },
+    {
+      "id": "conv4",
+      "profile": "https://randomuser.me/api/portraits/men/38.jpg",
+      "username": "mete_y",
+      "fullName": "Mete",
+      "title": "Misafir Kullanıcı",
+      "unreadCount": 0,
+      "lastMessageTime": "3h ago",
+      "department": "1 - Finansal",
+      "isOngoing": false,
+      "messages": [
+        {
+          "sender": "Casivera Bot",
+          "message": "İyi günler! Başka bir sorunuz olursa çekinmeden yazabilirsiniz.",
+          "timestamp": "2024-12-10T10:30:00"
+        },
+        {
+          "sender": "Mete",
+          "message": "Çok teşekkürler, problem çözüldü.",
+          "timestamp": "2024-12-10T10:29:30"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "Para çekme işlemi genellikle 24 saat içerisinde hesabınıza yansır. Kontrol edebilirsiniz.",
+          "timestamp": "2024-12-10T10:29:00"
+        },
+        {
+          "sender": "Mete",
+          "message": "Ne kadar sürer bu işlem?",
+          "timestamp": "2024-12-10T10:28:45"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "Para çekme talebiniz alınmıştır. İşlem onaylandıktan sonra hesabınıza yansıyacak.",
+          "timestamp": "2024-12-10T10:28:30"
+        },
+        {
+          "sender": "Mete",
+          "message": "Teşekkürler, işlemi başlattım",
+          "timestamp": "2024-12-10T10:28:15"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "Para çekme işlemi için hesabınıza giriş yapıp 'Para Çek' sekmesini kullanabilirsiniz.",
+          "timestamp": "2024-12-10T10:28:00"
+        },
+        {
+          "sender": "Mete",
+          "message": "Merhaba, hesabımdan para çekmek istiyorum",
+          "timestamp": "2024-12-10T10:27:45"
+        }
+      ],
+      "sessionInfo": {
+        "chatId": "4e3ff7f3-513e-73gf-e84b-242ef1b18059",
+        "location": "Bursa, Bursa Province, Türkiye(5.24.144.73)",
+        "campaign": "Premium Plan",
+        "campaignDisplay": "Turkish",
+        "referredFrom": "https://games.casivera176.com/",
+        "currentlyBrowsing": "Casivera-Türkiye'nin En Çok Tercih Edilen Canlı Casino ve Bahis Sitesi",
+        "deviceInfo": "tr-TR, 1366x768, GMT +03:00",
+        "allChats": 5,
+        "visits": 1
+      },
+      "userInfo": {
+        "country": "Turkey",
+        "browser": "Firefox",
+        "os": "Windows",
+        "device": "Desktop"
+      }
+    },
+    {
+      "id": "conv5",
+      "profile": "https://randomuser.me/api/portraits/women/23.jpg",
+      "username": "ayse_k",
+      "fullName": "Ayşe Kara",
+      "title": "Misafir Kullanıcı",
+      "unreadCount": 7,
+      "lastMessageTime": "15m ago",
+      "department": "2 - Promosyonlar",
+      "isOngoing": true,
+      "messages": [
+        {
+          "sender": "Ayşe Kara",
+          "message": "Hoş geldin bonusu nasıl alırım?",
+          "timestamp": "2024-12-10T13:16:00"
+        },
+        {
+          "sender": "Ayşe Kara",
+          "message": "Bonus konusunda bilgi almak istiyorum",
+          "timestamp": "2024-12-10T13:15:45"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "Bonus sistemimiz hakkında size yardımcı olabilirim. Hangi bonus türü hakkında bilgi almak istiyorsunuz?",
+          "timestamp": "2024-12-10T13:15:40"
+        },
+        {
+          "sender": "Ayşe Kara",
+          "message": "Merhaba, promosyonlar hakkında soru sormak istiyorum",
+          "timestamp": "2024-12-10T13:15:35"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "Merhaba! Size nasıl yardımcı olabilirim?",
+          "timestamp": "2024-12-10T13:15:30"
+        },
+        {
+          "sender": "Ayşe Kara",
+          "message": "Selam, yardıma ihtiyacım var",
+          "timestamp": "2024-12-10T13:15:15"
+        },
+        {
+          "sender": "Casivera Bot",
+          "message": "🎉 Casivera'ya hoş geldiniz!\n💰 500K ödüllü turnuva başladı! Katılmak için hemen kaydolun.",
+          "timestamp": "2024-12-10T13:15:00"
+        }
+      ],
+      "sessionInfo": {
+        "chatId": "5f4gg8g4-624f-84hg-f95c-353fg2c29160",
+        "location": "Antalya, Antalya Province, Türkiye(5.24.146.84)",
+        "campaign": "Welcome Bonus",
+        "campaignDisplay": "Turkish",
+        "referredFrom": "https://games.casivera176.com/promotions/",
+        "currentlyBrowsing": "Casivera-Türkiye'nin En Çok Tercih Edilen Canlı Casino ve Bahis Sitesi",
+        "deviceInfo": "tr-TR, 375x812, GMT +03:00",
+        "allChats": 12,
+        "visits": 4
+      },
+      "userInfo": {
+        "country": "Turkey",
+        "browser": "Chrome",
+        "os": "iOS",
+        "device": "Mobile"
+      }
+    }
+  ]
+}

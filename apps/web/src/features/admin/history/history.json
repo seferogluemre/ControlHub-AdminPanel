@@ -1,0 +1,882 @@
+{
+  "chats": [
+    {
+      "id": 1,
+      "time": "2025/07/17 10:48:36",
+      "visitor": "Ali Yılmaz",
+      "department": "1 - Finansal İşlemler",
+      "agent": "AI Bot",
+      "summary": "[10:48:36] AI Bot: Size nasıl yardımcı olabilirim?",
+      "category": "Yatırım Danışmanlığı",
+      "duration": "00:01:12",
+      "campaign": "Borsa Kampanyası",
+      "transcript": {
+        "visitorName": "Ali Yılmaz",
+        "chatId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "endTime": "2025/07/17 10:49:48",
+        "messages": [
+          {
+            "time": "10:48:40",
+            "sender": "Ali Yılmaz",
+            "message": "Merhaba, portföy bakiyemi kontrol etmek istiyorum",
+            "isBot": false
+          },
+          {
+            "time": "10:49:15",
+            "sender": "AI Bot",
+            "message": "Tabii, portföy bilgilerinizi görüntülemenizde yardımcı olabilirim",
+            "isBot": true
+          },
+          {
+            "time": "10:49:30",
+            "sender": "Ali Yılmaz",
+            "message": "Bİst 100 endeksim nasıl performans gösteriyor?",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "time": "2025/07/17 10:43:52",
+      "visitor": "Mehmet Yılmaz",
+      "department": "2 - Development",
+      "agent": "AI Bot",
+      "summary": "[10:43:52] AI Bot: Yatırım konusunda size nasıl yardımcı olabilirim?",
+      "category": "Teknik Analiz",
+      "duration": "00:02:29",
+      "campaign": "Altın Yatırım Kampanyası",
+      "transcript": {
+        "visitorName": "Mehmet Yılmaz",
+        "chatId": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
+        "endTime": "2025/07/17 10:46:21",
+        "messages": [
+          {
+            "time": "10:44:10",
+            "sender": "Mehmet Yılmaz",
+            "message": "Altın fiyatları hakkında bilgi alabilir miyim?",
+            "isBot": false
+          },
+          {
+            "time": "10:44:25",
+            "sender": "AI Bot",
+            "message": "Elbette! Güncel altın fiyatları ve analiz raporunu paylaşabilirim",
+            "isBot": true
+          },
+          {
+            "time": "10:45:00",
+            "sender": "Mehmet Yılmaz",
+            "message": "Gram altın yatırımı yapmak istiyorum",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "time": "2025/07/17 10:43:21",
+      "visitor": "Ayşe Kaya",
+      "department": "4 - Support",
+      "agent": "AI Bot, Aras",
+      "summary": "[10:43:21] AI Bot: Hisse senedi işlemleri konusunda yardıma ihtiyacınız var mı?",
+      "category": "Hisse Senedi",
+      "duration": "00:07:30",
+      "campaign": "Hisse Senedi Kampanyası",
+      "transcript": {
+        "visitorName": "Ayşe Kaya",
+        "chatId": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
+        "endTime": "2025/07/17 10:50:51",
+        "messages": [
+          {
+            "time": "10:43:45",
+            "sender": "Ayşe Kaya",
+            "message": "THYAO hissesi hakkında görüşünüz nedir?",
+            "isBot": false
+          },
+          {
+            "time": "10:44:00",
+            "sender": "AI Bot",
+            "message": "Detaylı analiz için uzman ekibimize bağlıyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:44:15",
+            "sender": "Ayşe Kaya",
+            "message": "Teşekkür ederim",
+            "isBot": false
+          },
+          {
+            "time": "10:44:30",
+            "sender": "Aras",
+            "message": "Merhaba Ayşe Hanım, THYAO için güncel analizimizi paylaşabilirim",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "time": "2025/07/17 10:42:23",
+      "visitor": "Hasan Demir",
+      "department": "1 - Finansal İşlemler",
+      "agent": "AI Bot",
+      "summary": "[10:42:23] AI Bot: Günlük işlem limitiniz hakkında bilgi almak mı istiyorsunuz?",
+      "category": "İşlem Limiti",
+      "duration": "00:05:39",
+      "campaign": "Borsa Kampanyası",
+      "transcript": {
+        "visitorName": "Hasan Demir",
+        "chatId": "4d5e6f7g-8h9i-0j1k-2l3m-n4o5p6q7r8s9",
+        "endTime": "2025/07/17 10:48:02",
+        "messages": [
+          {
+            "time": "10:42:40",
+            "sender": "Hasan Demir",
+            "message": "Günlük işlem limitim ne kadar?",
+            "isBot": false
+          },
+          {
+            "time": "10:43:10",
+            "sender": "AI Bot",
+            "message": "Güncel limitinizi ve kullanılabilir bakiyenizi kontrol ediyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:43:30",
+            "sender": "Hasan Demir",
+            "message": "Limit artırım yapabilir miyim?",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "time": "2025/07/17 10:41:24",
+      "visitor": "Fatma Özdemir",
+      "department": "4 - Support",
+      "agent": "AI Bot, Birkan",
+      "summary": "[10:41:24] AI Bot: Viop işlemleri hakkında bilgi almak mı istiyorsunuz?",
+      "category": "Viop İşlemleri",
+      "duration": "00:08:22",
+      "campaign": "Vadeli İşlem Kampanyası",
+      "transcript": {
+        "visitorName": "Fatma Özdemir",
+        "chatId": "5e6f7g8h-9i0j-1k2l-3m4n-o5p6q7r8s9t0",
+        "endTime": "2025/07/17 10:49:46",
+        "messages": [
+          {
+            "time": "10:41:45",
+            "sender": "Fatma Özdemir",
+            "message": "Viop hesabı açmak istiyorum",
+            "isBot": false
+          },
+          {
+            "time": "10:42:00",
+            "sender": "AI Bot",
+            "message": "Vadeli işlem uzmanımıza bağlıyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:42:30",
+            "sender": "Fatma Özdemir",
+            "message": "Risk seviyem orta, hangi sözleşmeleri önerirsiniz?",
+            "isBot": false
+          },
+          {
+            "time": "10:42:45",
+            "sender": "Birkan",
+            "message": "Merhaba Fatma Hanım, risk profilinize uygun ürünleri değerlendiriyorum",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "time": "2025/07/17 10:41:17",
+      "visitor": "Emre Çelik",
+      "department": "5 - Marketing",
+      "agent": "AI Bot, Fatma Yılmaz",
+      "summary": "[10:41:17] AI Bot: Yeni müşteri kampanyalarımız hakkında bilgi almak mı istiyorsunuz?",
+      "category": "Kampanya Bilgisi",
+      "duration": "00:04:46",
+      "campaign": "Yeni Müşteri Kampanyası",
+      "transcript": {
+        "visitorName": "Emre Çelik",
+        "chatId": "6f7g8h9i-0j1k-2l3m-4n5o-p6q7r8s9t0u1",
+        "endTime": "2025/07/17 10:46:03",
+        "messages": [
+          {
+            "time": "10:41:35",
+            "sender": "Emre Çelik",
+            "message": "Yeni müşteri avantajları neler?",
+            "isBot": false
+          },
+          {
+            "time": "10:41:50",
+            "sender": "AI Bot",
+            "message": "Müşteri temsilcimize bağlıyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:42:10",
+            "sender": "Emre Çelik",
+            "message": "Komisyon indirimi var mı?",
+            "isBot": false
+          },
+          {
+            "time": "10:42:30",
+            "sender": "Fatma Yılmaz",
+            "message": "Merhaba Emre Bey, yeni müşteri fırsatlarımızı detaylandırabilirim",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "time": "2025/07/17 10:34:52",
+      "visitor": "Murat Şahin",
+      "department": "4 - Support",
+      "agent": "AI Bot, Ekrem",
+      "summary": "[10:34:52] AI Bot: Forex işlemleri konusunda yardıma ihtiyacınız var mı?",
+      "category": "Forex İşlemleri",
+      "duration": "00:05:57",
+      "campaign": "Forex Kampanyası",
+      "transcript": {
+        "visitorName": "Murat Şahin",
+        "chatId": "7g8h9i0j-1k2l-3m4n-5o6p-q7r8s9t0u1v2",
+        "endTime": "2025/07/17 10:40:49",
+        "messages": [
+          {
+            "time": "10:35:10",
+            "sender": "Murat Şahin",
+            "message": "USD/TRY paritesi analizi alabilir miyim?",
+            "isBot": false
+          },
+          {
+            "time": "10:35:25",
+            "sender": "AI Bot",
+            "message": "Forex uzmanımıza yönlendiriyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:35:45",
+            "sender": "Murat Şahin",
+            "message": "Kaldıraçlı işlem yapmak istiyorum",
+            "isBot": false
+          },
+          {
+            "time": "10:36:00",
+            "sender": "Ekrem",
+            "message": "Merhaba, USD/TRY için güncel teknik analizimizi paylaşabilirim",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "time": "2025/07/17 10:34:01",
+      "visitor": "Zeynep Demir",
+      "department": "5 - Marketing",
+      "agent": "AI Bot, Fatma Yılmaz",
+      "summary": "[10:34:01] AI Bot: Yatırım eğitimi programlarımız hakkında bilgi almak mı istiyorsunuz?",
+      "category": "Eğitim Programı",
+      "duration": "00:02:51",
+      "campaign": "Yatırım Eğitim Kampanyası",
+      "transcript": {
+        "visitorName": "Zeynep Demir",
+        "chatId": "8h9i0j1k-2l3m-4n5o-6p7q-r8s9t0u1v2w3",
+        "endTime": "2025/07/17 10:36:52",
+        "messages": [
+          {
+            "time": "10:34:20",
+            "sender": "Zeynep Demir",
+            "message": "Teknik analiz kursunuz var mı?",
+            "isBot": false
+          },
+          {
+            "time": "10:34:35",
+            "sender": "AI Bot",
+            "message": "Eğitim uzmanımıza bağlıyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:35:00",
+            "sender": "Zeynep Demir",
+            "message": "Online eğitim mi yoksa yüz yüze mi?",
+            "isBot": false
+          },
+          {
+            "time": "10:35:15",
+            "sender": "Fatma Yılmaz",
+            "message": "Merhaba Zeynep Hanım, hem online hem offline eğitimlerimiz mevcut",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "time": "2025/07/17 10:33:45",
+      "visitor": "Kemal Özkan",
+      "department": "4 - Support",
+      "agent": "AI Bot, Duru",
+      "summary": "[10:33:45] AI Bot: Kripto para yatırımları hakkında bilgi almak mı istiyorsunuz?",
+      "category": "Kripto Para",
+      "duration": "00:09:19",
+      "campaign": "Kripto Para Kampanyası",
+      "transcript": {
+        "visitorName": "Kemal Özkan",
+        "chatId": "9i0j1k2l-3m4n-5o6p-7q8r-s9t0u1v2w3x4",
+        "endTime": "2025/07/17 10:43:04",
+        "messages": [
+          {
+            "time": "10:34:00",
+            "sender": "Kemal Özkan",
+            "message": "Bitcoin için stop-loss nasıl koyarım?",
+            "isBot": false
+          },
+          {
+            "time": "10:34:15",
+            "sender": "AI Bot",
+            "message": "Kripto uzmanımıza yönlendiriyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:34:30",
+            "sender": "Kemal Özkan",
+            "message": "DCA stratejisi uygulayabilir miyim?",
+            "isBot": false
+          },
+          {
+            "time": "10:34:45",
+            "sender": "Duru",
+            "message": "Merhaba, Bitcoin işlemleri ve DCA stratejileri konusunda yardımcı olabilirim",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "time": "2025/07/17 10:32:45",
+      "visitor": "Zeynep Arslan",
+      "department": "2 - Development",
+      "agent": "AI Bot",
+      "summary": "[10:32:45] AI Bot: Mobil uygulamamızla ilgili yardıma ihtiyacınız var mı?",
+      "category": "Teknik Destek",
+      "duration": "00:03:20",
+      "campaign": "Mobil App Kampanyası",
+      "transcript": {
+        "visitorName": "Zeynep Arslan",
+        "chatId": "0j1k2l3m-4n5o-6p7q-8r9s-t0u1v2w3x4y5",
+        "endTime": "2025/07/17 10:36:05",
+        "messages": [
+          {
+            "time": "10:33:00",
+            "sender": "Zeynep Arslan",
+            "message": "Mobil uygulamada giriş yapamıyorum",
+            "isBot": false
+          },
+          {
+            "time": "10:33:15",
+            "sender": "AI Bot",
+            "message": "Giriş sorununuzu çözmek için yardımcı olayım",
+            "isBot": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "time": "2025/07/17 10:30:12",
+      "visitor": "İbrahim Güneş",
+      "department": "1 - Finansal İşlemler",
+      "agent": "AI Bot, Duru",
+      "summary": "[10:30:12] AI Bot: Forex işlemleri hakkında bilgi almak mı istiyorsunuz?",
+      "category": "Forex İşlemleri",
+      "duration": "00:15:30",
+      "campaign": "Forex Kampanyası",
+      "transcript": {
+        "visitorName": "İbrahim Güneş",
+        "chatId": "1k2l3m4n-5o6p-7q8r-9s0t-u1v2w3x4y5z6",
+        "endTime": "2025/07/17 10:45:42",
+        "messages": [
+          {
+            "time": "10:30:30",
+            "sender": "İbrahim Güneş",
+            "message": "EUR/USD paritesi hakkında analiz alabilir miyim?",
+            "isBot": false
+          },
+          {
+            "time": "10:31:00",
+            "sender": "AI Bot",
+            "message": "Forex uzmanımıza bağlıyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:31:15",
+            "sender": "Duru",
+            "message": "Merhaba, güncel EUR/USD analizi için detaylı rapor hazırlayabilirim",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "time": "2025/07/17 10:28:33",
+      "visitor": "Kemal Özkan",
+      "department": "4 - Support",
+      "agent": "AI Bot",
+      "summary": "[10:28:33] AI Bot: Hesap güvenliği konusunda yardıma ihtiyacınız var mı?",
+      "category": "Hesap Güvenliği",
+      "duration": "00:04:15",
+      "campaign": "Güvenlik Kampanyası",
+      "transcript": {
+        "visitorName": "Kemal Özkan",
+        "chatId": "2l3m4n5o-6p7q-8r9s-0t1u-v2w3x4y5z6a7",
+        "endTime": "2025/07/17 10:32:48",
+        "messages": [
+          {
+            "time": "10:28:50",
+            "sender": "Kemal Özkan",
+            "message": "Şifremi değiştirmek istiyorum",
+            "isBot": false
+          },
+          {
+            "time": "10:29:10",
+            "sender": "AI Bot",
+            "message": "Şifre güncelleme işlemi için güvenlik adımlarını başlatıyorum",
+            "isBot": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "time": "2025/07/17 10:26:18",
+      "visitor": "Seda Polat",
+      "department": "1 - Finansal İşlemler",
+      "agent": "AI Bot, Ekrem",
+      "summary": "[10:26:18] AI Bot: Kripto para yatırımları hakkında bilgi mi arıyorsunuz?",
+      "category": "Kripto Para",
+      "duration": "00:18:45",
+      "campaign": "Kripto Kampanyası",
+      "transcript": {
+        "visitorName": "Seda Polat",
+        "chatId": "3m4n5o6p-7q8r-9s0t-1u2v-w3x4y5z6a7b8",
+        "endTime": "2025/07/17 10:45:03",
+        "messages": [
+          {
+            "time": "10:26:40",
+            "sender": "Seda Polat",
+            "message": "Bitcoin ve Ethereum yatırımı hakkında bilgi alabilir miyim?",
+            "isBot": false
+          },
+          {
+            "time": "10:27:00",
+            "sender": "AI Bot",
+            "message": "Kripto para uzmanımızı bağlıyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:27:15",
+            "sender": "Ekrem",
+            "message": "Merhaba, kripto yatırımları için güncel analiz ve önerilerimi paylaşabilirim",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "time": "2025/07/17 10:24:55",
+      "visitor": "Mustafa Çelik",
+      "department": "2 - Development",
+      "agent": "AI Bot",
+      "summary": "[10:24:55] AI Bot: Platform performansı hakkında geri bildirimde mi bulunacaksınız?",
+      "category": "Platform Performansı",
+      "duration": "00:02:30",
+      "campaign": "Performans Kampanyası",
+      "transcript": {
+        "visitorName": "Mustafa Çelik",
+        "chatId": "4n5o6p7q-8r9s-0t1u-2v3w-x4y5z6a7b8c9",
+        "endTime": "2025/07/17 10:27:25",
+        "messages": [
+          {
+            "time": "10:25:10",
+            "sender": "Mustafa Çelik",
+            "message": "İşlem ekranında yavaşlık yaşıyorum",
+            "isBot": false
+          },
+          {
+            "time": "10:25:30",
+            "sender": "AI Bot",
+            "message": "Performans sorununu teknik ekibimize ileteceğim",
+            "isBot": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "time": "2025/07/17 10:22:40",
+      "visitor": "Esra Yıldız",
+      "department": "4 - Support",
+      "agent": "AI Bot, Gökhan Demir",
+      "summary": "[10:22:40] AI Bot: Borsa eğitimleri hakkında bilgi almak mı istiyorsunuz?",
+      "category": "Eğitim",
+      "duration": "00:08:50",
+      "campaign": "Eğitim Kampanyası",
+      "transcript": {
+        "visitorName": "Esra Yıldız",
+        "chatId": "5o6p7q8r-9s0t-1u2v-3w4x-y5z6a7b8c9d0",
+        "endTime": "2025/07/17 10:31:30",
+        "messages": [
+          {
+            "time": "10:23:00",
+            "sender": "Esra Yıldız",
+            "message": "Yeni başlayan yatırımcılar için eğitim programınız var mı?",
+            "isBot": false
+          },
+          {
+            "time": "10:23:20",
+            "sender": "AI Bot",
+            "message": "Eğitim uzmanımıza bağlıyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:23:35",
+            "sender": "Gökhan Demir",
+            "message": "Merhaba, başlangıç seviye eğitim programlarımızı detaylıca anlatayım",
+            "isBot": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "time": "2025/07/17 10:20:15",
+      "visitor": "Burak Kara",
+      "department": "1 - Finansal İşlemler",
+      "agent": "AI Bot",
+      "summary": "[10:20:15] AI Bot: Borsa endeksleri performansı hakkında bilgi mi almak istiyorsunuz?",
+      "category": "Endeks Takibi",
+      "duration": "00:06:20",
+      "campaign": "Endeks Kampanyası",
+      "transcript": {
+        "visitorName": "Burak Kara",
+        "chatId": "6p7q8r9s-0t1u-2v3w-4x5y-z6a7b8c9d0e1",
+        "endTime": "2025/07/17 10:26:35",
+        "messages": [
+          {
+            "time": "10:20:35",
+            "sender": "Burak Kara",
+            "message": "BIST 30 endeksi bugün nasıl performans gösteriyor?",
+            "isBot": false
+          },
+          {
+            "time": "10:21:00",
+            "sender": "AI Bot",
+            "message": "Güncel endeks performansını ve analizini paylaşayım",
+            "isBot": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "time": "2025/07/17 10:18:30",
+      "visitor": "Gamze Öztürk",
+      "department": "4 - Support",
+      "agent": "AI Bot",
+      "summary": "[10:18:30] AI Bot: Hesap doğrulama işlemi hakkında yardım mı gerekiyor?",
+      "category": "Hesap Doğrulama",
+      "duration": "00:03:45",
+      "campaign": "Doğrulama Kampanyası",
+      "transcript": {
+        "visitorName": "Gamze Öztürk",
+        "chatId": "7q8r9s0t-1u2v-3w4x-5y6z-a7b8c9d0e1f2",
+        "endTime": "2025/07/17 10:22:15",
+        "messages": [
+          {
+            "time": "10:18:50",
+            "sender": "Gamze Öztürk",
+            "message": "Kimlik doğrulama belgelerimi yükledim, ne kadar sürede onaylanır?",
+            "isBot": false
+          },
+          {
+            "time": "10:19:15",
+            "sender": "AI Bot",
+            "message": "Belgeleriniz 24 saat içinde incelenir ve onaylanır",
+            "isBot": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "time": "2025/07/17 10:16:45",
+      "visitor": "Ahmet Şahin",
+      "department": "1 - Finansal İşlemler",
+      "agent": "AI Bot, Birkan",
+      "summary": "[10:16:45] AI Bot: Emtia yatırımları hakkında bilgi almak mı istiyorsunuz?",
+      "category": "Emtia Yatırımları",
+      "duration": "00:11:30",
+      "campaign": "Emtia Kampanyası",
+      "transcript": {
+        "visitorName": "Ahmet Şahin",
+        "chatId": "8r9s0t1u-2v3w-4x5y-6z7a-b8c9d0e1f2g3",
+        "endTime": "2025/07/17 10:28:15",
+        "messages": [
+          {
+            "time": "10:17:00",
+            "sender": "Ahmet Şahin",
+            "message": "Altın ve gümüş yatırımı hakkında detaylı bilgi alabilir miyim?",
+            "isBot": false
+          },
+          {
+            "time": "10:17:20",
+            "sender": "AI Bot",
+            "message": "Emtia uzmanımıza bağlıyorum",
+            "isBot": true
+          },
+          {
+            "time": "10:17:35",
+            "sender": "Birkan",
+            "message": "Merhaba, emtia piyasasındaki güncel fırsatları değerlendirelim",
+            "isBot": false
+          }
+        ]
+      }
+    }
+  ],
+  "agentChats": [
+    {
+      "id": 1,
+      "agent1": { "name": "Aras", "avatar": "/avatars/aras.png" },
+      "agent2": { "name": "Birkan", "avatar": "/avatars/birkan.png" },
+      "date": "2025/07/15",
+      "summary": [
+        {
+          "time": "04:27:42",
+          "message": "Aras: Birkan, bugünkü BIST 100 performansını değerlendirebilir misin?"
+        },
+        {
+          "time": "04:34:10",
+          "message": "Birkan: Tabii Aras, endeks %2.3 yükselişte, bankacılık sektörü öncülük ediyor"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "agent1": { "name": "Duru", "avatar": "/avatars/duru.png" },
+      "agent2": { "name": "Fatma Yılmaz", "avatar": "/avatars/fatma.png" },
+      "date": "2025/07/10",
+      "summary": [
+        {
+          "time": "10:15:30",
+          "message": "Duru: Fatma, yeni müşteri kampanyasının başarı oranı nasıl?"
+        },
+        {
+          "time": "10:16:45",
+          "message": "Fatma Yılmaz: Bu ay %18 artış var, özellikle genç yatırımcılar ilgi gösteriyor"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "agent1": { "name": "Ekrem", "avatar": "/avatars/ekrem.png" },
+      "agent2": { "name": "Gökhan Demir", "avatar": "/avatars/gokhan.png" },
+      "date": "2025/06/28",
+      "summary": [
+        {
+          "time": "14:20:15",
+          "message": "Ekrem: Gökhan, USD/TRY'nin teknik analizini paylaşabilir misin?"
+        },
+        {
+          "time": "14:22:33",
+          "message": "Gökhan Demir: Destek seviyesi 29.80, direnç 30.50 civarında görünüyor"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "agent1": { "name": "Fatma Yılmaz", "avatar": "/avatars/fatma.png" },
+      "agent2": { "name": "Aras", "avatar": "/avatars/aras.png" },
+      "date": "2025/06/15",
+      "summary": [
+        {
+          "time": "09:12:15",
+          "message": "Fatma Yılmaz: Aras, altın fiyatlarında bugün nasıl bir hareket bekliyoruz?"
+        },
+        {
+          "time": "09:15:20",
+          "message": "Aras: Fed kararları öncesi yatırımcılar temkinli, 2850-2900 aralığında konsolidasyon bekliyorum"
+        },
+        {
+          "time": "09:16:45",
+          "message": "Fatma Yılmaz: Müşteri portföylerinde altın ağırlığını artırmayı düşünüyor muyuz?"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "agent1": { "name": "Birkan", "avatar": "/avatars/birkan.png" },
+      "agent2": { "name": "Ekrem", "avatar": "/avatars/ekrem.png" },
+      "date": "2025/05/22",
+      "summary": [
+        {
+          "time": "11:30:10",
+          "message": "Birkan: Ekrem, kripto piyasasındaki son düşüşler hakkında ne düşünüyorsun?"
+        },
+        {
+          "time": "11:32:45",
+          "message": "Ekrem: Bitcoin 95K direncini kıramadı, 88-90K seviyelerine geri dönüş olabilir"
+        },
+        {
+          "time": "11:35:20",
+          "message": "Birkan: Müşteri talebi hala yüksek ama risk yönetimini önemsememiz gerekiyor"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "agent1": { "name": "Duru", "avatar": "/avatars/duru.png" },
+      "agent2": { "name": "Gökhan Demir", "avatar": "/avatars/gokhan.png" },
+      "date": "2025/05/08",
+      "summary": [
+        {
+          "time": "16:45:30",
+          "message": "Duru: Gökhan, THYAO hissesi için stop-loss seviyeleri nerede olmalı?"
+        },
+        {
+          "time": "16:47:15",
+          "message": "Gökhan Demir: 485 TL kritik destek, altına düşerse 460'a kadar gelebilir"
+        },
+        { "time": "16:48:50", "message": "Duru: Havacılık sektöründeki genel görünüm nasıl?" }
+      ]
+    },
+    {
+      "id": 7,
+      "agent1": { "name": "Aras", "avatar": "/avatars/aras.png" },
+      "agent2": { "name": "Duru", "avatar": "/avatars/duru.png" },
+      "date": "2025/04/20",
+      "summary": [
+        {
+          "time": "13:25:10",
+          "message": "Aras: Duru, viop işlemlerinde bu hafta hangi sözleşmelere odaklanıyoruz?"
+        },
+        {
+          "time": "13:27:45",
+          "message": "Duru: XU100 Haziran sözleşmeleri aktif, volatilite yüksek olduğu için dikkatli olmalıyız"
+        },
+        {
+          "time": "13:29:30",
+          "message": "Aras: Risk limitlerimizi gözden geçirelim, özellikle kaldıraçlı pozisyonlarda"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "agent1": { "name": "Ekrem", "avatar": "/avatars/ekrem.png" },
+      "agent2": { "name": "Fatma Yılmaz", "avatar": "/avatars/fatma.png" },
+      "date": "2025/04/03",
+      "summary": [
+        {
+          "time": "08:15:20",
+          "message": "Ekrem: Fatma, yeni müşteri eğitim programları ne zaman başlayacak?"
+        },
+        {
+          "time": "08:18:10",
+          "message": "Fatma Yılmaz: Bu hafta sonu teknik analiz webinarımız var, 150 kişi kayıt oldu"
+        },
+        {
+          "time": "08:20:45",
+          "message": "Ekrem: Harika, özellikle fibonacci ve destek-direnç konularını vurgulayalım"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "agent1": { "name": "Gökhan Demir", "avatar": "/avatars/gokhan.png" },
+      "agent2": { "name": "Birkan", "avatar": "/avatars/birkan.png" },
+      "date": "2025/03/18",
+      "summary": [
+        {
+          "time": "14:10:30",
+          "message": "Gökhan Demir: Birkan, EUR/USD paritesinde kısa vadeli tahminim nedir?"
+        },
+        {
+          "time": "14:12:50",
+          "message": "Birkan: ECB politika değişikliği beklentisi var, 1.0850 seviyesi kritik"
+        },
+        {
+          "time": "14:15:15",
+          "message": "Gökhan Demir: Müşteri portföylerinde döviz ağırlığını nasıl ayarlayalım?"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "agent1": { "name": "Fatma Yılmaz", "avatar": "/avatars/fatma.png" },
+      "agent2": { "name": "Birkan", "avatar": "/avatars/birkan.png" },
+      "date": "2025/02/14",
+      "summary": [
+        {
+          "time": "10:30:45",
+          "message": "Fatma Yılmaz: Birkan, bankacılık hisselerinde hangi fırsatlar var?"
+        },
+        {
+          "time": "10:33:20",
+          "message": "Birkan: GARAN ve ISCTR'ye odaklanabiliriz, bilanço rakamları güçlü görünüyor"
+        },
+        {
+          "time": "10:35:10",
+          "message": "Fatma Yılmaz: Temettü getirileri de cazip, uzun vadeli yatırımcılara önerebiliriz"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "agent1": { "name": "Duru", "avatar": "/avatars/duru.png" },
+      "agent2": { "name": "Ekrem", "avatar": "/avatars/ekrem.png" },
+      "date": "2024/12/25",
+      "summary": [
+        {
+          "time": "15:40:25",
+          "message": "Duru: Ekrem, emtia piyasalarında petrol fiyatları nasıl seyrediyor?"
+        },
+        {
+          "time": "15:42:40",
+          "message": "Ekrem: Brent 75-80$ aralığında, OPEC+ kararları önemli olacak"
+        },
+        { "time": "15:44:15", "message": "Duru: Enerji sektörü hisselerine yansıması nasıl olur?" }
+      ]
+    },
+    {
+      "id": 12,
+      "agent1": { "name": "Aras", "avatar": "/avatars/aras.png" },
+      "agent2": { "name": "Gökhan Demir", "avatar": "/avatars/gokhan.png" },
+      "date": "2024/11/10",
+      "summary": [
+        {
+          "time": "12:20:10",
+          "message": "Aras: Gökhan, teknoloji sektöründeki son gelişmeler nasıl?"
+        },
+        {
+          "time": "12:23:30",
+          "message": "Gökhan Demir: NASDAQ'ta düzeltme sürüyor, LOGO ve KAREL'e bakmak lazım"
+        },
+        {
+          "time": "12:25:45",
+          "message": "Aras: Yerli teknoloji şirketlerinin potansiyeli yüksek görünüyor"
+        }
+      ]
+    }
+  ]
+}
