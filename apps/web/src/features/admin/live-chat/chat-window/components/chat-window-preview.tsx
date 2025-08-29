@@ -6,7 +6,7 @@ function WaveBackground({
   customColor,
   className = "",
 }: {
-  variant?: "purple" | "blue" | "pink" | "green" | "orange";
+  variant?: "blue" | "teal" | "cyan" | "green" | "slate";
   customColor?: string;
   className?: string;
 }) {
@@ -35,22 +35,22 @@ function WaveBackground({
 
     switch (variant) {
       case "purple":
-        return { stop1: "#8B5CF6", stop2: "#A855F7", stop3: "#C084FC", stop4: "#DDD6FE" };
+        return { stop1: "#0EA5E9", stop2: "#0284C7", stop3: "#7DD3FC", stop4: "#E0F2FE" };
       case "blue":
         return { stop1: "#3B82F6", stop2: "#06B6D4", stop3: "#67E8F9", stop4: "#DBEAFE" };
       case "pink":
-        return { stop1: "#EC4899", stop2: "#F472B6", stop3: "#FBCFE8", stop4: "#FCE7F3" };
+        return { stop1: "#14B8A6", stop2: "#20D9D2", stop3: "#99F6E4", stop4: "#CCFBF1" };
       case "green":
         return { stop1: "#10B981", stop2: "#34D399", stop3: "#86EFAC", stop4: "#D1FAE5" };
       case "orange":
-        return { stop1: "#F97316", stop2: "#FB923C", stop3: "#FED7AA", stop4: "#FEF3E2" };
+        return { stop1: "#0891B2", stop2: "#0E7490", stop3: "#67E8F9", stop4: "#CFFAFE" };
       default:
-        return { stop1: "#8B5CF6", stop2: "#A855F7", stop3: "#C084FC", stop4: "#DDD6FE" };
+        return { stop1: "#0EA5E9", stop2: "#0284C7", stop3: "#7DD3FC", stop4: "#E0F2FE" };
     }
   };
 
-  const colors = getWaveColors(variant || "purple", customColor);
-  const gradientId = customColor ? "custom" : variant || "purple";
+  const colors = getWaveColors(variant || "blue", customColor);
+  const gradientId = customColor ? "custom" : variant || "blue";
 
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
