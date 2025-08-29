@@ -25,10 +25,10 @@ import { Route as authForgotPasswordRouteImport } from './routes/(auth)/forgot-p
 import { Route as AuthenticatedPanelRouteRouteImport } from './routes/_authenticated/panel/route'
 import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
 import { Route as AuthenticatedPanelSettingsRouteRouteImport } from './routes/_authenticated/panel/settings/route'
-import { Route as AuthenticatedPanelVisitorsIndexRouteImport } from './routes/_authenticated/panel/visitors/index'
 import { Route as AuthenticatedPanelSettingsIndexRouteImport } from './routes/_authenticated/panel/settings/index'
 import { Route as AuthenticatedPanelDashboardIndexRouteImport } from './routes/_authenticated/panel/dashboard/index'
 import { Route as AuthenticatedPanelChatsIndexRouteImport } from './routes/_authenticated/panel/chats/index'
+import { Route as AuthenticatedPanelAnalyticsIndexRouteImport } from './routes/_authenticated/panel/analytics/index'
 import { Route as AuthenticatedPanelAgentsIndexRouteImport } from './routes/_authenticated/panel/agents/index'
 import { Route as AuthenticatedAdminHistoryIndexRouteImport } from './routes/_authenticated/admin/history/index'
 import { Route as AuthenticatedPanelSettingsNotificationsRouteImport } from './routes/_authenticated/panel/settings/notifications'
@@ -128,12 +128,6 @@ const AuthenticatedPanelSettingsRouteRoute =
     path: '/settings',
     getParentRoute: () => AuthenticatedPanelRouteRoute,
   } as any)
-const AuthenticatedPanelVisitorsIndexRoute =
-  AuthenticatedPanelVisitorsIndexRouteImport.update({
-    id: '/visitors/',
-    path: '/visitors/',
-    getParentRoute: () => AuthenticatedPanelRouteRoute,
-  } as any)
 const AuthenticatedPanelSettingsIndexRoute =
   AuthenticatedPanelSettingsIndexRouteImport.update({
     id: '/',
@@ -150,6 +144,12 @@ const AuthenticatedPanelChatsIndexRoute =
   AuthenticatedPanelChatsIndexRouteImport.update({
     id: '/chats/',
     path: '/chats/',
+    getParentRoute: () => AuthenticatedPanelRouteRoute,
+  } as any)
+const AuthenticatedPanelAnalyticsIndexRoute =
+  AuthenticatedPanelAnalyticsIndexRouteImport.update({
+    id: '/analytics/',
+    path: '/analytics/',
     getParentRoute: () => AuthenticatedPanelRouteRoute,
   } as any)
 const AuthenticatedPanelAgentsIndexRoute =
@@ -292,10 +292,10 @@ export interface FileRoutesByFullPath {
   '/panel/settings/notifications': typeof AuthenticatedPanelSettingsNotificationsRoute
   '/admin/history': typeof AuthenticatedAdminHistoryIndexRoute
   '/panel/agents': typeof AuthenticatedPanelAgentsIndexRoute
+  '/panel/analytics': typeof AuthenticatedPanelAnalyticsIndexRoute
   '/panel/chats': typeof AuthenticatedPanelChatsIndexRoute
   '/panel/dashboard': typeof AuthenticatedPanelDashboardIndexRoute
   '/panel/settings/': typeof AuthenticatedPanelSettingsIndexRoute
-  '/panel/visitors': typeof AuthenticatedPanelVisitorsIndexRoute
   '/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
   '/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
   '/admin/global-settings/roles/new': typeof AuthenticatedAdminGlobalSettingsRolesNewRoute
@@ -330,10 +330,10 @@ export interface FileRoutesByTo {
   '/panel/settings/notifications': typeof AuthenticatedPanelSettingsNotificationsRoute
   '/admin/history': typeof AuthenticatedAdminHistoryIndexRoute
   '/panel/agents': typeof AuthenticatedPanelAgentsIndexRoute
+  '/panel/analytics': typeof AuthenticatedPanelAnalyticsIndexRoute
   '/panel/chats': typeof AuthenticatedPanelChatsIndexRoute
   '/panel/dashboard': typeof AuthenticatedPanelDashboardIndexRoute
   '/panel/settings': typeof AuthenticatedPanelSettingsIndexRoute
-  '/panel/visitors': typeof AuthenticatedPanelVisitorsIndexRoute
   '/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
   '/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
   '/admin/global-settings/roles/new': typeof AuthenticatedAdminGlobalSettingsRolesNewRoute
@@ -372,10 +372,10 @@ export interface FileRoutesById {
   '/_authenticated/panel/settings/notifications': typeof AuthenticatedPanelSettingsNotificationsRoute
   '/_authenticated/admin/history/': typeof AuthenticatedAdminHistoryIndexRoute
   '/_authenticated/panel/agents/': typeof AuthenticatedPanelAgentsIndexRoute
+  '/_authenticated/panel/analytics/': typeof AuthenticatedPanelAnalyticsIndexRoute
   '/_authenticated/panel/chats/': typeof AuthenticatedPanelChatsIndexRoute
   '/_authenticated/panel/dashboard/': typeof AuthenticatedPanelDashboardIndexRoute
   '/_authenticated/panel/settings/': typeof AuthenticatedPanelSettingsIndexRoute
-  '/_authenticated/panel/visitors/': typeof AuthenticatedPanelVisitorsIndexRoute
   '/_authenticated/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
   '/_authenticated/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
   '/_authenticated/admin/global-settings/roles/new': typeof AuthenticatedAdminGlobalSettingsRolesNewRoute
@@ -413,10 +413,10 @@ export interface FileRouteTypes {
     | '/panel/settings/notifications'
     | '/admin/history'
     | '/panel/agents'
+    | '/panel/analytics'
     | '/panel/chats'
     | '/panel/dashboard'
     | '/panel/settings/'
-    | '/panel/visitors'
     | '/admin/global-settings/agents/new'
     | '/admin/global-settings/departments/new'
     | '/admin/global-settings/roles/new'
@@ -451,10 +451,10 @@ export interface FileRouteTypes {
     | '/panel/settings/notifications'
     | '/admin/history'
     | '/panel/agents'
+    | '/panel/analytics'
     | '/panel/chats'
     | '/panel/dashboard'
     | '/panel/settings'
-    | '/panel/visitors'
     | '/admin/global-settings/agents/new'
     | '/admin/global-settings/departments/new'
     | '/admin/global-settings/roles/new'
@@ -492,10 +492,10 @@ export interface FileRouteTypes {
     | '/_authenticated/panel/settings/notifications'
     | '/_authenticated/admin/history/'
     | '/_authenticated/panel/agents/'
+    | '/_authenticated/panel/analytics/'
     | '/_authenticated/panel/chats/'
     | '/_authenticated/panel/dashboard/'
     | '/_authenticated/panel/settings/'
-    | '/_authenticated/panel/visitors/'
     | '/_authenticated/admin/global-settings/agents/new'
     | '/_authenticated/admin/global-settings/departments/new'
     | '/_authenticated/admin/global-settings/roles/new'
@@ -632,13 +632,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPanelSettingsRouteRouteImport
       parentRoute: typeof AuthenticatedPanelRouteRoute
     }
-    '/_authenticated/panel/visitors/': {
-      id: '/_authenticated/panel/visitors/'
-      path: '/visitors'
-      fullPath: '/panel/visitors'
-      preLoaderRoute: typeof AuthenticatedPanelVisitorsIndexRouteImport
-      parentRoute: typeof AuthenticatedPanelRouteRoute
-    }
     '/_authenticated/panel/settings/': {
       id: '/_authenticated/panel/settings/'
       path: '/'
@@ -658,6 +651,13 @@ declare module '@tanstack/react-router' {
       path: '/chats'
       fullPath: '/panel/chats'
       preLoaderRoute: typeof AuthenticatedPanelChatsIndexRouteImport
+      parentRoute: typeof AuthenticatedPanelRouteRoute
+    }
+    '/_authenticated/panel/analytics/': {
+      id: '/_authenticated/panel/analytics/'
+      path: '/analytics'
+      fullPath: '/panel/analytics'
+      preLoaderRoute: typeof AuthenticatedPanelAnalyticsIndexRouteImport
       parentRoute: typeof AuthenticatedPanelRouteRoute
     }
     '/_authenticated/panel/agents/': {
@@ -894,9 +894,9 @@ const AuthenticatedPanelSettingsRouteRouteWithChildren =
 interface AuthenticatedPanelRouteRouteChildren {
   AuthenticatedPanelSettingsRouteRoute: typeof AuthenticatedPanelSettingsRouteRouteWithChildren
   AuthenticatedPanelAgentsIndexRoute: typeof AuthenticatedPanelAgentsIndexRoute
+  AuthenticatedPanelAnalyticsIndexRoute: typeof AuthenticatedPanelAnalyticsIndexRoute
   AuthenticatedPanelChatsIndexRoute: typeof AuthenticatedPanelChatsIndexRoute
   AuthenticatedPanelDashboardIndexRoute: typeof AuthenticatedPanelDashboardIndexRoute
-  AuthenticatedPanelVisitorsIndexRoute: typeof AuthenticatedPanelVisitorsIndexRoute
 }
 
 const AuthenticatedPanelRouteRouteChildren: AuthenticatedPanelRouteRouteChildren =
@@ -904,10 +904,11 @@ const AuthenticatedPanelRouteRouteChildren: AuthenticatedPanelRouteRouteChildren
     AuthenticatedPanelSettingsRouteRoute:
       AuthenticatedPanelSettingsRouteRouteWithChildren,
     AuthenticatedPanelAgentsIndexRoute: AuthenticatedPanelAgentsIndexRoute,
+    AuthenticatedPanelAnalyticsIndexRoute:
+      AuthenticatedPanelAnalyticsIndexRoute,
     AuthenticatedPanelChatsIndexRoute: AuthenticatedPanelChatsIndexRoute,
     AuthenticatedPanelDashboardIndexRoute:
       AuthenticatedPanelDashboardIndexRoute,
-    AuthenticatedPanelVisitorsIndexRoute: AuthenticatedPanelVisitorsIndexRoute,
   }
 
 const AuthenticatedPanelRouteRouteWithChildren =

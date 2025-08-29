@@ -4,15 +4,17 @@ const userStatusSchema = z.union([
   z.literal("active"),
   z.literal("inactive"),
   z.literal("invited"),
-  z.literal("suspended"),
+  z.literal("on-leave"),
 ]);
 export type UserStatus = z.infer<typeof userStatusSchema>;
 
 const userRoleSchema = z.union([
-  z.literal("superadmin"),
-  z.literal("admin"),
-  z.literal("cashier"),
-  z.literal("manager"),
+  z.literal("project-manager"),
+  z.literal("developer"),
+  z.literal("designer"),
+  z.literal("qa-engineer"),
+  z.literal("devops"),
+  z.literal("product-owner"),
 ]);
 
 const userSchema = z.object({

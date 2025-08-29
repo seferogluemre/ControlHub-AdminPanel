@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { type ChatStatus, type Visitor } from "../../features/visitors/data/types";
+import { type ChatStatus, type Visitor } from "../../features/project-analytics/data/types";
 
 // Turkish cities and locations
 const turkishLocations = [
