@@ -7,7 +7,7 @@ import {
 } from "@tabler/icons-react";
 import { ScrollArea } from "#/components/ui/scroll-area";
 import { Badge } from "#/components/ui/badge";
-import { Progress } from "#components/ui/progress";
+import { Progress } from "#/components/ui/progress";
 import { cn } from "#/lib/utils";
 import { type Project } from "../hooks";
 import { type DisplayOptionsType } from "../hooks/use-display-options";
@@ -79,13 +79,13 @@ function ProjectItem({
   return (
     <div
       className={cn(
-        "relative flex cursor-pointer flex-col gap-2 rounded-lg border p-3 hover:bg-accent/50 transition-colors",
+        "relative flex cursor-pointer flex-col gap-3 rounded-lg border p-4 hover:bg-accent/50 transition-colors",
         isSelected && "bg-accent border-primary/20",
       )}
       onClick={onSelect}
     >
       {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 flex-1 min-w-0">
           {getStatusIcon(project.status)}
           <h3 className="font-medium text-sm truncate">{project.name}</h3>
@@ -95,45 +95,51 @@ function ProjectItem({
             e.stopPropagation();
             onTogglePin();
           }}
-          className="flex-shrink-0 p-1 hover:bg-accent rounded transition-colors"
+          className="flex-shrink-0 p-1.5 hover:bg-accent rounded-md transition-colors"
         >
           {project.pinned ? (
-            <IconPinFilled className="h-3 w-3 text-primary" />
+            <IconPinFilled className="h-3.5 w-3.5 text-primary" />
           ) : (
-            <IconPin className="h-3 w-3 text-muted-foreground" />
+            <IconPin className="h-3.5 w-3.5 text-muted-foreground" />
           )}
         </button>
       </div>
 
       {/* Status and Priority Badges */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 flex-wrap">
         <Badge
           variant="outline"
-          className={cn("text-xs py-0.5 px-2", getStatusColor(project.status))}
+          className={cn("text-xs py-1 px-2.5 font-medium", getStatusColor(project.status))}
         >
           {project.status}
         </Badge>
         <Badge
           variant="outline"
-          className={cn("text-xs py-0.5 px-2", getPriorityColor(project.priority))}
+          className={cn("text-xs py-1 px-2.5 font-medium", getPriorityColor(project.priority))}
         >
           {project.priority}
         </Badge>
       </div>
 
       {/* Progress */}
-      <div className="space-y-1">
-        <div className="flex justify-between text-xs text-muted-foreground">
-          <span>Progress</span>
-          <span>{project.progress}%</span>
+      <div className="space-y-2">
+        <div className="flex justify-between items-center text-xs text-muted-foreground">
+          <span className="font-medium">Progress</span>
+          <span className="font-semibold text-foreground">{project.progress}%</span>
         </div>
-        <Progress value={project.progress} className="h-1.5" />
+        <Progress value={project.progress} className="h-2" />
       </div>
 
       {/* Team & Tasks Info */}
-      <div className="flex justify-between text-xs text-muted-foreground">
-        <span>{project.team?.length || 0} members</span>
-        <span>{project.tasks?.length || 0} tasks</span>
+      <div className="flex justify-between items-center text-xs text-muted-foreground pt-1">
+        <span className="flex items-center gap-1">
+          <span className="font-medium">{project.team?.length || 0}</span>
+          <span>members</span>
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="font-medium">{project.tasks?.length || 0}</span>
+          <span>tasks</span>
+        </span>
       </div>
     </div>
   );
@@ -168,9 +174,9 @@ export function ProjectList({
     : null;
 
   return (
-    <div className="flex flex-col h-[750px] w-full max-w-[280px] overflow-hidden rounded-lg">
+    <div className="flex flex-col h-[750px] w-full max-w-[320px] overflow-hidden rounded-lg">
       <ScrollArea className="flex-1 h-full">
-        <div className="space-y-2 p-3 w-full max-w-full overflow-hidden">
+        <div className="space-y-3 p-4 w-full max-w-full overflow-hidden">
           {groupedProjects ? (
             // Grouped view
             Object.entries(groupedProjects).map(
