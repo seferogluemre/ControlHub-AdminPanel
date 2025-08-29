@@ -79,13 +79,13 @@ function ProjectItem({
   return (
     <div
       className={cn(
-        "relative flex cursor-pointer flex-col gap-3 rounded-lg border p-4 hover:bg-accent/50 transition-colors",
+        "relative flex cursor-pointer w-62 flex-col gap-3 rounded-lg border p-4 hover:bg-accent/50 transition-colors",
         isSelected && "bg-accent border-primary/20",
       )}
       onClick={onSelect}
     >
       {/* Header */}
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex items-start justify-centers gap-3">
         <div className="flex items-center gap-2 flex-1 min-w-0">
           {getStatusIcon(project.status)}
           <h3 className="font-medium text-sm truncate">{project.name}</h3>
