@@ -7,8 +7,8 @@ export interface Project {
   id: string;
   name: string;
   description?: string;
-  status: 'active' | 'completed' | 'on-hold' | 'planning';
-  priority: 'low' | 'medium' | 'high' | 'urgent';
+  status: "active" | "completed" | "on-hold" | "planning";
+  priority: "low" | "medium" | "high" | "urgent";
   progress: number;
   tasks?: Task[];
   team?: TeamMember[];
@@ -20,7 +20,7 @@ export interface Project {
 export interface Task {
   id: string;
   title: string;
-  status: 'todo' | 'in-progress' | 'completed';
+  status: "todo" | "in-progress" | "completed";
   assignee?: string;
   dueDate?: Date;
 }
@@ -100,42 +100,52 @@ export function useProjectState() {
   const [projects, setProjects] = useState<Project[]>(() => {
     return Array.from({ length: 8 }, (_, i) => ({
       id: `project-${i + 1}`,
-      name: [
-        'E-commerce Platform Redesign',
-        'Mobile App Development',
-        'Data Analytics Dashboard',
-        'API Integration Project',
-        'User Experience Optimization',
-        'Cloud Migration Initiative',
-        'Security Audit & Compliance',
-        'Marketing Website Refresh'
-      ][i] || `Project ${i + 1}`,
+      name:
+        [
+          "E-commerce Platform Redesign",
+          "Mobile App Development",
+          "Data Analytics Dashboard",
+          "API Integration Project",
+          "User Experience Optimization",
+          "Cloud Migration Initiative",
+          "Security Audit & Compliance",
+          "Marketing Website Refresh",
+        ][i] || `Project ${i + 1}`,
       description: `Description for project ${i + 1}`,
-      status: ['active', 'completed', 'on-hold', 'planning'][i % 4] as Project['status'],
-      priority: ['low', 'medium', 'high', 'urgent'][i % 4] as Project['priority'],
+      status: ["active", "completed", "on-hold", "planning"][i % 4] as Project["status"],
+      priority: ["low", "medium", "high", "urgent"][i % 4] as Project["priority"],
       progress: Math.floor(Math.random() * 100),
       createdAt: new Date(Date.now() - Math.random() * 90 * 24 * 60 * 60 * 1000),
       pinned: i < 2,
       tasks: Array.from({ length: Math.floor(Math.random() * 8) + 2 }, (_, j) => ({
         id: `task-${i}-${j}`,
-        title: `Task ${j + 1} for ${[
-          'E-commerce Platform Redesign',
-          'Mobile App Development',
-          'Data Analytics Dashboard',
-          'API Integration Project',
-          'User Experience Optimization',
-          'Cloud Migration Initiative',
-          'Security Audit & Compliance',
-          'Marketing Website Refresh'
-        ][i] || `Project ${i + 1}`}`,
-        status: ['todo', 'in-progress', 'completed'][j % 3] as Task['status'],
-        assignee: ['John Doe', 'Jane Smith', 'Mike Johnson', 'Sarah Wilson'][j % 4],
+        title: `Task ${j + 1} for ${
+          [
+            "E-commerce Platform Redesign",
+            "Mobile App Development",
+            "Data Analytics Dashboard",
+            "API Integration Project",
+            "User Experience Optimization",
+            "Cloud Migration Initiative",
+            "Security Audit & Compliance",
+            "Marketing Website Refresh",
+          ][i] || `Project ${i + 1}`
+        }`,
+        status: ["todo", "in-progress", "completed"][j % 3] as Task["status"],
+        assignee: ["John Doe", "Jane Smith", "Mike Johnson", "Sarah Wilson"][j % 4],
         dueDate: new Date(Date.now() + Math.random() * 30 * 24 * 60 * 60 * 1000),
       })),
       team: Array.from({ length: Math.floor(Math.random() * 5) + 2 }, (_, k) => ({
         id: `member-${i}-${k}`,
-        name: ['John Doe', 'Jane Smith', 'Mike Johnson', 'Sarah Wilson', 'Alex Brown', 'Emily Davis'][k % 6],
-        role: ['Developer', 'Designer', 'PM', 'QA', 'DevOps'][k % 5],
+        name: [
+          "John Doe",
+          "Jane Smith",
+          "Mike Johnson",
+          "Sarah Wilson",
+          "Alex Brown",
+          "Emily Davis",
+        ][k % 6],
+        role: ["Developer", "Designer", "PM", "QA", "DevOps"][k % 5],
       })),
     }));
   });
@@ -157,9 +167,7 @@ export function useProjectState() {
   const handleTogglePin = (projectId: string) => {
     setProjects((prevProjects) =>
       prevProjects.map((project) =>
-        project.id === projectId
-          ? { ...project, pinned: !project.pinned }
-          : project,
+        project.id === projectId ? { ...project, pinned: !project.pinned } : project,
       ),
     );
   };

@@ -1,4 +1,10 @@
-import { IconPin, IconPinFilled, IconCircleDot, IconCircleCheck, IconClock } from "@tabler/icons-react";
+import {
+  IconPin,
+  IconPinFilled,
+  IconCircleDot,
+  IconCircleCheck,
+  IconClock,
+} from "@tabler/icons-react";
 import { ScrollArea } from "#/components/ui/scroll-area";
 import { Badge } from "#/components/ui/badge";
 import { Progress } from "#components/ui/progress";
@@ -14,67 +20,67 @@ interface ProjectListProps {
   displayOptions: DisplayOptionsType;
 }
 
-const getStatusIcon = (status: Project['status']) => {
+const getStatusIcon = (status: Project["status"]) => {
   switch (status) {
-    case 'active':
+    case "active":
       return <IconCircleDot className="h-3 w-3 text-green-500" />;
-    case 'completed':
+    case "completed":
       return <IconCircleCheck className="h-3 w-3 text-blue-500" />;
-    case 'on-hold':
+    case "on-hold":
       return <IconClock className="h-3 w-3 text-yellow-500" />;
-    case 'planning':
+    case "planning":
       return <IconClock className="h-3 w-3 text-gray-500" />;
     default:
       return <IconCircleDot className="h-3 w-3 text-gray-400" />;
   }
 };
 
-const getStatusColor = (status: Project['status']) => {
+const getStatusColor = (status: Project["status"]) => {
   switch (status) {
-    case 'active':
-      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
-    case 'completed':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-    case 'on-hold':
-      return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
-    case 'planning':
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+    case "active":
+      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
+    case "completed":
+      return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+    case "on-hold":
+      return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200";
+    case "planning":
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
     default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
   }
 };
 
-const getPriorityColor = (priority: Project['priority']) => {
+const getPriorityColor = (priority: Project["priority"]) => {
   switch (priority) {
-    case 'urgent':
-      return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
-    case 'high':
-      return 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200';
-    case 'medium':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-    case 'low':
-      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+    case "urgent":
+      return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200";
+    case "high":
+      return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200";
+    case "medium":
+      return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+    case "low":
+      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
     default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
   }
 };
 
-function ProjectItem({ 
-  project, 
-  isSelected, 
-  onSelect, 
-  onTogglePin 
-}: { 
-  project: Project; 
-  isSelected: boolean; 
-  onSelect: () => void; 
-  onTogglePin: () => void; 
+function ProjectItem({
+  project,
+  isSelected,
+  onSelect,
+  onTogglePin,
+}: {
+  project: Project;
+  isSelected: boolean;
+  onSelect: () => void;
+  onTogglePin: () => void;
 }) {
   return (
     <div
       className={cn(
         "relative flex cursor-pointer flex-col gap-2 rounded-lg border p-3 hover:bg-accent/50 transition-colors",
-        isSelected && "bg-accent border-primary/20"
+        isSelected && "bg-accent border-primary/20",
       )}
       onClick={onSelect}
     >
@@ -101,10 +107,16 @@ function ProjectItem({
 
       {/* Status and Priority Badges */}
       <div className="flex items-center gap-2">
-        <Badge variant="outline" className={cn("text-xs py-0.5 px-2", getStatusColor(project.status))}>
+        <Badge
+          variant="outline"
+          className={cn("text-xs py-0.5 px-2", getStatusColor(project.status))}
+        >
           {project.status}
         </Badge>
-        <Badge variant="outline" className={cn("text-xs py-0.5 px-2", getPriorityColor(project.priority))}>
+        <Badge
+          variant="outline"
+          className={cn("text-xs py-0.5 px-2", getPriorityColor(project.priority))}
+        >
           {project.priority}
         </Badge>
       </div>
@@ -139,19 +151,19 @@ export function ProjectList({
     // First sort by pinned status
     if (a.pinned && !b.pinned) return -1;
     if (!a.pinned && b.pinned) return 1;
-    
+
     // Then by status priority
-    const statusPriority = { active: 4, planning: 3, 'on-hold': 2, completed: 1 };
+    const statusPriority = { active: 4, planning: 3, "on-hold": 2, completed: 1 };
     return statusPriority[b.status] - statusPriority[a.status];
   });
 
   // Group by status if option is enabled
-  const groupedProjects = displayOptions.groupChatByStatus 
+  const groupedProjects = displayOptions.groupChatByStatus
     ? {
-        active: sortedProjects.filter(p => p.status === 'active'),
-        planning: sortedProjects.filter(p => p.status === 'planning'),
-        'on-hold': sortedProjects.filter(p => p.status === 'on-hold'),
-        completed: sortedProjects.filter(p => p.status === 'completed'),
+        active: sortedProjects.filter((p) => p.status === "active"),
+        planning: sortedProjects.filter((p) => p.status === "planning"),
+        "on-hold": sortedProjects.filter((p) => p.status === "on-hold"),
+        completed: sortedProjects.filter((p) => p.status === "completed"),
       }
     : null;
 
@@ -161,26 +173,27 @@ export function ProjectList({
         <div className="space-y-2 p-3 w-full max-w-full overflow-hidden">
           {groupedProjects ? (
             // Grouped view
-            Object.entries(groupedProjects).map(([status, statusProjects]) => (
-              statusProjects.length > 0 && (
-                <div key={status} className="space-y-2">
-                  <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-1">
-                    {status} ({statusProjects.length})
-                  </h4>
-                  <div className="space-y-1">
-                    {statusProjects.map((project) => (
-                      <ProjectItem
-                        key={project.id}
-                        project={project}
-                        isSelected={selectedProject?.id === project.id}
-                        onSelect={() => onSelectProject(project)}
-                        onTogglePin={() => onTogglePin(project.id)}
-                      />
-                    ))}
+            Object.entries(groupedProjects).map(
+              ([status, statusProjects]) =>
+                statusProjects.length > 0 && (
+                  <div key={status} className="space-y-2">
+                    <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-1">
+                      {status} ({statusProjects.length})
+                    </h4>
+                    <div className="space-y-1">
+                      {statusProjects.map((project) => (
+                        <ProjectItem
+                          key={project.id}
+                          project={project}
+                          isSelected={selectedProject?.id === project.id}
+                          onSelect={() => onSelectProject(project)}
+                          onTogglePin={() => onTogglePin(project.id)}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )
-            ))
+                ),
+            )
           ) : (
             // List view
             <div className="space-y-1">

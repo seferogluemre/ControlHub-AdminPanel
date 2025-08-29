@@ -15,7 +15,6 @@ import { NewProject } from "./components/new-project";
 import { DROPDOWN_OPTIONS, UI_TEXTS } from "./data/constants";
 import { useProjectState, useDisplayOptions } from "./hooks";
 
-
 export default function Projects() {
   const {
     projects: projectList,
@@ -147,5 +146,3 @@ export default function Projects() {
     </>
   );
 }
-
-

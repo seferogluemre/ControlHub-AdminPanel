@@ -1,4 +1,11 @@
-import { IconArrowLeft, IconDotsVertical, IconUsers, IconCalendar, IconTarget, IconChecklist } from "@tabler/icons-react";
+import {
+  IconArrowLeft,
+  IconDotsVertical,
+  IconUsers,
+  IconCalendar,
+  IconTarget,
+  IconChecklist,
+} from "@tabler/icons-react";
 import { useState } from "react";
 import { Button } from "#/components/ui/button";
 import { Badge } from "#/components/ui/badge";
@@ -26,46 +33,46 @@ interface ProjectAreaProps {
   onScrollToDate?: (scrollFn: (date: string) => void) => void;
 }
 
-const getStatusColor = (status: Project['status']) => {
+const getStatusColor = (status: Project["status"]) => {
   switch (status) {
-    case 'active':
-      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
-    case 'completed':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-    case 'on-hold':
-      return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
-    case 'planning':
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+    case "active":
+      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
+    case "completed":
+      return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+    case "on-hold":
+      return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200";
+    case "planning":
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
     default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
   }
 };
 
-const getPriorityColor = (priority: Project['priority']) => {
+const getPriorityColor = (priority: Project["priority"]) => {
   switch (priority) {
-    case 'urgent':
-      return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
-    case 'high':
-      return 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200';
-    case 'medium':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-    case 'low':
-      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+    case "urgent":
+      return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200";
+    case "high":
+      return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200";
+    case "medium":
+      return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+    case "low":
+      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
     default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
   }
 };
 
 const getTaskStatusColor = (status: string) => {
   switch (status) {
-    case 'completed':
-      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
-    case 'in-progress':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-    case 'todo':
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+    case "completed":
+      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
+    case "in-progress":
+      return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+    case "todo":
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
     default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
   }
 };
 
@@ -85,7 +92,8 @@ export function ProjectArea({
     }
   };
 
-  const completedTasks = selectedProject.tasks?.filter(task => task.status === 'completed').length || 0;
+  const completedTasks =
+    selectedProject.tasks?.filter((task) => task.status === "completed").length || 0;
   const totalTasks = selectedProject.tasks?.length || 0;
   const taskCompletionRate = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
@@ -111,7 +119,7 @@ export function ProjectArea({
             </div>
           </div>
         </div>
-        
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm">
@@ -170,8 +178,12 @@ export function ProjectArea({
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-2">
-                          <p className="text-2xl font-bold">{completedTasks}/{totalTasks}</p>
-                          <p className="text-sm text-muted-foreground">{taskCompletionRate}% completed</p>
+                          <p className="text-2xl font-bold">
+                            {completedTasks}/{totalTasks}
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {taskCompletionRate}% completed
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -184,7 +196,8 @@ export function ProjectArea({
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground">
-                        {selectedProject.description || "No description available for this project."}
+                        {selectedProject.description ||
+                          "No description available for this project."}
                       </p>
                     </CardContent>
                   </Card>
@@ -260,7 +273,11 @@ export function ProjectArea({
                         <div className="flex items-center gap-3">
                           <Avatar>
                             <AvatarFallback>
-                              {member.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                              {member.name
+                                .split(" ")
+                                .map((n) => n[0])
+                                .join("")
+                                .toUpperCase()}
                             </AvatarFallback>
                           </Avatar>
                           <div className="flex-1">

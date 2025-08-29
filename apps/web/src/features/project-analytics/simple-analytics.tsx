@@ -27,7 +27,7 @@ export default function Analytics() {
           <TabsTrigger value="team">Team Performance</TabsTrigger>
           <TabsTrigger value="timeline">Timeline</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="overview" className="space-y-4">
           {/* KPI Cards */}
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -38,12 +38,10 @@ export default function Analytics() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">47</div>
-                <p className="text-xs text-muted-foreground">
-                  +12% from last quarter
-                </p>
+                <p className="text-xs text-muted-foreground">+12% from last quarter</p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Completion Rate</CardTitle>
@@ -51,12 +49,10 @@ export default function Analytics() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">87%</div>
-                <p className="text-xs text-muted-foreground">
-                  +5% from last month
-                </p>
+                <p className="text-xs text-muted-foreground">+5% from last month</p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Active Team Members</CardTitle>
@@ -64,12 +60,10 @@ export default function Analytics() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">24</div>
-                <p className="text-xs text-muted-foreground">
-                  3 new this week
-                </p>
+                <p className="text-xs text-muted-foreground">3 new this week</p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Avg. Project Duration</CardTitle>
@@ -77,9 +71,7 @@ export default function Analytics() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">3.2 months</div>
-                <p className="text-xs text-muted-foreground">
-                  -0.5 months improvement
-                </p>
+                <p className="text-xs text-muted-foreground">-0.5 months improvement</p>
               </CardContent>
             </Card>
           </div>
@@ -89,9 +81,7 @@ export default function Analytics() {
             <Card className="col-span-4">
               <CardHeader>
                 <CardTitle>Project Performance Trends</CardTitle>
-                <CardDescription>
-                  Monthly project completion and success metrics
-                </CardDescription>
+                <CardDescription>Monthly project completion and success metrics</CardDescription>
               </CardHeader>
               <CardContent className="pl-2">
                 <div className="h-[300px] flex items-center justify-center text-muted-foreground">
@@ -102,13 +92,11 @@ export default function Analytics() {
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card className="col-span-3">
               <CardHeader>
                 <CardTitle>Top Performing Projects</CardTitle>
-                <CardDescription>
-                  Projects with highest completion rates
-                </CardDescription>
+                <CardDescription>Projects with highest completion rates</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">

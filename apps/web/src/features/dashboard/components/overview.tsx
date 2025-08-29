@@ -87,15 +87,20 @@ export function ProjectOverview() {
           axisLine={false}
           tickFormatter={(value) => `${value}`}
         />
-        <Tooltip 
-          contentStyle={{ 
-            backgroundColor: 'hsl(var(--card))', 
-            border: '1px solid hsl(var(--border))',
-            borderRadius: '8px'
+        <Tooltip
+          contentStyle={{
+            backgroundColor: "hsl(var(--card))",
+            border: "1px solid hsl(var(--border))",
+            borderRadius: "8px",
           }}
         />
         <Legend />
-        <Bar dataKey="completed" fill="hsl(var(--primary))" radius={[2, 2, 0, 0]} name="Completed" />
+        <Bar
+          dataKey="completed"
+          fill="hsl(var(--primary))"
+          radius={[2, 2, 0, 0]}
+          name="Completed"
+        />
         <Bar dataKey="ongoing" fill="hsl(var(--accent))" radius={[2, 2, 0, 0]} name="Ongoing" />
         <Bar dataKey="planned" fill="hsl(var(--muted))" radius={[2, 2, 0, 0]} name="Planned" />
       </BarChart>

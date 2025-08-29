@@ -33,62 +33,65 @@ interface NewProjectProps {
 
 const projectTemplates = [
   {
-    id: 'web-development',
-    name: 'Web Development',
-    description: 'Full-stack web application development project',
-    priority: 'medium' as const,
-    status: 'planning' as const,
+    id: "web-development",
+    name: "Web Development",
+    description: "Full-stack web application development project",
+    priority: "medium" as const,
+    status: "planning" as const,
   },
   {
-    id: 'mobile-app',
-    name: 'Mobile App Development',
-    description: 'Cross-platform mobile application development',
-    priority: 'high' as const,
-    status: 'planning' as const,
+    id: "mobile-app",
+    name: "Mobile App Development",
+    description: "Cross-platform mobile application development",
+    priority: "high" as const,
+    status: "planning" as const,
   },
   {
-    id: 'data-analytics',
-    name: 'Data Analytics Platform',
-    description: 'Business intelligence and data visualization project',
-    priority: 'medium' as const,
-    status: 'planning' as const,
+    id: "data-analytics",
+    name: "Data Analytics Platform",
+    description: "Business intelligence and data visualization project",
+    priority: "medium" as const,
+    status: "planning" as const,
   },
   {
-    id: 'api-integration',
-    name: 'API Integration',
-    description: 'Third-party API integration and backend services',
-    priority: 'low' as const,
-    status: 'planning' as const,
+    id: "api-integration",
+    name: "API Integration",
+    description: "Third-party API integration and backend services",
+    priority: "low" as const,
+    status: "planning" as const,
   },
 ];
 
-const getPriorityColor = (priority: Project['priority']) => {
+const getPriorityColor = (priority: Project["priority"]) => {
   switch (priority) {
-    case 'urgent':
-      return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
-    case 'high':
-      return 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200';
-    case 'medium':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-    case 'low':
-      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+    case "urgent":
+      return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200";
+    case "high":
+      return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200";
+    case "medium":
+      return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+    case "low":
+      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
     default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
   }
 };
 
 export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
-  const [step, setStep] = useState<'template' | 'details'>('template');
-  const [selectedTemplate, setSelectedTemplate] = useState<typeof projectTemplates[0] | null>(null);
+  const [step, setStep] = useState<"template" | "details">("template");
+  const [selectedTemplate, setSelectedTemplate] = useState<(typeof projectTemplates)[0] | null>(
+    null,
+  );
   const [searchQuery, setSearchQuery] = useState("");
   const [projectData, setProjectData] = useState<Partial<ProjectData>>({});
 
-  const filteredTemplates = projectTemplates.filter(template =>
-    template.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    template.description.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredTemplates = projectTemplates.filter(
+    (template) =>
+      template.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      template.description.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
-  const handleTemplateSelect = (template: typeof projectTemplates[0]) => {
+  const handleTemplateSelect = (template: (typeof projectTemplates)[0]) => {
     setSelectedTemplate(template);
     setProjectData({
       name: template.name,
@@ -96,16 +99,16 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
       status: template.status,
       priority: template.priority,
     });
-    setStep('details');
+    setStep("details");
   };
 
   const handleCreateProject = () => {
     if (projectData.name && projectData.description) {
-      console.log('Creating new project:', projectData);
+      console.log("Creating new project:", projectData);
       // Here you would typically call an API to create the project
-      
+
       // Reset form and close dialog
-      setStep('template');
+      setStep("template");
       setSelectedTemplate(null);
       setProjectData({});
       setSearchQuery("");
@@ -114,7 +117,7 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
   };
 
   const handleClose = () => {
-    setStep('template');
+    setStep("template");
     setSelectedTemplate(null);
     setProjectData({});
     setSearchQuery("");
@@ -124,7 +127,7 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-[600px] max-h-[80vh]">
-        {step === 'template' ? (
+        {step === "template" ? (
           <>
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2">
@@ -156,8 +159,8 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
                     className="p-4 border rounded-lg cursor-pointer hover:bg-accent/50 transition-colors"
                     onClick={() => {
                       setSelectedTemplate(null);
-                      setProjectData({ status: 'planning', priority: 'medium' });
-                      setStep('details');
+                      setProjectData({ status: "planning", priority: "medium" });
+                      setStep("details");
                     }}
                   >
                     <div className="flex items-start justify-between">
@@ -183,9 +186,7 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
                       <div className="flex items-start justify-between">
                         <div className="space-y-1 flex-1">
                           <h3 className="font-medium text-sm">{template.name}</h3>
-                          <p className="text-xs text-muted-foreground">
-                            {template.description}
-                          </p>
+                          <p className="text-xs text-muted-foreground">{template.description}</p>
                         </div>
                         <Badge className={getPriorityColor(template.priority)}>
                           {template.priority}
@@ -217,7 +218,9 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
                 Project Details
               </DialogTitle>
               <DialogDescription>
-                {selectedTemplate ? `Configure your ${selectedTemplate.name} project` : 'Configure your custom project'}
+                {selectedTemplate
+                  ? `Configure your ${selectedTemplate.name} project`
+                  : "Configure your custom project"}
               </DialogDescription>
             </DialogHeader>
 
@@ -227,8 +230,8 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
                 <Input
                   id="name"
                   placeholder="Enter project name..."
-                  value={projectData.name || ''}
-                  onChange={(e) => setProjectData(prev => ({ ...prev, name: e.target.value }))}
+                  value={projectData.name || ""}
+                  onChange={(e) => setProjectData((prev) => ({ ...prev, name: e.target.value }))}
                 />
               </div>
 
@@ -237,8 +240,10 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
                 <Textarea
                   id="description"
                   placeholder="Describe your project..."
-                  value={projectData.description || ''}
-                  onChange={(e) => setProjectData(prev => ({ ...prev, description: e.target.value }))}
+                  value={projectData.description || ""}
+                  onChange={(e) =>
+                    setProjectData((prev) => ({ ...prev, description: e.target.value }))
+                  }
                   className="min-h-[100px]"
                 />
               </div>
@@ -248,7 +253,9 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
                   <Label htmlFor="status">Status</Label>
                   <Select
                     value={projectData.status}
-                    onValueChange={(value) => setProjectData(prev => ({ ...prev, status: value as Project['status'] }))}
+                    onValueChange={(value) =>
+                      setProjectData((prev) => ({ ...prev, status: value as Project["status"] }))
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select status" />
@@ -266,7 +273,12 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
                   <Label htmlFor="priority">Priority</Label>
                   <Select
                     value={projectData.priority}
-                    onValueChange={(value) => setProjectData(prev => ({ ...prev, priority: value as Project['priority'] }))}
+                    onValueChange={(value) =>
+                      setProjectData((prev) => ({
+                        ...prev,
+                        priority: value as Project["priority"],
+                      }))
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select priority" />
@@ -283,10 +295,10 @@ export function NewProject({ projects, onOpenChange, open }: NewProjectProps) {
             </div>
 
             <DialogFooter>
-              <Button variant="outline" onClick={() => setStep('template')}>
+              <Button variant="outline" onClick={() => setStep("template")}>
                 Back
               </Button>
-              <Button 
+              <Button
                 onClick={handleCreateProject}
                 disabled={!projectData.name || !projectData.description}
               >

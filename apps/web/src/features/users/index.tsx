@@ -16,7 +16,9 @@ export default function TeamMembers() {
         <div className="mb-2 flex flex-wrap items-center justify-between space-y-2">
           <div>
             <h2 className="text-2xl font-bold tracking-tight">Team Members</h2>
-            <p className="text-muted-foreground">Manage your team members, roles, and project assignments.</p>
+            <p className="text-muted-foreground">
+              Manage your team members, roles, and project assignments.
+            </p>
           </div>
           <UsersPrimaryButtons />
         </div>
