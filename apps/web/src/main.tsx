@@ -72,7 +72,11 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
         <FontProvider>
-          <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+          <Suspense
+            fallback={
+              <div className="flex items-center justify-center min-h-screen">Loading...</div>
+            }
+          >
             <RouterProvider
               router={router}
               context={{

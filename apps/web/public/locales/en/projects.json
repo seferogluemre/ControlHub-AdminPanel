@@ -10,7 +10,7 @@
   },
   "sections": {
     "projectInfo": "Project Details",
-    "memberInfo": "Team Information", 
+    "memberInfo": "Team Information",
     "projectTimeline": "Project Timeline",
     "timelineEmpty": "No timeline data available"
   },

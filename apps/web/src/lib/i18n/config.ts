@@ -20,7 +20,7 @@ export const SUPPORTED_LANGUAGES = {
     nativeName: "Türkçe",
   },
   en: {
-    code: "en", 
+    code: "en",
     name: "English",
     flag: "🇬🇧",
     nativeName: "English",
@@ -30,14 +30,14 @@ export const SUPPORTED_LANGUAGES = {
 export type SupportedLanguage = keyof typeof SUPPORTED_LANGUAGES;
 
 export const NAMESPACES = {
-  COMMON: "common",             
-  DASHBOARD: "dashboard",       
-  TASKS: "tasks",          
-  PROJECTS: "projects",   
-  TEAM: "team",           
-  ANALYTICS: "analytics", 
-  SETTINGS: "settings",   
-  NAVIGATION: "navigation", 
+  COMMON: "common",
+  DASHBOARD: "dashboard",
+  TASKS: "tasks",
+  PROJECTS: "projects",
+  TEAM: "team",
+  ANALYTICS: "analytics",
+  SETTINGS: "settings",
+  NAVIGATION: "navigation",
 } as const;
 
 i18n
@@ -46,16 +46,16 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
-    
+
     debug: process.env.NODE_ENV === "development",
-    
+
     // Desteklenen diller
     supportedLngs: Object.keys(SUPPORTED_LANGUAGES),
-    
+
     // Namespace ayarları
     defaultNS: NAMESPACES.COMMON,
     ns: Object.values(NAMESPACES),
-    
+
     detection: {
       order: ["localStorage", "navigator", "htmlTag"],
       lookupLocalStorage: "devflow-language",
@@ -63,16 +63,15 @@ i18n
       lookupFromPathIndex: 0,
       checkWhitelist: true,
     },
-    
+
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
       requestOptions: {
         cache: "default",
       },
     },
-    
+
     react: {
-        
       useSuspense: true,
       // Bind events
       bindI18n: "languageChanged",
@@ -82,7 +81,7 @@ i18n
       transSupportBasicHtmlNodes: true,
       transKeepBasicHtmlNodesFor: ["br", "strong", "i"],
     },
-    
+
     // Interpolation ayarları
     interpolation: {
       // React zaten XSS koruması sağlar
@@ -95,7 +94,7 @@ i18n
         return value;
       },
     },
-    
+
     resources: {
       tr: {
         [NAMESPACES.COMMON]: commonTR,

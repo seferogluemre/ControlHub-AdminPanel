@@ -7,7 +7,7 @@
   },
   "tabs": {
     "overview": "Genel Bakış",
-    "projects": "Projeler", 
+    "projects": "Projeler",
     "team": "Ekip",
     "analytics": "Analitik"
   },
@@ -50,7 +50,7 @@
     "ecommerceDesc": "Mobil uygulama yeniden tasarımı",
     "dataAnalytics": "Veri Analizi",
     "dataAnalyticsDesc": "İş zekası panosu",
-    "apiIntegration": "API Entegrasyonu", 
+    "apiIntegration": "API Entegrasyonu",
     "apiIntegrationDesc": "Üçüncü parti servis bağlantıları",
     "uiLibrary": "UI Bileşen Kütüphanesi",
     "uiLibraryDesc": "Yeniden kullanılabilir tasarım sistemi",

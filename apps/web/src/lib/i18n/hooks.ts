@@ -26,7 +26,7 @@ export function useLanguage() {
 
 export function useNamespaceTranslation(namespace: keyof typeof NAMESPACES) {
   const { t, i18n } = useTranslation(NAMESPACES[namespace]);
-  
+
   return {
     t,
     i18n,
@@ -63,11 +63,11 @@ export function useFormattedTranslation() {
 
   const formatDate = (date: Date, format: "short" | "long" = "short") => {
     const locale = useLanguage().currentLanguage;
-    
+
     if (format === "short") {
       return date.toLocaleDateString(locale === "tr" ? "tr-TR" : "en-US");
     }
-    
+
     return date.toLocaleDateString(locale === "tr" ? "tr-TR" : "en-US", {
       year: "numeric",
       month: "long",

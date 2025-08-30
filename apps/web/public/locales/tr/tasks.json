@@ -46,7 +46,7 @@
   },
   "priority": {
     "low": "Düşük Öncelik",
-    "medium": "Orta Öncelik", 
+    "medium": "Orta Öncelik",
     "high": "Yüksek Öncelik",
     "urgent": "Acil"
   },

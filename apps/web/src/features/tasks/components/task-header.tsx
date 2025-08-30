@@ -42,9 +42,7 @@ export function TaskHeader({
             </div>
             <div>
               <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-              <p className="text-muted-foreground text-sm">
-                {t("subtitle")}
-              </p>
+              <p className="text-muted-foreground text-sm">{t("subtitle")}</p>
             </div>
           </div>
         </div>

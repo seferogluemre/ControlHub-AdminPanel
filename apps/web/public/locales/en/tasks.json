@@ -47,7 +47,7 @@
   "priority": {
     "low": "Low Priority",
     "medium": "Medium Priority",
-    "high": "High Priority", 
+    "high": "High Priority",
     "urgent": "Urgent"
   },
   "form": {

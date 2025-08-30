@@ -16,11 +16,9 @@ interface LanguageSwitcherProps {
   align?: "start" | "center" | "end";
 }
 
-export function LanguageSwitcher({ 
-  variant = "default", 
-  align = "end" 
-}: LanguageSwitcherProps) {
-  const { currentLanguage, supportedLanguages, changeLanguage, currentLanguageInfo } = useLanguage();
+export function LanguageSwitcher({ variant = "default", align = "end" }: LanguageSwitcherProps) {
+  const { currentLanguage, supportedLanguages, changeLanguage, currentLanguageInfo } =
+    useLanguage();
 
   if (variant === "compact") {
     return (
@@ -50,7 +48,7 @@ export function LanguageSwitcher({
               onClick={() => changeLanguage(language.code)}
               className={cn(
                 "flex items-center gap-3 cursor-pointer",
-                currentLanguage === language.code && "bg-accent"
+                currentLanguage === language.code && "bg-accent",
               )}
             >
               <span className="text-base">{language.flag}</span>
@@ -58,9 +56,7 @@ export function LanguageSwitcher({
                 <span className="font-medium">{language.nativeName}</span>
                 <span className="text-xs text-muted-foreground">{language.name}</span>
               </div>
-              {currentLanguage === language.code && (
-                <IconCheck className="h-4 w-4 text-primary" />
-              )}
+              {currentLanguage === language.code && <IconCheck className="h-4 w-4 text-primary" />}
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
@@ -94,7 +90,7 @@ export function LanguageSwitcher({
             onClick={() => changeLanguage(language.code)}
             className={cn(
               "flex items-center gap-3 cursor-pointer py-2.5",
-              currentLanguage === language.code && "bg-accent"
+              currentLanguage === language.code && "bg-accent",
             )}
           >
             <span className="text-lg">{language.flag}</span>
@@ -102,9 +98,7 @@ export function LanguageSwitcher({
               <span className="font-medium">{language.nativeName}</span>
               <span className="text-xs text-muted-foreground">{language.name}</span>
             </div>
-            {currentLanguage === language.code && (
-              <IconCheck className="h-4 w-4 text-primary" />
-            )}
+            {currentLanguage === language.code && <IconCheck className="h-4 w-4 text-primary" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
