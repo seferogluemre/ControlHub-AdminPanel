@@ -3,7 +3,7 @@
   "subtitle": "Ekip üyelerinizi, rollerini ve proje atamalarını yönetin.",
   "buttons": {
     "export": "Dışa Aktar",
-    "import": "Ekip Üyesi İçe Aktar", 
+    "import": "Ekip Üyesi İçe Aktar",
     "newMember": "Yeni Üye",
     "editMember": "Üyeyi Düzenle",
     "deleteMember": "Üyeyi Sil",

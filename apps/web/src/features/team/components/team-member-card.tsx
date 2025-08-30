@@ -125,23 +125,26 @@ export function TeamMemberCard({
             <span className="text-muted-foreground truncate">{member.email}</span>
           </div>
 
-                      <div className="flex items-center space-x-2 text-sm">
-              <Calendar className="h-4 w-4 text-muted-foreground" />
-              <span className="text-muted-foreground">
-                {t("member.fields.joinDate")}: {new Date(member.joinDate).toLocaleDateString(currentLanguage === "tr" ? "tr-TR" : "en-US")}
-              </span>
-            </div>
+          <div className="flex items-center space-x-2 text-sm">
+            <Calendar className="h-4 w-4 text-muted-foreground" />
+            <span className="text-muted-foreground">
+              {t("member.fields.joinDate")}:{" "}
+              {new Date(member.joinDate).toLocaleDateString(
+                currentLanguage === "tr" ? "tr-TR" : "en-US",
+              )}
+            </span>
+          </div>
 
           {member.lastActivity && (
             <div className="flex items-center space-x-2 text-sm">
               <Activity className="h-4 w-4 text-muted-foreground" />
-                              <span className="text-muted-foreground">
-                  {t("member.fields.lastActivity")}:{" "}
-                  {formatDistanceToNow(new Date(member.lastActivity), {
-                    addSuffix: true,
-                    locale: currentLanguage === "tr" ? tr : undefined,
-                  })}
-                </span>
+              <span className="text-muted-foreground">
+                {t("member.fields.lastActivity")}:{" "}
+                {formatDistanceToNow(new Date(member.lastActivity), {
+                  addSuffix: true,
+                  locale: currentLanguage === "tr" ? tr : undefined,
+                })}
+              </span>
             </div>
           )}
         </div>

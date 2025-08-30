@@ -29,11 +29,11 @@ interface ManageMemberDialogProps {
   onMemberUpdated?: (member: TeamMember) => void;
 }
 
-export function ManageMemberDialog({ 
-  open, 
-  onOpenChange, 
+export function ManageMemberDialog({
+  open,
+  onOpenChange,
   member,
-  onMemberUpdated 
+  onMemberUpdated,
 }: ManageMemberDialogProps) {
   const { t } = useTeamTranslation();
   const [loading, setLoading] = useState(false);
@@ -58,7 +58,7 @@ export function ManageMemberDialog({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!member) return;
-    
+
     setLoading(true);
 
     try {
@@ -70,7 +70,10 @@ export function ManageMemberDialog({
         role: formData.role,
         department: formData.department,
         status: formData.status,
-        skills: formData.skills.split(',').map(skill => skill.trim()).filter(Boolean),
+        skills: formData.skills
+          .split(",")
+          .map((skill) => skill.trim())
+          .filter(Boolean),
       };
 
       onMemberUpdated?.(updatedMember);
@@ -91,66 +94,77 @@ export function ManageMemberDialog({
         <form onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle>{t("dialogs.manageMember.title")}</DialogTitle>
-            <DialogDescription>
-              {t("dialogs.manageMember.description")}
-            </DialogDescription>
+            <DialogDescription>{t("dialogs.manageMember.description")}</DialogDescription>
           </DialogHeader>
-          
+
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
               <Label>Üye Bilgileri</Label>
               <div className="text-sm text-muted-foreground">
-                <p><strong>Ad:</strong> {member.name}</p>
-                <p><strong>E-posta:</strong> {member.email}</p>
-                <p><strong>Katılım Tarihi:</strong> {new Date(member.joinDate).toLocaleDateString("tr-TR")}</p>
+                <p>
+                  <strong>Ad:</strong> {member.name}
+                </p>
+                <p>
+                  <strong>E-posta:</strong> {member.email}
+                </p>
+                <p>
+                  <strong>Katılım Tarihi:</strong>{" "}
+                  {new Date(member.joinDate).toLocaleDateString("tr-TR")}
+                </p>
               </div>
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="role">{t("dialogs.manageMember.fields.role")}</Label>
-              <Select 
-                value={formData.role} 
-                onValueChange={(value) => setFormData(prev => ({ ...prev, role: value }))}
+              <Select
+                value={formData.role}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, role: value }))}
                 required
               >
                 <SelectTrigger>
                   <SelectValue placeholder={t("filters.role")} />
                 </SelectTrigger>
                 <SelectContent>
-                  {roles.filter(role => role !== "Tümü").map((role) => (
-                    <SelectItem key={role} value={role}>
-                      {role}
-                    </SelectItem>
-                  ))}
+                  {roles
+                    .filter((role) => role !== "Tümü")
+                    .map((role) => (
+                      <SelectItem key={role} value={role}>
+                        {role}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="department">{t("dialogs.manageMember.fields.department")}</Label>
-              <Select 
-                value={formData.department} 
-                onValueChange={(value) => setFormData(prev => ({ ...prev, department: value }))}
+              <Select
+                value={formData.department}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, department: value }))}
                 required
               >
                 <SelectTrigger>
                   <SelectValue placeholder={t("filters.department")} />
                 </SelectTrigger>
                 <SelectContent>
-                  {departments.filter(dept => dept !== "Tümü").map((dept) => (
-                    <SelectItem key={dept} value={dept}>
-                      {dept}
-                    </SelectItem>
-                  ))}
+                  {departments
+                    .filter((dept) => dept !== "Tümü")
+                    .map((dept) => (
+                      <SelectItem key={dept} value={dept}>
+                        {dept}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="status">{t("dialogs.manageMember.fields.status")}</Label>
-              <Select 
-                value={formData.status} 
-                onValueChange={(value) => setFormData(prev => ({ ...prev, status: value as TeamMember["status"] }))}
+              <Select
+                value={formData.status}
+                onValueChange={(value) =>
+                  setFormData((prev) => ({ ...prev, status: value as TeamMember["status"] }))
+                }
                 required
               >
                 <SelectTrigger>
@@ -163,22 +177,22 @@ export function ManageMemberDialog({
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="skills">{t("dialogs.manageMember.fields.skills")}</Label>
               <Input
                 id="skills"
                 value={formData.skills}
-                onChange={(e) => setFormData(prev => ({ ...prev, skills: e.target.value }))}
+                onChange={(e) => setFormData((prev) => ({ ...prev, skills: e.target.value }))}
                 placeholder="React, TypeScript, Node.js"
               />
             </div>
           </div>
-          
+
           <DialogFooter>
-            <Button 
-              type="button" 
-              variant="outline" 
+            <Button
+              type="button"
+              variant="outline"
               onClick={() => onOpenChange(false)}
               disabled={loading}
             >

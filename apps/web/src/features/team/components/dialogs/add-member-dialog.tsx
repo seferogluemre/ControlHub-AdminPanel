@@ -53,16 +53,19 @@ export function AddMemberDialog({ open, onOpenChange, onMemberAdded }: AddMember
         email: formData.email,
         role: formData.role,
         department: formData.department,
-        joinDate: new Date().toISOString().split('T')[0],
+        joinDate: new Date().toISOString().split("T")[0],
         status: "pending",
-        skills: formData.skills.split(',').map(skill => skill.trim()).filter(Boolean),
+        skills: formData.skills
+          .split(",")
+          .map((skill) => skill.trim())
+          .filter(Boolean),
         projectsCount: 0,
         tasksCompleted: 0,
       };
 
       onMemberAdded?.(newMember);
       toast.success(t("notifications.memberAdded"));
-      
+
       // Reset form
       setFormData({
         name: "",
@@ -71,7 +74,7 @@ export function AddMemberDialog({ open, onOpenChange, onMemberAdded }: AddMember
         department: "",
         skills: "",
       });
-      
+
       onOpenChange(false);
     } catch (error) {
       toast.error("Üye eklenirken bir hata oluştu");
@@ -86,90 +89,92 @@ export function AddMemberDialog({ open, onOpenChange, onMemberAdded }: AddMember
         <form onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle>{t("dialogs.addMember.title")}</DialogTitle>
-            <DialogDescription>
-              {t("dialogs.addMember.description")}
-            </DialogDescription>
+            <DialogDescription>{t("dialogs.addMember.description")}</DialogDescription>
           </DialogHeader>
-          
+
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
               <Label htmlFor="name">{t("dialogs.addMember.fields.name")}</Label>
               <Input
                 id="name"
                 value={formData.name}
-                onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                 placeholder="Örn: Ahmet Yılmaz"
                 required
               />
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="email">{t("dialogs.addMember.fields.email")}</Label>
               <Input
                 id="email"
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                 placeholder="ahmet@company.com"
                 required
               />
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="role">{t("dialogs.addMember.fields.role")}</Label>
-              <Select 
-                value={formData.role} 
-                onValueChange={(value) => setFormData(prev => ({ ...prev, role: value }))}
+              <Select
+                value={formData.role}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, role: value }))}
                 required
               >
                 <SelectTrigger>
                   <SelectValue placeholder={t("filters.role")} />
                 </SelectTrigger>
                 <SelectContent>
-                  {roles.filter(role => role !== "Tümü").map((role) => (
-                    <SelectItem key={role} value={role}>
-                      {role}
-                    </SelectItem>
-                  ))}
+                  {roles
+                    .filter((role) => role !== "Tümü")
+                    .map((role) => (
+                      <SelectItem key={role} value={role}>
+                        {role}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="department">{t("dialogs.addMember.fields.department")}</Label>
-              <Select 
-                value={formData.department} 
-                onValueChange={(value) => setFormData(prev => ({ ...prev, department: value }))}
+              <Select
+                value={formData.department}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, department: value }))}
                 required
               >
                 <SelectTrigger>
                   <SelectValue placeholder={t("filters.department")} />
                 </SelectTrigger>
                 <SelectContent>
-                  {departments.filter(dept => dept !== "Tümü").map((dept) => (
-                    <SelectItem key={dept} value={dept}>
-                      {dept}
-                    </SelectItem>
-                  ))}
+                  {departments
+                    .filter((dept) => dept !== "Tümü")
+                    .map((dept) => (
+                      <SelectItem key={dept} value={dept}>
+                        {dept}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="skills">{t("dialogs.addMember.fields.skills")}</Label>
               <Input
                 id="skills"
                 value={formData.skills}
-                onChange={(e) => setFormData(prev => ({ ...prev, skills: e.target.value }))}
+                onChange={(e) => setFormData((prev) => ({ ...prev, skills: e.target.value }))}
                 placeholder="React, TypeScript, Node.js"
               />
             </div>
           </div>
-          
+
           <DialogFooter>
-            <Button 
-              type="button" 
-              variant="outline" 
+            <Button
+              type="button"
+              variant="outline"
               onClick={() => onOpenChange(false)}
               disabled={loading}
             >

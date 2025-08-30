@@ -78,11 +78,12 @@ export function TeamStats({ stats }: TeamStatsProps) {
                 </Badge>
               )}
 
-              {stat.title === t("stats.averageProductivity.title") && stats.averageProductivity >= 80 && (
-                <Badge variant="default" className="mt-2 bg-green-600">
-                  Yüksek Performans
-                </Badge>
-              )}
+              {stat.title === t("stats.averageProductivity.title") &&
+                stats.averageProductivity >= 80 && (
+                  <Badge variant="default" className="mt-2 bg-green-600">
+                    Yüksek Performans
+                  </Badge>
+                )}
             </CardContent>
           </Card>
         );

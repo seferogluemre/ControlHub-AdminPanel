@@ -102,9 +102,11 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
         {/* Status */}
         <div className="flex items-center justify-between">
           <Badge variant={getStatusBadgeVariant(team.status)}>{getStatusText(team.status)}</Badge>
-                      <span className="text-sm text-muted-foreground">
-              {new Date(team.createdAt).toLocaleDateString(currentLanguage === "tr" ? "tr-TR" : "en-US")}
-            </span>
+          <span className="text-sm text-muted-foreground">
+            {new Date(team.createdAt).toLocaleDateString(
+              currentLanguage === "tr" ? "tr-TR" : "en-US",
+            )}
+          </span>
         </div>
 
         {/* Description */}
@@ -141,7 +143,9 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
                 </div>
               )}
             </div>
-            <span className="text-sm text-muted-foreground">{team.members.length} {t("team.fields.members")}</span>
+            <span className="text-sm text-muted-foreground">
+              {team.members.length} {t("team.fields.members")}
+            </span>
           </div>
         </div>
 
@@ -165,15 +169,15 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
 
         {/* Actions */}
         <div className="flex space-x-2 pt-2">
-                      <Button
-              variant="outline"
-              size="sm"
-              className="flex-1"
-              onClick={() => onViewTeam?.(team.id)}
-            >
-              <Eye className="mr-2 h-4 w-4" />
-              {t("buttons.view")}
-            </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="flex-1"
+            onClick={() => onViewTeam?.(team.id)}
+          >
+            <Eye className="mr-2 h-4 w-4" />
+            {t("buttons.view")}
+          </Button>
           <Button variant="outline" size="sm" onClick={() => onAddMember?.(team.id)}>
             <UserPlus className="h-4 w-4" />
           </Button>

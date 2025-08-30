@@ -60,7 +60,7 @@ export function CreateTeamDialog({ open, onOpenChange, onTeamCreated }: CreateTe
 
       onTeamCreated?.(newTeam);
       toast.success(t("notifications.teamCreated"));
-      
+
       // Reset form
       setFormData({
         name: "",
@@ -68,7 +68,7 @@ export function CreateTeamDialog({ open, onOpenChange, onTeamCreated }: CreateTe
         department: "",
         leaderId: "",
       });
-      
+
       onOpenChange(false);
     } catch (error) {
       toast.error("Takım oluşturulurken bir hata oluştu");
@@ -77,9 +77,12 @@ export function CreateTeamDialog({ open, onOpenChange, onTeamCreated }: CreateTe
     }
   };
 
-  const availableLeaders = mockTeamMembers.filter(member => 
-    member.status === "active" && 
-    (member.role.includes("Lead") || member.role.includes("Manager") || member.role.includes("Senior"))
+  const availableLeaders = mockTeamMembers.filter(
+    (member) =>
+      member.status === "active" &&
+      (member.role.includes("Lead") ||
+        member.role.includes("Manager") ||
+        member.role.includes("Senior")),
   );
 
   return (
@@ -88,59 +91,59 @@ export function CreateTeamDialog({ open, onOpenChange, onTeamCreated }: CreateTe
         <form onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle>{t("dialogs.createTeam.title")}</DialogTitle>
-            <DialogDescription>
-              {t("dialogs.createTeam.description")}
-            </DialogDescription>
+            <DialogDescription>{t("dialogs.createTeam.description")}</DialogDescription>
           </DialogHeader>
-          
+
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
               <Label htmlFor="name">{t("dialogs.createTeam.fields.name")}</Label>
               <Input
                 id="name"
                 value={formData.name}
-                onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                 placeholder="Örn: Frontend Ekibi"
                 required
               />
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="description">{t("dialogs.createTeam.fields.description")}</Label>
               <Textarea
                 id="description"
                 value={formData.description}
-                onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+                onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
                 placeholder="Takımın sorumluluklarını açıklayın..."
                 rows={3}
               />
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="department">{t("dialogs.createTeam.fields.department")}</Label>
-              <Select 
-                value={formData.department} 
-                onValueChange={(value) => setFormData(prev => ({ ...prev, department: value }))}
+              <Select
+                value={formData.department}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, department: value }))}
                 required
               >
                 <SelectTrigger>
                   <SelectValue placeholder={t("filters.department")} />
                 </SelectTrigger>
                 <SelectContent>
-                  {departments.filter(dept => dept !== "Tümü").map((dept) => (
-                    <SelectItem key={dept} value={dept}>
-                      {dept}
-                    </SelectItem>
-                  ))}
+                  {departments
+                    .filter((dept) => dept !== "Tümü")
+                    .map((dept) => (
+                      <SelectItem key={dept} value={dept}>
+                        {dept}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="leader">{t("dialogs.createTeam.fields.leader")}</Label>
-              <Select 
-                value={formData.leaderId} 
-                onValueChange={(value) => setFormData(prev => ({ ...prev, leaderId: value }))}
+              <Select
+                value={formData.leaderId}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, leaderId: value }))}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="Takım lideri seçin" />
@@ -155,11 +158,11 @@ export function CreateTeamDialog({ open, onOpenChange, onTeamCreated }: CreateTe
               </Select>
             </div>
           </div>
-          
+
           <DialogFooter>
-            <Button 
-              type="button" 
-              variant="outline" 
+            <Button
+              type="button"
+              variant="outline"
               onClick={() => onOpenChange(false)}
               disabled={loading}
             >

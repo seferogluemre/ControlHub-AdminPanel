@@ -3,7 +3,7 @@
   "subtitle": "Manage your team members, roles, and project assignments.",
   "buttons": {
     "export": "Export",
-    "import": "Import Team Members", 
+    "import": "Import Team Members",
     "newMember": "New Member",
     "editMember": "Edit Member",
     "deleteMember": "Delete Member",

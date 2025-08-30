@@ -16,7 +16,7 @@ import { useTeamTranslation } from "#/lib/i18n/hooks";
 
 export function TeamPage() {
   const { t } = useTeamTranslation();
-  
+
   const [filters, setFilters] = useState<TeamFilters>({
     search: "",
     department: "Tümü",
@@ -171,9 +171,7 @@ export function TeamPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">{t("title")}</h1>
-            <p className="text-muted-foreground">
-              {t("subtitle")}
-            </p>
+            <p className="text-muted-foreground">{t("subtitle")}</p>
           </div>
           <div className="flex space-x-2">
             <Button variant="outline" onClick={() => setCreateTeamOpen(true)}>
@@ -285,9 +283,7 @@ export function TeamPage() {
                 <CardContent className="text-center py-8">
                   <UsersIcon className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
                   <h3 className="text-lg font-semibold mb-2">{t("emptyStates.noMembers")}</h3>
-                  <p className="text-muted-foreground mb-4">
-                    {t("emptyStates.noMembersDesc")}
-                  </p>
+                  <p className="text-muted-foreground mb-4">{t("emptyStates.noMembersDesc")}</p>
                   <Button variant="outline" onClick={clearFilters}>
                     {t("buttons.clearFilters")}
                   </Button>
@@ -312,9 +308,7 @@ export function TeamPage() {
                 <CardContent className="text-center py-8">
                   <Building2 className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
                   <h3 className="text-lg font-semibold mb-2">{t("emptyStates.noTeams")}</h3>
-                  <p className="text-muted-foreground mb-4">
-                    {t("emptyStates.noTeamsDesc")}
-                  </p>
+                  <p className="text-muted-foreground mb-4">{t("emptyStates.noTeamsDesc")}</p>
                   <Button variant="outline" onClick={clearFilters}>
                     {t("buttons.clearFilters")}
                   </Button>
