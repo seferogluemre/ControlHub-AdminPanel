@@ -34,16 +34,16 @@ export function TeamPage() {
   const [activeTab, setActiveTab] = useState("overview");
   const [createTeamOpen, setCreateTeamOpen] = useState(false);
   const [addMemberOpen, setAddMemberOpen] = useState(false);
-  
+
   const [teams, setTeams] = useState<Team[]>(mockTeams);
   const [members, setMembers] = useState<TeamMember[]>(mockTeamMembers);
-  
+
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [memberProfileOpen, setMemberProfileOpen] = useState(false);
-  
+
   const [memberToRemove, setMemberToRemove] = useState<TeamMember | null>(null);
   const [removeConfirmOpen, setRemoveConfirmOpen] = useState(false);
-  
+
   // Team action states
   const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
   const [teamDetailOpen, setTeamDetailOpen] = useState(false);
@@ -118,27 +118,27 @@ export function TeamPage() {
 
   // Callback functions for dialogs
   const handleTeamCreated = (newTeam: Team) => {
-    setTeams(prev => [...prev, newTeam]);
+    setTeams((prev) => [...prev, newTeam]);
   };
 
   const handleMemberAdded = (newMember: TeamMember) => {
-    setMembers(prev => [...prev, newMember]);
+    setMembers((prev) => [...prev, newMember]);
   };
 
   const handleRemoveMember = () => {
     if (memberToRemove) {
-      setMembers(prev => prev.filter(member => member.id !== memberToRemove.id));
+      setMembers((prev) => prev.filter((member) => member.id !== memberToRemove.id));
       setMemberToRemove(null);
       setRemoveConfirmOpen(false);
     }
   };
 
   const handleTeamUpdated = (updatedTeam: Team) => {
-    setTeams(prev => prev.map(team => team.id === updatedTeam.id ? updatedTeam : team));
+    setTeams((prev) => prev.map((team) => (team.id === updatedTeam.id ? updatedTeam : team)));
   };
 
   const handleMemberAction = (action: string, memberId: string) => {
-    const member = members.find(m => m.id === memberId);
+    const member = members.find((m) => m.id === memberId);
     if (!member) return;
 
     switch (action) {
@@ -160,7 +160,7 @@ export function TeamPage() {
   };
 
   const handleTeamAction = (action: string, teamId: string) => {
-    const team = teams.find(t => t.id === teamId);
+    const team = teams.find((t) => t.id === teamId);
     if (!team) return;
 
     switch (action) {
@@ -398,26 +398,26 @@ export function TeamPage() {
           onOpenChange={setCreateTeamOpen}
           onTeamCreated={handleTeamCreated}
         />
-        
+
         <AddMemberDialog
           open={addMemberOpen}
           onOpenChange={setAddMemberOpen}
           onMemberAdded={handleMemberAdded}
         />
-        
+
         <MemberProfileDialog
           open={memberProfileOpen}
           onOpenChange={setMemberProfileOpen}
           member={selectedMember}
           onSendMessage={(memberId) => handleMemberAction("sendMessage", memberId)}
         />
-        
+
         <ConfirmDialog
           open={removeConfirmOpen}
           onOpenChange={setRemoveConfirmOpen}
           title="Üyeyi Takımdan Çıkar"
           desc={
-            memberToRemove 
+            memberToRemove
               ? `${memberToRemove.name} üyesini takımdan çıkarmak istediğinizden emin misiniz? Bu işlem geri alınamaz.`
               : ""
           }
@@ -426,7 +426,7 @@ export function TeamPage() {
           handleConfirm={handleRemoveMember}
           destructive={true}
         />
-        
+
         <TeamDetailDialog
           open={teamDetailOpen}
           onOpenChange={setTeamDetailOpen}
@@ -437,7 +437,7 @@ export function TeamPage() {
           }}
           onAddMember={(teamId) => handleTeamAction("addMember", teamId)}
         />
-        
+
         <TeamManagementDialog
           open={teamManagementOpen}
           onOpenChange={setTeamManagementOpen}
@@ -446,6 +446,6 @@ export function TeamPage() {
           onTeamUpdated={handleTeamUpdated}
         />
       </div>
-    </Main>   
+    </Main>
   );
 }

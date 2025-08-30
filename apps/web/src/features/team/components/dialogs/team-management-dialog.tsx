@@ -97,7 +97,7 @@ export function TeamManagementDialog({
       (member.role.includes("Lead") ||
         member.role.includes("Manager") ||
         member.role.includes("Senior")) &&
-      team.members.some(teamMember => teamMember.id === member.id)
+      team.members.some((teamMember) => teamMember.id === member.id),
   );
 
   return (
@@ -106,9 +106,7 @@ export function TeamManagementDialog({
         <form onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle>Takımı Yönet</DialogTitle>
-            <DialogDescription>
-              {team.name} takımının bilgilerini düzenleyin
-            </DialogDescription>
+            <DialogDescription>{team.name} takımının bilgilerini düzenleyin</DialogDescription>
           </DialogHeader>
 
           <div className="grid gap-4 py-4">
@@ -179,7 +177,9 @@ export function TeamManagementDialog({
               <Label htmlFor="status">Durum</Label>
               <Select
                 value={formData.status}
-                onValueChange={(value) => setFormData((prev) => ({ ...prev, status: value as Team["status"] }))}
+                onValueChange={(value) =>
+                  setFormData((prev) => ({ ...prev, status: value as Team["status"] }))
+                }
                 required
               >
                 <SelectTrigger>
@@ -196,9 +196,16 @@ export function TeamManagementDialog({
             <div className="grid gap-2">
               <Label>Takım İstatistikleri</Label>
               <div className="text-sm text-muted-foreground space-y-1">
-                <p><strong>Üye Sayısı:</strong> {team.members.length}</p>
-                <p><strong>Proje Sayısı:</strong> {team.projectsCount}</p>
-                <p><strong>Oluşturulma:</strong> {new Date(team.createdAt).toLocaleDateString("tr-TR")}</p>
+                <p>
+                  <strong>Üye Sayısı:</strong> {team.members.length}
+                </p>
+                <p>
+                  <strong>Proje Sayısı:</strong> {team.projectsCount}
+                </p>
+                <p>
+                  <strong>Oluşturulma:</strong>{" "}
+                  {new Date(team.createdAt).toLocaleDateString("tr-TR")}
+                </p>
               </div>
             </div>
           </div>

@@ -11,18 +11,18 @@ import { Badge } from "#/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "#/components/ui/card";
 import { Separator } from "#/components/ui/separator";
-import { 
-  Mail, 
-  Calendar, 
-  Activity, 
-  User, 
-  Building2, 
+import {
+  Mail,
+  Calendar,
+  Activity,
+  User,
+  Building2,
   Briefcase,
   MessageCircle,
   Phone,
   MapPin,
   Star,
-  TrendingUp
+  TrendingUp,
 } from "lucide-react";
 import { TeamMember } from "../../types/team";
 import { useTeamTranslation, useLanguage } from "#/lib/i18n/hooks";
@@ -36,11 +36,11 @@ interface MemberProfileDialogProps {
   onSendMessage?: (memberId: string) => void;
 }
 
-export function MemberProfileDialog({ 
-  open, 
-  onOpenChange, 
+export function MemberProfileDialog({
+  open,
+  onOpenChange,
   member,
-  onSendMessage 
+  onSendMessage,
 }: MemberProfileDialogProps) {
   const { t } = useTeamTranslation();
   const { currentLanguage } = useLanguage();
@@ -155,12 +155,12 @@ export function MemberProfileDialog({
                     <span className="font-medium">Katılım Tarihi:</span>
                     <p className="text-sm text-muted-foreground">
                       {new Date(member.joinDate).toLocaleDateString(
-                        currentLanguage === "tr" ? "tr-TR" : "en-US"
+                        currentLanguage === "tr" ? "tr-TR" : "en-US",
                       )}
                     </p>
                   </div>
                 </div>
-                
+
                 {member.lastActivity && (
                   <div className="flex items-center space-x-3">
                     <Activity className="h-4 w-4 text-muted-foreground" />
@@ -208,11 +208,13 @@ export function MemberProfileDialog({
                   </div>
                   <p className="text-sm text-muted-foreground">Toplam Proje</p>
                 </div>
-                
+
                 <div className="text-center p-4 rounded-lg bg-muted/50">
                   <div className="flex items-center justify-center space-x-2 mb-2">
                     <Star className="h-5 w-5 text-green-600" />
-                    <span className="text-2xl font-bold text-green-600">{member.tasksCompleted}</span>
+                    <span className="text-2xl font-bold text-green-600">
+                      {member.tasksCompleted}
+                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground">Tamamlanan Görev</p>
                 </div>
@@ -230,9 +232,7 @@ export function MemberProfileDialog({
             <MessageCircle className="h-4 w-4" />
             <span>Mesaj Gönder</span>
           </Button>
-          <Button onClick={() => onOpenChange(false)}>
-            Kapat
-          </Button>
+          <Button onClick={() => onOpenChange(false)}>Kapat</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

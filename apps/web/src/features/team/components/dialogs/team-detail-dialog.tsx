@@ -11,15 +11,15 @@ import { Badge } from "#/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "#/components/ui/card";
 import { Separator } from "#/components/ui/separator";
-import { 
-  Users, 
-  Calendar, 
-  Building2, 
+import {
+  Users,
+  Calendar,
+  Building2,
   FolderOpen,
   User,
   Settings,
   UserPlus,
-  Crown
+  Crown,
 } from "lucide-react";
 import { Team } from "../../types/team";
 import { useTeamTranslation, useLanguage } from "#/lib/i18n/hooks";
@@ -32,12 +32,12 @@ interface TeamDetailDialogProps {
   onAddMember?: (teamId: string) => void;
 }
 
-export function TeamDetailDialog({ 
-  open, 
-  onOpenChange, 
+export function TeamDetailDialog({
+  open,
+  onOpenChange,
   team,
   onManageTeam,
-  onAddMember
+  onAddMember,
 }: TeamDetailDialogProps) {
   const { t } = useTeamTranslation();
   const { currentLanguage } = useLanguage();
@@ -85,9 +85,7 @@ export function TeamDetailDialog({
             <Building2 className="h-5 w-5" />
             Takım Detayları
           </DialogTitle>
-          <DialogDescription>
-            {team.name} takımının detaylı bilgileri ve üyeleri
-          </DialogDescription>
+          <DialogDescription>{team.name} takımının detaylı bilgileri ve üyeleri</DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6">
@@ -130,7 +128,7 @@ export function TeamDetailDialog({
                   <span className="font-medium">Oluşturulma:</span>
                   <span className="text-muted-foreground">
                     {new Date(team.createdAt).toLocaleDateString(
-                      currentLanguage === "tr" ? "tr-TR" : "en-US"
+                      currentLanguage === "tr" ? "tr-TR" : "en-US",
                     )}
                   </span>
                 </div>
@@ -181,11 +179,7 @@ export function TeamDetailDialog({
                   <Users className="h-4 w-4" />
                   <span>Takım Üyeleri ({team.members.length})</span>
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => onAddMember?.(team.id)}
-                >
+                <Button variant="outline" size="sm" onClick={() => onAddMember?.(team.id)}>
                   <UserPlus className="mr-2 h-4 w-4" />
                   Üye Ekle
                 </Button>
@@ -194,7 +188,10 @@ export function TeamDetailDialog({
             <CardContent>
               <div className="space-y-3 max-h-60 overflow-y-auto">
                 {team.members.map((member) => (
-                  <div key={member.id} className="flex items-center justify-between p-3 rounded-lg border">
+                  <div
+                    key={member.id}
+                    className="flex items-center justify-between p-3 rounded-lg border"
+                  >
                     <div className="flex items-center space-x-3">
                       <Avatar className="h-10 w-10">
                         <AvatarImage src={member.avatar} alt={member.name} />
@@ -210,14 +207,20 @@ export function TeamDetailDialog({
                         <p className="text-sm text-muted-foreground">{member.role}</p>
                       </div>
                     </div>
-                    <Badge 
+                    <Badge
                       variant={
-                        member.status === "active" ? "default" : 
-                        member.status === "pending" ? "outline" : "secondary"
+                        member.status === "active"
+                          ? "default"
+                          : member.status === "pending"
+                            ? "outline"
+                            : "secondary"
                       }
                     >
-                      {member.status === "active" ? "Aktif" : 
-                       member.status === "pending" ? "Beklemede" : "Pasif"}
+                      {member.status === "active"
+                        ? "Aktif"
+                        : member.status === "pending"
+                          ? "Beklemede"
+                          : "Pasif"}
                     </Badge>
                   </div>
                 ))}
@@ -242,7 +245,7 @@ export function TeamDetailDialog({
                   </div>
                   <p className="text-sm text-muted-foreground">Toplam Proje</p>
                 </div>
-                
+
                 <div className="text-center p-4 rounded-lg bg-muted/50">
                   <div className="flex items-center justify-center space-x-2 mb-2">
                     <Users className="h-5 w-5 text-green-600" />
@@ -255,7 +258,7 @@ export function TeamDetailDialog({
                   <div className="flex items-center justify-center space-x-2 mb-2">
                     <User className="h-5 w-5 text-blue-600" />
                     <span className="text-2xl font-bold text-blue-600">
-                      {team.members.filter(m => m.status === "active").length}
+                      {team.members.filter((m) => m.status === "active").length}
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">Aktif Üye</p>
@@ -274,9 +277,7 @@ export function TeamDetailDialog({
             <Settings className="h-4 w-4" />
             <span>Takımı Yönet</span>
           </Button>
-          <Button onClick={() => onOpenChange(false)}>
-            Kapat
-          </Button>
+          <Button onClick={() => onOpenChange(false)}>Kapat</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
