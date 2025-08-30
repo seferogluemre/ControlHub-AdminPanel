@@ -26,7 +26,8 @@
     },
     "avgDuration": {
       "title": "Ort. Proje Süresi",
-      "subtitle": "{{months}} ay iyileşme"
+      "subtitle": "{{months}} ay iyileşme",
+      "months": "ay"
     }
   },
   "charts": {

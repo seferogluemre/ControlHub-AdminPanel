@@ -26,7 +26,8 @@
     },
     "avgDuration": {
       "title": "Avg. Project Duration",
-      "subtitle": "-{{months}} months improvement"
+      "subtitle": "-{{months}} months improvement",
+      "months": "months"
     }
   },
   "charts": {
