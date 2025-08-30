@@ -1,10 +1,4 @@
-import {
-  IconPlus,
-  IconFilter,
-  IconChecklist,
-  IconClock,
-  IconFolders,
-} from "@tabler/icons-react";
+import { IconPlus, IconFilter, IconChecklist, IconClock, IconFolders } from "@tabler/icons-react";
 import { Button } from "#/components/ui/button";
 import {
   Select,

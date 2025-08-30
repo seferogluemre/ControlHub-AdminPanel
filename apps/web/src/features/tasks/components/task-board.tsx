@@ -1,7 +1,7 @@
-import { 
-  IconCircle, 
-  IconProgress, 
-  IconEye, 
+import {
+  IconCircle,
+  IconProgress,
+  IconEye,
   IconCheck,
   IconClock,
   IconAlertTriangle,
@@ -65,13 +65,13 @@ const priorityConfig = {
 
 function TaskCard({ task, onSelect }: { task: Task; onSelect: () => void }) {
   const isOverdue = task.dueDate && new Date(task.dueDate) < new Date();
-  
+
   return (
-    <Card 
+    <Card
       className={cn(
         "cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-0.5",
         "group relative overflow-hidden",
-        isOverdue && task.status !== "completed" && "border-red-200 dark:border-red-800"
+        isOverdue && task.status !== "completed" && "border-red-200 dark:border-red-800",
       )}
       onClick={onSelect}
     >
@@ -82,21 +82,19 @@ function TaskCard({ task, onSelect }: { task: Task; onSelect: () => void }) {
             {task.title}
           </h3>
           {task.description && (
-            <p className="text-xs text-muted-foreground line-clamp-2">
-              {task.description}
-            </p>
+            <p className="text-xs text-muted-foreground line-clamp-2">{task.description}</p>
           )}
         </div>
 
         {/* Priority & Tags */}
         <div className="flex items-center gap-2 flex-wrap">
-          <Badge 
-            variant="outline" 
+          <Badge
+            variant="outline"
             className={cn("text-xs px-2 py-0.5", priorityConfig[task.priority].color)}
           >
             {task.priority}
           </Badge>
-          
+
           {task.tags?.map((tag) => (
             <Badge key={tag} variant="secondary" className="text-xs px-2 py-0.5">
               <IconTag className="h-3 w-3 mr-1" />
@@ -116,26 +114,24 @@ function TaskCard({ task, onSelect }: { task: Task; onSelect: () => void }) {
           {/* Assignee */}
           <div className="flex items-center gap-1.5">
             <IconUser className="h-3.5 w-3.5 text-muted-foreground" />
-            <span className="text-muted-foreground truncate">
-              {task.assignee || "Unassigned"}
-            </span>
+            <span className="text-muted-foreground truncate">{task.assignee || "Unassigned"}</span>
           </div>
 
           {/* Due Date */}
           {task.dueDate && (
-            <div className={cn(
-              "flex items-center gap-1.5",
-              isOverdue && task.status !== "completed" 
-                ? "text-red-600 dark:text-red-400" 
-                : "text-muted-foreground"
-            )}>
+            <div
+              className={cn(
+                "flex items-center gap-1.5",
+                isOverdue && task.status !== "completed"
+                  ? "text-red-600 dark:text-red-400"
+                  : "text-muted-foreground",
+              )}
+            >
               {isOverdue && task.status !== "completed" && (
                 <IconAlertTriangle className="h-3.5 w-3.5" />
               )}
               <IconClock className="h-3.5 w-3.5" />
-              <span className="font-medium">
-                {format(new Date(task.dueDate), "MMM dd")}
-              </span>
+              <span className="font-medium">{format(new Date(task.dueDate), "MMM dd")}</span>
             </div>
           )}
         </div>
@@ -144,20 +140,22 @@ function TaskCard({ task, onSelect }: { task: Task; onSelect: () => void }) {
   );
 }
 
-function StatusColumn({ 
-  status, 
-  tasks, 
-  onTaskSelect 
-}: { 
-  status: keyof typeof statusConfig; 
-  tasks: Task[]; 
+function StatusColumn({
+  status,
+  tasks,
+  onTaskSelect,
+}: {
+  status: keyof typeof statusConfig;
+  tasks: Task[];
   onTaskSelect: (task: Task) => void;
 }) {
   const config = statusConfig[status];
   const Icon = config.icon;
 
   return (
-    <div className={cn("flex flex-col h-full rounded-lg border", config.borderColor, config.bgColor)}>
+    <div
+      className={cn("flex flex-col h-full rounded-lg border", config.borderColor, config.bgColor)}
+    >
       {/* Column Header */}
       <div className="p-4 border-b border-border/60">
         <div className="flex items-center justify-between">
@@ -181,11 +179,7 @@ function StatusColumn({
             </div>
           ) : (
             tasks.map((task) => (
-              <TaskCard
-                key={task.id}
-                task={task}
-                onSelect={() => onTaskSelect(task)}
-              />
+              <TaskCard key={task.id} task={task} onSelect={() => onTaskSelect(task)} />
             ))
           )}
         </div>

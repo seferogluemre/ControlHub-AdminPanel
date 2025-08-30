@@ -1,4 +1,4 @@
-import { 
+import {
   IconX,
   IconCalendar,
   IconUser,
@@ -38,25 +38,26 @@ const statusConfig = {
 };
 
 const priorityConfig = {
-  low: { 
-    label: "Low Priority", 
+  low: {
+    label: "Low Priority",
     color: "text-green-600 bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800",
-    icon: "🟢"
+    icon: "🟢",
   },
-  medium: { 
-    label: "Medium Priority", 
+  medium: {
+    label: "Medium Priority",
     color: "text-blue-600 bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800",
-    icon: "🔵"
+    icon: "🔵",
   },
-  high: { 
-    label: "High Priority", 
-    color: "text-orange-600 bg-orange-50 border-orange-200 dark:bg-orange-900/20 dark:border-orange-800",
-    icon: "🟠"
+  high: {
+    label: "High Priority",
+    color:
+      "text-orange-600 bg-orange-50 border-orange-200 dark:bg-orange-900/20 dark:border-orange-800",
+    icon: "🟠",
   },
-  urgent: { 
-    label: "Urgent", 
+  urgent: {
+    label: "Urgent",
     color: "text-red-600 bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800",
-    icon: "🔴"
+    icon: "🔴",
   },
 };
 
@@ -67,11 +68,9 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Create New Task</DialogTitle>
-            <DialogDescription>
-              Add a new task to your project workflow.
-            </DialogDescription>
+            <DialogDescription>Add a new task to your project workflow.</DialogDescription>
           </DialogHeader>
-          
+
           <div className="py-8 text-center text-muted-foreground">
             <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
               <IconEdit className="h-8 w-8" />
@@ -84,7 +83,7 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
   }
 
   const isOverdue = task.dueDate && new Date(task.dueDate) < new Date();
-  const project = projects.find(p => p.id === task.projectId);
+  const project = projects.find((p) => p.id === task.projectId);
   const statusInfo = statusConfig[task.status];
   const priorityInfo = priorityConfig[task.priority];
 
@@ -94,18 +93,14 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
         <DialogHeader className="space-y-4">
           <div className="flex items-start justify-between">
             <div className="space-y-2 flex-1">
-              <DialogTitle className="text-xl leading-tight pr-8">
-                {task.title}
-              </DialogTitle>
+              <DialogTitle className="text-xl leading-tight pr-8">{task.title}</DialogTitle>
               {task.description && (
-                <DialogDescription className="text-base">
-                  {task.description}
-                </DialogDescription>
+                <DialogDescription className="text-base">{task.description}</DialogDescription>
               )}
             </div>
-            <Button 
-              variant="ghost" 
-              size="icon" 
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => onOpenChange(false)}
               className="shrink-0"
             >
@@ -115,13 +110,8 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
 
           {/* Status & Priority Badges */}
           <div className="flex items-center gap-3 flex-wrap">
-            <Badge className={cn("px-3 py-1.5", statusInfo.color)}>
-              {statusInfo.label}
-            </Badge>
-            <Badge 
-              variant="outline" 
-              className={cn("px-3 py-1.5 border", priorityInfo.color)}
-            >
+            <Badge className={cn("px-3 py-1.5", statusInfo.color)}>{statusInfo.label}</Badge>
+            <Badge variant="outline" className={cn("px-3 py-1.5 border", priorityInfo.color)}>
               <span className="mr-1">{priorityInfo.icon}</span>
               {priorityInfo.label}
             </Badge>
@@ -140,17 +130,9 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
             <div className="bg-muted/50 rounded-lg p-4 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-medium">{task.projectName}</span>
-                {project && (
-                  <Badge variant="outline">
-                    {project.progress}% complete
-                  </Badge>
-                )}
+                {project && <Badge variant="outline">{project.progress}% complete</Badge>}
               </div>
-              {project && (
-                <p className="text-sm text-muted-foreground">
-                  {project.description}
-                </p>
-              )}
+              {project && <p className="text-sm text-muted-foreground">{project.description}</p>}
             </div>
           </div>
 
@@ -163,9 +145,7 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
                 Assignee
               </h4>
               <div className="bg-muted/50 rounded-lg p-3">
-                <p className="text-sm">
-                  {task.assignee || "Unassigned"}
-                </p>
+                <p className="text-sm">{task.assignee || "Unassigned"}</p>
               </div>
             </div>
 
@@ -175,23 +155,24 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
                 <IconCalendar className="h-4 w-4 text-muted-foreground" />
                 Due Date
               </h4>
-              <div className={cn(
-                "bg-muted/50 rounded-lg p-3 flex items-center gap-2",
-                isOverdue && task.status !== "completed" && "bg-red-50 dark:bg-red-900/20"
-              )}>
+              <div
+                className={cn(
+                  "bg-muted/50 rounded-lg p-3 flex items-center gap-2",
+                  isOverdue && task.status !== "completed" && "bg-red-50 dark:bg-red-900/20",
+                )}
+              >
                 {isOverdue && task.status !== "completed" && (
                   <IconAlertTriangle className="h-4 w-4 text-red-600 dark:text-red-400" />
                 )}
-                <p className={cn(
-                  "text-sm",
-                  isOverdue && task.status !== "completed" 
-                    ? "text-red-600 dark:text-red-400 font-medium" 
-                    : ""
-                )}>
-                  {task.dueDate 
-                    ? format(new Date(task.dueDate), "PPP")
-                    : "No due date set"
-                  }
+                <p
+                  className={cn(
+                    "text-sm",
+                    isOverdue && task.status !== "completed"
+                      ? "text-red-600 dark:text-red-400 font-medium"
+                      : "",
+                  )}
+                >
+                  {task.dueDate ? format(new Date(task.dueDate), "PPP") : "No due date set"}
                   {isOverdue && task.status !== "completed" && (
                     <span className="ml-2 text-xs">(Overdue)</span>
                   )}
@@ -252,10 +233,8 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
               Delete
             </Button>
           </div>
-          
-          <div className="text-xs text-muted-foreground">
-            Task ID: {task.id}
-          </div>
+
+          <div className="text-xs text-muted-foreground">Task ID: {task.id}</div>
         </div>
       </DialogContent>
     </Dialog>

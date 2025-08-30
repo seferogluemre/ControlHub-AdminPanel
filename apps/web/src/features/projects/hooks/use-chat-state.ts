@@ -124,17 +124,18 @@ export function useProjectState() {
       createdAt: new Date(Date.now() - Math.random() * 90 * 24 * 60 * 60 * 1000),
       pinned: i < 2,
       tasks: Array.from({ length: Math.floor(Math.random() * 8) + 2 }, (_, j) => {
-        const projectName = [
-          "E-commerce Platform Redesign",
-          "Mobile App Development",
-          "Data Analytics Dashboard",
-          "API Integration Project",
-          "User Experience Optimization",
-          "Cloud Migration Initiative",
-          "Security Audit & Compliance",
-          "Marketing Website Refresh",
-        ][i] || `Project ${i + 1}`;
-        
+        const projectName =
+          [
+            "E-commerce Platform Redesign",
+            "Mobile App Development",
+            "Data Analytics Dashboard",
+            "API Integration Project",
+            "User Experience Optimization",
+            "Cloud Migration Initiative",
+            "Security Audit & Compliance",
+            "Marketing Website Refresh",
+          ][i] || `Project ${i + 1}`;
+
         const taskTitles = [
           "Design user interface mockups",
           "Implement authentication system",
@@ -147,7 +148,7 @@ export function useProjectState() {
           "Update documentation",
           "Review code quality",
         ];
-        
+
         return {
           id: `task-${i}-${j}`,
           title: taskTitles[j % taskTitles.length],
@@ -159,7 +160,9 @@ export function useProjectState() {
           projectId: `project-${i + 1}`,
           projectName,
           createdAt: new Date(Date.now() - Math.random() * 14 * 24 * 60 * 60 * 1000),
-          tags: [["frontend", "ui"], ["backend", "auth"], ["database"], ["api"], ["testing"]][j % 5],
+          tags: [["frontend", "ui"], ["backend", "auth"], ["database"], ["api"], ["testing"]][
+            j % 5
+          ],
         };
       }),
       team: Array.from({ length: Math.floor(Math.random() * 5) + 2 }, (_, k) => ({
@@ -221,17 +224,18 @@ export function useTaskState() {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [createTaskDialogOpened, setCreateTaskDialog] = useState(false);
   const [selectedProject, setSelectedProject] = useState<string | "all">("all");
-  
+
   // Get projects to extract all tasks
   const { projects } = useProjectState();
-  
+
   // Flatten all tasks from all projects
-  const allTasks = projects.flatMap(project => project.tasks || []);
-  
+  const allTasks = projects.flatMap((project) => project.tasks || []);
+
   // Filter tasks based on selected project
-  const filteredTasks = selectedProject === "all" 
-    ? allTasks 
-    : allTasks.filter(task => task.projectId === selectedProject);
+  const filteredTasks =
+    selectedProject === "all"
+      ? allTasks
+      : allTasks.filter((task) => task.projectId === selectedProject);
 
   const handleTaskSelect = (task: Task) => {
     setSelectedTask(task);
@@ -249,10 +253,10 @@ export function useTaskState() {
 
   // Group tasks by status for Kanban view
   const tasksByStatus = {
-    todo: filteredTasks.filter(task => task.status === "todo"),
-    "in-progress": filteredTasks.filter(task => task.status === "in-progress"),
-    review: filteredTasks.filter(task => task.status === "review"),
-    completed: filteredTasks.filter(task => task.status === "completed"),
+    todo: filteredTasks.filter((task) => task.status === "todo"),
+    "in-progress": filteredTasks.filter((task) => task.status === "in-progress"),
+    review: filteredTasks.filter((task) => task.status === "review"),
+    completed: filteredTasks.filter((task) => task.status === "completed"),
   };
 
   return {

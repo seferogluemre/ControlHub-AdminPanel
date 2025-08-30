@@ -32,10 +32,7 @@ export default function Tasks() {
 
         {/* Task Board */}
         <div className="flex-1 min-h-0">
-          <TaskBoard
-            tasksByStatus={tasksByStatus}
-            onTaskSelect={handleTaskSelect}
-          />
+          <TaskBoard tasksByStatus={tasksByStatus} onTaskSelect={handleTaskSelect} />
         </div>
       </div>
 
