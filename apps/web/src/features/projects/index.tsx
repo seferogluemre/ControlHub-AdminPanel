@@ -18,7 +18,7 @@ import { useProjectsTranslation } from "#/lib/i18n/hooks";
 
 export default function Projects() {
   const { t } = useProjectsTranslation();
-  
+
   const {
     projects: projectList,
     selectedProject,
@@ -67,7 +67,12 @@ export default function Projects() {
                 {/* Display Options Dropdown */}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button size="icon" variant="ghost" className="h-7 w-7" title={t("sections.projectInfo")}>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      className="h-7 w-7"
+                      title={t("sections.projectInfo")}
+                    >
                       <IconDotsVertical className="h-3.5 w-3.5 text-muted-foreground" />
                     </Button>
                   </DropdownMenuTrigger>

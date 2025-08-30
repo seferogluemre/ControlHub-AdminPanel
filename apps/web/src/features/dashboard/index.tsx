@@ -9,7 +9,7 @@ import { useDashboardTranslation } from "#/lib/i18n/hooks";
 
 export default function Dashboard() {
   const { t } = useDashboardTranslation();
-  
+
   return (
     <>
       {/* ===== Main ===== */}
@@ -37,42 +37,58 @@ export default function Dashboard() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">{t("metrics.activeProjects.title")}</CardTitle>
+                  <CardTitle className="text-sm font-medium">
+                    {t("metrics.activeProjects.title")}
+                  </CardTitle>
                   <FolderOpen className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">24</div>
-                  <p className="text-muted-foreground text-xs">{t("metrics.activeProjects.subtitle", { count: 3 })}</p>
+                  <p className="text-muted-foreground text-xs">
+                    {t("metrics.activeProjects.subtitle", { count: 3 })}
+                  </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">{t("metrics.teamMembers.title")}</CardTitle>
+                  <CardTitle className="text-sm font-medium">
+                    {t("metrics.teamMembers.title")}
+                  </CardTitle>
                   <Users className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">157</div>
-                  <p className="text-muted-foreground text-xs">{t("metrics.teamMembers.subtitle", { count: 12 })}</p>
+                  <p className="text-muted-foreground text-xs">
+                    {t("metrics.teamMembers.subtitle", { count: 12 })}
+                  </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">{t("metrics.tasksCompleted.title")}</CardTitle>
+                  <CardTitle className="text-sm font-medium">
+                    {t("metrics.tasksCompleted.title")}
+                  </CardTitle>
                   <CheckCircle className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">1,247</div>
-                  <p className="text-muted-foreground text-xs">{t("metrics.tasksCompleted.subtitle", { count: 89 })}</p>
+                  <p className="text-muted-foreground text-xs">
+                    {t("metrics.tasksCompleted.subtitle", { count: 89 })}
+                  </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">{t("metrics.onSchedule.title")}</CardTitle>
+                  <CardTitle className="text-sm font-medium">
+                    {t("metrics.onSchedule.title")}
+                  </CardTitle>
                   <TrendingUp className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">89%</div>
-                  <p className="text-muted-foreground text-xs">{t("metrics.onSchedule.subtitle", { percent: 5 })}</p>
+                  <p className="text-muted-foreground text-xs">
+                    {t("metrics.onSchedule.subtitle", { percent: 5 })}
+                  </p>
                 </CardContent>
               </Card>
             </div>

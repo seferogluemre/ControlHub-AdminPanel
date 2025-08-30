@@ -114,7 +114,9 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
 
           {/* Status & Priority Badges */}
           <div className="flex items-center gap-3 flex-wrap">
-            <Badge className={cn("px-3 py-1.5", statusInfo.color)}>{t(`board.${task.status}.label`)}</Badge>
+            <Badge className={cn("px-3 py-1.5", statusInfo.color)}>
+              {t(`board.${task.status}.label`)}
+            </Badge>
             <Badge variant="outline" className={cn("px-3 py-1.5 border", priorityInfo.color)}>
               <span className="mr-1">{priorityInfo.icon}</span>
               {t(`priority.${task.priority}`)}
@@ -134,7 +136,11 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
             <div className="bg-muted/50 rounded-lg p-4 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-medium">{task.projectName}</span>
-                {project && <Badge variant="outline">{project.progress}% {t("dialog.complete")}</Badge>}
+                {project && (
+                  <Badge variant="outline">
+                    {project.progress}% {t("dialog.complete")}
+                  </Badge>
+                )}
               </div>
               {project && <p className="text-sm text-muted-foreground">{project.description}</p>}
             </div>
@@ -238,7 +244,9 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
             </Button>
           </div>
 
-          <div className="text-xs text-muted-foreground">{t("dialog.taskId")} {task.id}</div>
+          <div className="text-xs text-muted-foreground">
+            {t("dialog.taskId")} {task.id}
+          </div>
         </div>
       </DialogContent>
     </Dialog>

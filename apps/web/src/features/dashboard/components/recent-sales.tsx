@@ -27,7 +27,9 @@ export function RecentProjects() {
             <p className="text-sm leading-none font-medium">{t("projects.dataAnalytics")}</p>
             <p className="text-muted-foreground text-sm">{t("projects.dataAnalyticsDesc")}</p>
           </div>
-          <Badge className="bg-green-100 text-green-800 hover:bg-green-100">{t("projectStatus.completed")}</Badge>
+          <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
+            {t("projectStatus.completed")}
+          </Badge>
         </div>
       </div>
       <div className="flex items-center gap-4">
