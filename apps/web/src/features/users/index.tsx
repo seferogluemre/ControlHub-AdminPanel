@@ -6,8 +6,10 @@ import { UsersTable } from "./components/users-table";
 import UsersProvider from "./context/users-context";
 import { userListSchema } from "./data/schema";
 import { users } from "./data/users";
+import { useTeamTranslation } from "#/lib/i18n/hooks";
 
 export default function TeamMembers() {
+  const { t } = useTeamTranslation();
   const teamMemberList = userListSchema.parse(users);
 
   return (
@@ -15,10 +17,8 @@ export default function TeamMembers() {
       <Main>
         <div className="mb-2 flex flex-wrap items-center justify-between space-y-2">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight">Team Members</h2>
-            <p className="text-muted-foreground">
-              Manage your team members, roles, and project assignments.
-            </p>
+            <h2 className="text-2xl font-bold tracking-tight">{t("title")}</h2>
+            <p className="text-muted-foreground">{t("subtitle")}</p>
           </div>
           <UsersPrimaryButtons />
         </div>

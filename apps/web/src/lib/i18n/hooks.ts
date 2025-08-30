@@ -54,6 +54,10 @@ export function useAnalyticsTranslation() {
   return useNamespaceTranslation("ANALYTICS");
 }
 
+export function useTeamTranslation() {
+  return useNamespaceTranslation("TEAM");
+}
+
 export function useFormattedTranslation() {
   const { t } = useTranslation();
 

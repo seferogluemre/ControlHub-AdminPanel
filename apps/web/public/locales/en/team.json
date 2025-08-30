@@ -1,0 +1,101 @@
+{
+  "title": "Team Members",
+  "subtitle": "Manage your team members, roles, and project assignments.",
+  "buttons": {
+    "export": "Export",
+    "import": "Import Team Members", 
+    "newMember": "New Member",
+    "editMember": "Edit Member",
+    "deleteMember": "Delete Member",
+    "viewProfile": "View Profile",
+    "createTeam": "Create Team",
+    "addMember": "Add Member",
+    "clearFilters": "Clear Filters"
+  },
+  "filters": {
+    "searchPlaceholder": "Search team members...",
+    "statusFilter": "Filter by status",
+    "roleFilter": "Filter by role",
+    "departmentFilter": "Filter by department"
+  },
+  "table": {
+    "columns": {
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "department": "Department",
+      "status": "Status",
+      "joinDate": "Join Date",
+      "lastActive": "Last Active",
+      "projects": "Projects",
+      "actions": "Actions"
+    }
+  },
+  "roles": {
+    "projectManager": "Project Manager",
+    "developer": "Developer",
+    "designer": "Designer",
+    "qaEngineer": "QA Engineer",
+    "devops": "DevOps",
+    "productOwner": "Product Owner"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "invited": "Invited",
+    "onLeave": "On Leave"
+  },
+  "departments": {
+    "engineering": "Engineering",
+    "design": "Design",
+    "product": "Product",
+    "marketing": "Marketing",
+    "sales": "Sales",
+    "hr": "Human Resources"
+  },
+  "dialog": {
+    "createTitle": "Add New Team Member",
+    "editTitle": "Edit Team Member",
+    "deleteTitle": "Delete Team Member",
+    "deleteMessage": "Are you sure you want to delete this team member? This action cannot be undone.",
+    "inviteTitle": "Invite Team Member",
+    "inviteMessage": "Invite a new team member to the project."
+  },
+  "form": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "role": "Role",
+    "department": "Department",
+    "status": "Status",
+    "permissions": "Permissions",
+    "projects": "Assigned Projects"
+  },
+  "stats": {
+    "totalMembers": "Total Members",
+    "activeMembers": "Active Members",
+    "newThisMonth": "New This Month",
+    "onLeave": "On Leave"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "members": "Members",
+    "teams": "Teams"
+  },
+  "sections": {
+    "recentMembers": "Recent Members",
+    "recentMembersDesc": "Recently joined team members",
+    "activeTeams": "Active Teams",
+    "activeTeamsDesc": "Currently active teams"
+  },
+  "labels": {
+    "members": "members",
+    "projects": "projects"
+  },
+  "emptyStates": {
+    "noMembers": "No members found",
+    "noMembersDesc": "No members match your search criteria",
+    "noTeams": "No teams found",
+    "noTeamsDesc": "No teams match your search criteria"
+  }
+}

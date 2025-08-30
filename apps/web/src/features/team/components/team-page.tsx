@@ -12,8 +12,11 @@ import { TeamFiltersComponent } from "./team-filters";
 
 import { mockTeamMembers, mockTeams, mockTeamStats } from "../data/team-data";
 import { TeamFilters, TeamView, TeamMember, Team } from "../types/team";
+import { useTeamTranslation } from "#/lib/i18n/hooks";
 
 export function TeamPage() {
+  const { t } = useTeamTranslation();
+  
   const [filters, setFilters] = useState<TeamFilters>({
     search: "",
     department: "Tümü",
@@ -23,6 +26,8 @@ export function TeamPage() {
 
   const [view, setView] = useState<TeamView>("grid");
   const [activeTab, setActiveTab] = useState("overview");
+  const [createTeamOpen, setCreateTeamOpen] = useState(false);
+  const [addMemberOpen, setAddMemberOpen] = useState(false);
 
   // Filter members based on current filters
   const filteredMembers = useMemo(() => {
@@ -165,19 +170,19 @@ export function TeamPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Takım Yönetimi</h1>
+            <h1 className="text-3xl font-bold tracking-tight">{t("title")}</h1>
             <p className="text-muted-foreground">
-              Takımlarınızı ve üyelerinizi yönetin, performanslarını takip edin
+              {t("subtitle")}
             </p>
           </div>
           <div className="flex space-x-2">
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => setCreateTeamOpen(true)}>
               <Building2 className="mr-2 h-4 w-4" />
-              Takım Oluştur
+              {t("buttons.createTeam")}
             </Button>
-            <Button>
+            <Button onClick={() => setAddMemberOpen(true)}>
               <Plus className="mr-2 h-4 w-4" />
-              Üye Ekle
+              {t("buttons.addMember")}
             </Button>
           </div>
         </div>
@@ -188,14 +193,14 @@ export function TeamPage() {
         {/* Main Content */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList>
-            <TabsTrigger value="overview">Genel Bakış</TabsTrigger>
+            <TabsTrigger value="overview">{t("tabs.overview")}</TabsTrigger>
             <TabsTrigger value="members">
               <UsersIcon className="mr-2 h-4 w-4" />
-              Üyeler ({filteredMembers.length})
+              {t("tabs.members")} ({filteredMembers.length})
             </TabsTrigger>
             <TabsTrigger value="teams">
               <Building2 className="mr-2 h-4 w-4" />
-              Takımlar ({filteredTeams.length})
+              {t("tabs.teams")} ({filteredTeams.length})
             </TabsTrigger>
           </TabsList>
 
@@ -204,8 +209,8 @@ export function TeamPage() {
               {/* Recent Members */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Son Eklenen Üyeler</CardTitle>
-                  <CardDescription>Takıma son katılan üyeler</CardDescription>
+                  <CardTitle>{t("sections.recentMembers")}</CardTitle>
+                  <CardDescription>{t("sections.recentMembersDesc")}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -233,8 +238,8 @@ export function TeamPage() {
               {/* Active Teams */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Aktif Takımlar</CardTitle>
-                  <CardDescription>Şu anda aktif olan takımlar</CardDescription>
+                  <CardTitle>{t("sections.activeTeams")}</CardTitle>
+                  <CardDescription>{t("sections.activeTeamsDesc")}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -252,11 +257,11 @@ export function TeamPage() {
                           <div className="flex-1">
                             <p className="text-sm font-medium">{team.name}</p>
                             <p className="text-xs text-muted-foreground">
-                              {team.members.length} üye
+                              {team.members.length} {t("labels.members")}
                             </p>
                           </div>
                           <div className="text-xs text-muted-foreground">
-                            {team.projectsCount} proje
+                            {team.projectsCount} {t("labels.projects")}
                           </div>
                         </div>
                       ))}
@@ -279,12 +284,12 @@ export function TeamPage() {
               <Card>
                 <CardContent className="text-center py-8">
                   <UsersIcon className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Üye bulunamadı</h3>
+                  <h3 className="text-lg font-semibold mb-2">{t("emptyStates.noMembers")}</h3>
                   <p className="text-muted-foreground mb-4">
-                    Arama kriterlerinize uygun üye bulunamadı
+                    {t("emptyStates.noMembersDesc")}
                   </p>
                   <Button variant="outline" onClick={clearFilters}>
-                    Filtreleri Temizle
+                    {t("buttons.clearFilters")}
                   </Button>
                 </CardContent>
               </Card>
@@ -306,12 +311,12 @@ export function TeamPage() {
               <Card>
                 <CardContent className="text-center py-8">
                   <Building2 className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Takım bulunamadı</h3>
+                  <h3 className="text-lg font-semibold mb-2">{t("emptyStates.noTeams")}</h3>
                   <p className="text-muted-foreground mb-4">
-                    Arama kriterlerinize uygun takım bulunamadı
+                    {t("emptyStates.noTeamsDesc")}
                   </p>
                   <Button variant="outline" onClick={clearFilters}>
-                    Filtreleri Temizle
+                    {t("buttons.clearFilters")}
                   </Button>
                 </CardContent>
               </Card>

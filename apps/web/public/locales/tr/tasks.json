@@ -45,9 +45,9 @@
     "complete": "tamamlandı"
   },
   "priority": {
-    "low": "Düşük Öncelik",
-    "medium": "Orta Öncelik",
-    "high": "Yüksek Öncelik",
+    "low": "Düşük",
+    "medium": "Orta",
+    "high": "Yüksek",
     "urgent": "Acil"
   },
   "form": {

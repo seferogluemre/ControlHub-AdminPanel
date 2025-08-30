@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "#/components/ui/dropdown-menu";
 import { Team } from "../types/team";
+import { useTeamTranslation, useLanguage } from "#/lib/i18n/hooks";
 
 interface TeamCardProps {
   team: Team;
@@ -19,6 +20,8 @@ interface TeamCardProps {
 }
 
 export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCardProps) {
+  const { t } = useTeamTranslation();
+  const { currentLanguage } = useLanguage();
   const getStatusBadgeVariant = (status: Team["status"]) => {
     switch (status) {
       case "active":
@@ -33,11 +36,11 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
   const getStatusText = (status: Team["status"]) => {
     switch (status) {
       case "active":
-        return "Aktif";
+        return t("member.status.active");
       case "inactive":
-        return "Pasif";
+        return t("member.status.inactive");
       default:
-        return "Bilinmiyor";
+        return t("member.status.unknown");
     }
   };
 
@@ -80,15 +83,15 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => onViewTeam?.(team.id)}>
                 <Eye className="mr-2 h-4 w-4" />
-                Takımı Görüntüle
+                {t("team.actions.viewTeam")}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => onManageTeam?.(team.id)}>
                 <Settings className="mr-2 h-4 w-4" />
-                Takımı Yönet
+                {t("team.actions.manageTeam")}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => onAddMember?.(team.id)}>
                 <UserPlus className="mr-2 h-4 w-4" />
-                Üye Ekle
+                {t("team.actions.addMember")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -99,9 +102,9 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
         {/* Status */}
         <div className="flex items-center justify-between">
           <Badge variant={getStatusBadgeVariant(team.status)}>{getStatusText(team.status)}</Badge>
-          <span className="text-sm text-muted-foreground">
-            {new Date(team.createdAt).toLocaleDateString("tr-TR")}
-          </span>
+                      <span className="text-sm text-muted-foreground">
+              {new Date(team.createdAt).toLocaleDateString(currentLanguage === "tr" ? "tr-TR" : "en-US")}
+            </span>
         </div>
 
         {/* Description */}
@@ -115,7 +118,7 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
               <AvatarFallback className="text-xs">{getInitials(leader.name)}</AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-sm font-medium">Takım Lideri</p>
+              <p className="text-sm font-medium">{t("team.fields.teamLeader")}</p>
               <p className="text-xs text-muted-foreground">{leader.name}</p>
             </div>
           </div>
@@ -123,7 +126,7 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
 
         {/* Team Members Preview */}
         <div>
-          <p className="text-sm font-medium mb-2">Takım Üyeleri</p>
+          <p className="text-sm font-medium mb-2">{t("team.fields.teamMembers")}</p>
           <div className="flex items-center space-x-2">
             <div className="flex -space-x-2">
               {team.members.slice(0, 4).map((member) => (
@@ -138,7 +141,7 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
                 </div>
               )}
             </div>
-            <span className="text-sm text-muted-foreground">{team.members.length} üye</span>
+            <span className="text-sm text-muted-foreground">{team.members.length} {t("team.fields.members")}</span>
           </div>
         </div>
 
@@ -162,15 +165,15 @@ export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCa
 
         {/* Actions */}
         <div className="flex space-x-2 pt-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="flex-1"
-            onClick={() => onViewTeam?.(team.id)}
-          >
-            <Eye className="mr-2 h-4 w-4" />
-            Görüntüle
-          </Button>
+                      <Button
+              variant="outline"
+              size="sm"
+              className="flex-1"
+              onClick={() => onViewTeam?.(team.id)}
+            >
+              <Eye className="mr-2 h-4 w-4" />
+              {t("buttons.view")}
+            </Button>
           <Button variant="outline" size="sm" onClick={() => onAddMember?.(team.id)}>
             <UserPlus className="h-4 w-4" />
           </Button>

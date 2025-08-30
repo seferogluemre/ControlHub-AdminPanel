@@ -12,6 +12,7 @@ import {
 import { TeamMember } from "../types/team";
 import { formatDistanceToNow } from "date-fns";
 import { tr } from "date-fns/locale";
+import { useTeamTranslation, useLanguage } from "#/lib/i18n/hooks";
 
 interface TeamMemberCardProps {
   member: TeamMember;
@@ -26,6 +27,8 @@ export function TeamMemberCard({
   onSendMessage,
   onRemoveFromTeam,
 }: TeamMemberCardProps) {
+  const { t } = useTeamTranslation();
+  const { currentLanguage } = useLanguage();
   const getStatusBadgeVariant = (status: TeamMember["status"]) => {
     switch (status) {
       case "active":
@@ -42,13 +45,13 @@ export function TeamMemberCard({
   const getStatusText = (status: TeamMember["status"]) => {
     switch (status) {
       case "active":
-        return "Aktif";
+        return t("member.status.active");
       case "inactive":
-        return "Pasif";
+        return t("member.status.inactive");
       case "pending":
-        return "Beklemede";
+        return t("member.status.pending");
       default:
-        return "Bilinmiyor";
+        return t("member.status.unknown");
     }
   };
 
@@ -89,17 +92,17 @@ export function TeamMemberCard({
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => onViewProfile?.(member.id)}>
                 <User className="mr-2 h-4 w-4" />
-                Profili Görüntüle
+                {t("member.actions.viewProfile")}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => onSendMessage?.(member.id)}>
                 <MessageCircle className="mr-2 h-4 w-4" />
-                Mesaj Gönder
+                {t("member.actions.sendMessage")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => onRemoveFromTeam?.(member.id)}
                 className="text-destructive"
               >
-                Takımdan Çıkar
+                {t("member.actions.removeFromTeam")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -122,30 +125,30 @@ export function TeamMemberCard({
             <span className="text-muted-foreground truncate">{member.email}</span>
           </div>
 
-          <div className="flex items-center space-x-2 text-sm">
-            <Calendar className="h-4 w-4 text-muted-foreground" />
-            <span className="text-muted-foreground">
-              Katılım: {new Date(member.joinDate).toLocaleDateString("tr-TR")}
-            </span>
-          </div>
+                      <div className="flex items-center space-x-2 text-sm">
+              <Calendar className="h-4 w-4 text-muted-foreground" />
+              <span className="text-muted-foreground">
+                {t("member.fields.joinDate")}: {new Date(member.joinDate).toLocaleDateString(currentLanguage === "tr" ? "tr-TR" : "en-US")}
+              </span>
+            </div>
 
           {member.lastActivity && (
             <div className="flex items-center space-x-2 text-sm">
               <Activity className="h-4 w-4 text-muted-foreground" />
-              <span className="text-muted-foreground">
-                Son aktivite:{" "}
-                {formatDistanceToNow(new Date(member.lastActivity), {
-                  addSuffix: true,
-                  locale: tr,
-                })}
-              </span>
+                              <span className="text-muted-foreground">
+                  {t("member.fields.lastActivity")}:{" "}
+                  {formatDistanceToNow(new Date(member.lastActivity), {
+                    addSuffix: true,
+                    locale: currentLanguage === "tr" ? tr : undefined,
+                  })}
+                </span>
             </div>
           )}
         </div>
 
         {/* Skills */}
         <div>
-          <p className="text-sm font-medium mb-2">Yetenekler</p>
+          <p className="text-sm font-medium mb-2">{t("member.fields.skills")}</p>
           <div className="flex flex-wrap gap-1">
             {member.skills.slice(0, 3).map((skill) => (
               <Badge key={skill} variant="secondary" className="text-xs">
@@ -164,11 +167,11 @@ export function TeamMemberCard({
         <div className="grid grid-cols-2 gap-4 pt-2 border-t">
           <div className="text-center">
             <p className="text-lg font-semibold">{member.projectsCount}</p>
-            <p className="text-xs text-muted-foreground">Proje</p>
+            <p className="text-xs text-muted-foreground">{t("member.fields.projects")}</p>
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold">{member.tasksCompleted}</p>
-            <p className="text-xs text-muted-foreground">Tamamlanan Görev</p>
+            <p className="text-xs text-muted-foreground">{t("member.fields.completedTasks")}</p>
           </div>
         </div>
       </CardContent>

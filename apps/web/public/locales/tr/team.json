@@ -1,0 +1,101 @@
+{
+  "title": "Ekip Üyeleri",
+  "subtitle": "Ekip üyelerinizi, rollerini ve proje atamalarını yönetin.",
+  "buttons": {
+    "export": "Dışa Aktar",
+    "import": "Ekip Üyesi İçe Aktar", 
+    "newMember": "Yeni Üye",
+    "editMember": "Üyeyi Düzenle",
+    "deleteMember": "Üyeyi Sil",
+    "viewProfile": "Profili Görüntüle",
+    "createTeam": "Takım Oluştur",
+    "addMember": "Üye Ekle",
+    "clearFilters": "Filtreleri Temizle"
+  },
+  "filters": {
+    "searchPlaceholder": "Ekip üyelerini ara...",
+    "statusFilter": "Duruma göre filtrele",
+    "roleFilter": "Role göre filtrele",
+    "departmentFilter": "Departmana göre filtrele"
+  },
+  "table": {
+    "columns": {
+      "name": "Ad",
+      "email": "E-posta",
+      "role": "Rol",
+      "department": "Departman",
+      "status": "Durum",
+      "joinDate": "Katılma Tarihi",
+      "lastActive": "Son Aktiflik",
+      "projects": "Projeler",
+      "actions": "İşlemler"
+    }
+  },
+  "roles": {
+    "projectManager": "Proje Yöneticisi",
+    "developer": "Geliştirici",
+    "designer": "Tasarımcı",
+    "qaEngineer": "QA Mühendisi",
+    "devops": "DevOps",
+    "productOwner": "Ürün Sahibi"
+  },
+  "status": {
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "invited": "Davet Edildi",
+    "onLeave": "İzinli"
+  },
+  "departments": {
+    "engineering": "Mühendislik",
+    "design": "Tasarım",
+    "product": "Ürün",
+    "marketing": "Pazarlama",
+    "sales": "Satış",
+    "hr": "İnsan Kaynakları"
+  },
+  "dialog": {
+    "createTitle": "Yeni Ekip Üyesi Ekle",
+    "editTitle": "Ekip Üyesini Düzenle",
+    "deleteTitle": "Ekip Üyesini Sil",
+    "deleteMessage": "Bu ekip üyesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+    "inviteTitle": "Ekip Üyesi Davet Et",
+    "inviteMessage": "Yeni bir ekip üyesini projeye davet edin."
+  },
+  "form": {
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "email": "E-posta Adresi",
+    "role": "Rol",
+    "department": "Departman",
+    "status": "Durum",
+    "permissions": "İzinler",
+    "projects": "Atanan Projeler"
+  },
+  "stats": {
+    "totalMembers": "Toplam Üye",
+    "activeMembers": "Aktif Üye",
+    "newThisMonth": "Bu Ay Yeni",
+    "onLeave": "İzinli"
+  },
+  "tabs": {
+    "overview": "Genel Bakış",
+    "members": "Üyeler",
+    "teams": "Takımlar"
+  },
+  "sections": {
+    "recentMembers": "Son Eklenen Üyeler",
+    "recentMembersDesc": "Takıma son katılan üyeler",
+    "activeTeams": "Aktif Takımlar",
+    "activeTeamsDesc": "Şu anda aktif olan takımlar"
+  },
+  "labels": {
+    "members": "üye",
+    "projects": "proje"
+  },
+  "emptyStates": {
+    "noMembers": "Üye bulunamadı",
+    "noMembersDesc": "Arama kriterlerinize uygun üye bulunamadı",
+    "noTeams": "Takım bulunamadı",
+    "noTeamsDesc": "Arama kriterlerinize uygun takım bulunamadı"
+  }
+}

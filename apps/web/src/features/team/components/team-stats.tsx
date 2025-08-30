@@ -2,53 +2,55 @@ import { Card, CardContent, CardHeader, CardTitle } from "#/components/ui/card";
 import { Users, UserCheck, FolderOpen, CheckCircle, Activity, TrendingUp } from "lucide-react";
 import { TeamStats as TeamStatsType } from "../types/team";
 import { Badge } from "#/components/ui/badge";
+import { useTeamTranslation } from "#/lib/i18n/hooks";
 
 interface TeamStatsProps {
   stats: TeamStatsType;
 }
 
 export function TeamStats({ stats }: TeamStatsProps) {
+  const { t } = useTeamTranslation();
   const statCards = [
     {
-      title: "Toplam Üye",
+      title: t("stats.totalMembers.title"),
       value: stats.totalMembers,
       icon: Users,
-      description: "Tüm takım üyeleri",
+      description: t("stats.totalMembers.description"),
       color: "text-blue-600",
     },
     {
-      title: "Aktif Üye",
+      title: t("stats.activeMembers.title"),
       value: stats.activeMembers,
       icon: UserCheck,
-      description: "Şu anda aktif olan üyeler",
+      description: t("stats.activeMembers.description"),
       color: "text-green-600",
     },
     {
-      title: "Toplam Takım",
+      title: t("stats.totalTeams.title"),
       value: stats.totalTeams,
       icon: FolderOpen,
-      description: "Oluşturulmuş takım sayısı",
+      description: t("stats.totalTeams.description"),
       color: "text-purple-600",
     },
     {
-      title: "Tamamlanan Proje",
+      title: t("stats.completedProjects.title"),
       value: stats.completedProjects,
       icon: CheckCircle,
-      description: "Başarıyla tamamlanan projeler",
+      description: t("stats.completedProjects.description"),
       color: "text-emerald-600",
     },
     {
-      title: "Aktif Görev",
+      title: t("stats.activeTasks.title"),
       value: stats.activeTasks,
       icon: Activity,
-      description: "Devam eden görevler",
+      description: t("stats.activeTasks.description"),
       color: "text-orange-600",
     },
     {
-      title: "Verimlilik Ortalaması",
+      title: t("stats.averageProductivity.title"),
       value: `${stats.averageProductivity}%`,
       icon: TrendingUp,
-      description: "Takım performans ortalaması",
+      description: t("stats.averageProductivity.description"),
       color: "text-indigo-600",
     },
   ];
@@ -70,13 +72,13 @@ export function TeamStats({ stats }: TeamStatsProps) {
               <p className="text-xs text-muted-foreground mt-1">{stat.description}</p>
 
               {/* Additional badges for certain stats */}
-              {stat.title === "Aktif Üye" && (
+              {stat.title === t("stats.activeMembers.title") && (
                 <Badge variant="outline" className="mt-2">
                   {Math.round((stats.activeMembers / stats.totalMembers) * 100)}% aktif
                 </Badge>
               )}
 
-              {stat.title === "Verimlilik Ortalaması" && stats.averageProductivity >= 80 && (
+              {stat.title === t("stats.averageProductivity.title") && stats.averageProductivity >= 80 && (
                 <Badge variant="default" className="mt-2 bg-green-600">
                   Yüksek Performans
                 </Badge>

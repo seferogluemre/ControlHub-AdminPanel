@@ -45,9 +45,9 @@
     "complete": "complete"
   },
   "priority": {
-    "low": "Low Priority",
-    "medium": "Medium Priority",
-    "high": "High Priority",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
     "urgent": "Urgent"
   },
   "form": {
