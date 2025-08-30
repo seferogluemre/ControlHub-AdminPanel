@@ -74,14 +74,14 @@ export function TeamStats({ stats }: TeamStatsProps) {
               {/* Additional badges for certain stats */}
               {stat.title === t("stats.activeMembers.title") && (
                 <Badge variant="outline" className="mt-2">
-                  {Math.round((stats.activeMembers / stats.totalMembers) * 100)}% aktif
+                  {Math.round((stats.activeMembers / stats.totalMembers) * 100)}% {t("stats.activeLabel")}
                 </Badge>
               )}
 
               {stat.title === t("stats.averageProductivity.title") &&
                 stats.averageProductivity >= 80 && (
                   <Badge variant="default" className="mt-2 bg-green-600">
-                    Yüksek Performans
+                    {t("stats.highPerformance")}
                   </Badge>
                 )}
             </CardContent>

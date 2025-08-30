@@ -72,10 +72,32 @@
     "projects": "Assigned Projects"
   },
   "stats": {
-    "totalMembers": "Total Members",
-    "activeMembers": "Active Members",
-    "newThisMonth": "New This Month",
-    "onLeave": "On Leave"
+    "totalMembers": {
+      "title": "Total Members",
+      "description": "Total number of team members"
+    },
+    "activeMembers": {
+      "title": "Active Members",
+      "description": "Currently active members"
+    },
+    "totalTeams": {
+      "title": "Total Teams",
+      "description": "Number of teams in organization"
+    },
+    "completedProjects": {
+      "title": "Completed Projects",
+      "description": "Projects completed this month"
+    },
+    "activeTasks": {
+      "title": "Active Tasks",
+      "description": "Number of ongoing tasks"
+    },
+    "averageProductivity": {
+      "title": "Average Productivity",
+      "description": "Team productivity average"
+    },
+    "activeLabel": "active",
+    "highPerformance": "High Performance"
   },
   "tabs": {
     "overview": "Overview",
@@ -97,5 +119,26 @@
     "noMembersDesc": "No members match your search criteria",
     "noTeams": "No teams found",
     "noTeamsDesc": "No teams match your search criteria"
+  },
+  "member": {
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "pending": "Pending",
+      "unknown": "Unknown"
+    },
+    "actions": {
+      "viewProfile": "View Profile",
+      "sendMessage": "Send Message",
+      "removeFromTeam": "Remove from Team"
+    },
+    "fields": {
+      "joinDate": "Join Date",
+      "lastActivity": "Last Activity",
+      "skills": "Skills",
+      "projects": "Projects",
+      "completedTasks": "Completed",
+      "more": "more"
+    }
   }
 }

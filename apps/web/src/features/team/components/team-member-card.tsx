@@ -160,7 +160,7 @@ export function TeamMemberCard({
             ))}
             {member.skills.length > 3 && (
               <Badge variant="outline" className="text-xs">
-                +{member.skills.length - 3} daha
+                +{member.skills.length - 3} {t("member.fields.more")}
               </Badge>
             )}
           </div>

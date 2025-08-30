@@ -72,10 +72,32 @@
     "projects": "Atanan Projeler"
   },
   "stats": {
-    "totalMembers": "Toplam Üye",
-    "activeMembers": "Aktif Üye",
-    "newThisMonth": "Bu Ay Yeni",
-    "onLeave": "İzinli"
+    "totalMembers": {
+      "title": "Toplam Üye",
+      "description": "Ekipteki toplam üye sayısı"
+    },
+    "activeMembers": {
+      "title": "Aktif Üyeler",
+      "description": "Şu anda aktif olan üyeler"
+    },
+    "totalTeams": {
+      "title": "Toplam Takım",
+      "description": "Organizasyondaki takım sayısı"
+    },
+    "completedProjects": {
+      "title": "Tamamlanan Projeler",
+      "description": "Bu ay tamamlanan projeler"
+    },
+    "activeTasks": {
+      "title": "Aktif Görevler",
+      "description": "Devam eden görev sayısı"
+    },
+    "averageProductivity": {
+      "title": "Ortalama Verimlilik",
+      "description": "Takım verimlilik ortalaması"
+    },
+    "activeLabel": "aktif",
+    "highPerformance": "Yüksek Performans"
   },
   "tabs": {
     "overview": "Genel Bakış",
@@ -97,5 +119,26 @@
     "noMembersDesc": "Arama kriterlerinize uygun üye bulunamadı",
     "noTeams": "Takım bulunamadı",
     "noTeamsDesc": "Arama kriterlerinize uygun takım bulunamadı"
+  },
+  "member": {
+    "status": {
+      "active": "Aktif",
+      "inactive": "Pasif",
+      "pending": "Beklemede",
+      "unknown": "Bilinmiyor"
+    },
+    "actions": {
+      "viewProfile": "Profili Görüntüle",
+      "sendMessage": "Mesaj Gönder",
+      "removeFromTeam": "Takımdan Çıkar"
+    },
+    "fields": {
+      "joinDate": "Katılma Tarihi",
+      "lastActivity": "Son Aktivite",
+      "skills": "Yetenekler",
+      "projects": "Projeler",
+      "completedTasks": "Tamamlanan",
+      "more": "daha"
+    }
   }
 }

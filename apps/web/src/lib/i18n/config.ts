@@ -53,10 +53,8 @@ i18n
 
     debug: process.env.NODE_ENV === "development",
 
-    // Desteklenen diller
     supportedLngs: Object.keys(SUPPORTED_LANGUAGES),
 
-    // Namespace ayarları
     defaultNS: NAMESPACES.COMMON,
     ns: Object.values(NAMESPACES),
 
