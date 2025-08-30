@@ -4,11 +4,17 @@ import { Button } from "#/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "#/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "#/components/ui/card";
 import { Plus, Users as UsersIcon, Building2 } from "lucide-react";
+import { ConfirmDialog } from "#/components/confirm-dialog";
 
 import { TeamMemberCard } from "./team-member-card";
 import { TeamCard } from "./team-card";
 import { TeamStats } from "./team-stats";
 import { TeamFiltersComponent } from "./team-filters";
+import { CreateTeamDialog } from "./dialogs/create-team-dialog";
+import { AddMemberDialog } from "./dialogs/add-member-dialog";
+import { MemberProfileDialog } from "./dialogs/member-profile-dialog";
+import { TeamDetailDialog } from "./dialogs/team-detail-dialog";
+import { TeamManagementDialog } from "./dialogs/team-management-dialog";
 
 import { mockTeamMembers, mockTeams, mockTeamStats } from "../data/team-data";
 import { TeamFilters, TeamView, TeamMember, Team } from "../types/team";
@@ -28,11 +34,23 @@ export function TeamPage() {
   const [activeTab, setActiveTab] = useState("overview");
   const [createTeamOpen, setCreateTeamOpen] = useState(false);
   const [addMemberOpen, setAddMemberOpen] = useState(false);
+  
+  const [teams, setTeams] = useState<Team[]>(mockTeams);
+  const [members, setMembers] = useState<TeamMember[]>(mockTeamMembers);
+  
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [memberProfileOpen, setMemberProfileOpen] = useState(false);
+  
+  const [memberToRemove, setMemberToRemove] = useState<TeamMember | null>(null);
+  const [removeConfirmOpen, setRemoveConfirmOpen] = useState(false);
+  
+  // Team action states
+  const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
+  const [teamDetailOpen, setTeamDetailOpen] = useState(false);
+  const [teamManagementOpen, setTeamManagementOpen] = useState(false);
 
-  // Filter members based on current filters
   const filteredMembers = useMemo(() => {
-    return mockTeamMembers.filter((member) => {
-      // Search filter
+    return members.filter((member) => {
       if (filters.search) {
         const searchTerm = filters.search.toLowerCase();
         if (
@@ -44,28 +62,25 @@ export function TeamPage() {
         }
       }
 
-      // Department filter
       if (filters.department !== "Tümü" && member.department !== filters.department) {
         return false;
       }
 
-      // Status filter
       if (filters.status !== "all" && member.status !== filters.status) {
         return false;
       }
 
-      // Role filter
       if (filters.role !== "Tümü" && member.role !== filters.role) {
         return false;
       }
 
       return true;
     });
-  }, [filters]);
+  }, [filters, members]);
 
   // Filter teams based on current filters
   const filteredTeams = useMemo(() => {
-    return mockTeams.filter((team) => {
+    return teams.filter((team) => {
       // Search filter
       if (filters.search) {
         const searchTerm = filters.search.toLowerCase();
@@ -90,7 +105,7 @@ export function TeamPage() {
 
       return true;
     });
-  }, [filters]);
+  }, [filters, teams]);
 
   const clearFilters = () => {
     setFilters({
@@ -101,14 +116,71 @@ export function TeamPage() {
     });
   };
 
+  // Callback functions for dialogs
+  const handleTeamCreated = (newTeam: Team) => {
+    setTeams(prev => [...prev, newTeam]);
+  };
+
+  const handleMemberAdded = (newMember: TeamMember) => {
+    setMembers(prev => [...prev, newMember]);
+  };
+
+  const handleRemoveMember = () => {
+    if (memberToRemove) {
+      setMembers(prev => prev.filter(member => member.id !== memberToRemove.id));
+      setMemberToRemove(null);
+      setRemoveConfirmOpen(false);
+    }
+  };
+
+  const handleTeamUpdated = (updatedTeam: Team) => {
+    setTeams(prev => prev.map(team => team.id === updatedTeam.id ? updatedTeam : team));
+  };
+
   const handleMemberAction = (action: string, memberId: string) => {
-    console.log(`${action} for member:`, memberId);
-    // Implement actual actions here
+    const member = members.find(m => m.id === memberId);
+    if (!member) return;
+
+    switch (action) {
+      case "viewProfile":
+        setSelectedMember(member);
+        setMemberProfileOpen(true);
+        break;
+      case "sendMessage":
+        // TODO: Implement message functionality
+        console.log("Send message to:", member.name);
+        break;
+      case "removeFromTeam":
+        setMemberToRemove(member);
+        setRemoveConfirmOpen(true);
+        break;
+      default:
+        console.log(`Unknown action: ${action} for member:`, memberId);
+    }
   };
 
   const handleTeamAction = (action: string, teamId: string) => {
-    console.log(`${action} for team:`, teamId);
-    // Implement actual actions here
+    const team = teams.find(t => t.id === teamId);
+    if (!team) return;
+
+    switch (action) {
+      case "viewTeam":
+        setSelectedTeam(team);
+        setTeamDetailOpen(true);
+        break;
+      case "manageTeam":
+        setSelectedTeam(team);
+        setTeamManagementOpen(true);
+        break;
+      case "addMember":
+        // Open add member dialog for specific team
+        setAddMemberOpen(true);
+        // TODO: Could pass teamId to dialog to pre-select team
+        console.log("Add member to team:", team.name);
+        break;
+      default:
+        console.log(`Unknown action: ${action} for team:`, teamId);
+    }
   };
 
   const renderMembersView = () => {
@@ -212,7 +284,7 @@ export function TeamPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {mockTeamMembers.slice(0, 3).map((member) => (
+                    {members.slice(0, 3).map((member) => (
                       <div key={member.id} className="flex items-center space-x-3">
                         <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
                           {member.name
@@ -241,7 +313,7 @@ export function TeamPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {mockTeams
+                    {teams
                       .filter((team) => team.status === "active")
                       .slice(0, 3)
                       .map((team) => (
@@ -319,7 +391,61 @@ export function TeamPage() {
             )}
           </TabsContent>
         </Tabs>
+
+        {/* Dialogs */}
+        <CreateTeamDialog
+          open={createTeamOpen}
+          onOpenChange={setCreateTeamOpen}
+          onTeamCreated={handleTeamCreated}
+        />
+        
+        <AddMemberDialog
+          open={addMemberOpen}
+          onOpenChange={setAddMemberOpen}
+          onMemberAdded={handleMemberAdded}
+        />
+        
+        <MemberProfileDialog
+          open={memberProfileOpen}
+          onOpenChange={setMemberProfileOpen}
+          member={selectedMember}
+          onSendMessage={(memberId) => handleMemberAction("sendMessage", memberId)}
+        />
+        
+        <ConfirmDialog
+          open={removeConfirmOpen}
+          onOpenChange={setRemoveConfirmOpen}
+          title="Üyeyi Takımdan Çıkar"
+          desc={
+            memberToRemove 
+              ? `${memberToRemove.name} üyesini takımdan çıkarmak istediğinizden emin misiniz? Bu işlem geri alınamaz.`
+              : ""
+          }
+          confirmText="Çıkar"
+          cancelBtnText="İptal"
+          handleConfirm={handleRemoveMember}
+          destructive={true}
+        />
+        
+        <TeamDetailDialog
+          open={teamDetailOpen}
+          onOpenChange={setTeamDetailOpen}
+          team={selectedTeam}
+          onManageTeam={(teamId) => {
+            setTeamDetailOpen(false);
+            handleTeamAction("manageTeam", teamId);
+          }}
+          onAddMember={(teamId) => handleTeamAction("addMember", teamId)}
+        />
+        
+        <TeamManagementDialog
+          open={teamManagementOpen}
+          onOpenChange={setTeamManagementOpen}
+          team={selectedTeam}
+          availableMembers={members}
+          onTeamUpdated={handleTeamUpdated}
+        />
       </div>
-    </Main>
+    </Main>   
   );
 }
