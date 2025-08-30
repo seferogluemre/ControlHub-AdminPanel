@@ -3,8 +3,10 @@ import { Main } from "#/components/layout/main";
 import { Button } from "#/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "#/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "#/components/ui/tabs";
+import { useAnalyticsTranslation } from "#/lib/i18n/hooks";
 
 export default function Analytics() {
+  const { t } = useAnalyticsTranslation();
   return (
     <Main>
       <div className="mb-6 flex items-center justify-between space-y-2">

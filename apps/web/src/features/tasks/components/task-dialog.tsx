@@ -22,6 +22,7 @@ import { Separator } from "#/components/ui/separator";
 import { cn } from "#/lib/utils";
 import { type Task, type Project } from "../../projects/hooks";
 import { format } from "date-fns";
+import { useTasksTranslation, useLanguage } from "#/lib/i18n/hooks";
 
 interface TaskDialogProps {
   task: Task | null;
@@ -62,20 +63,23 @@ const priorityConfig = {
 };
 
 export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogProps) {
+  const { t } = useTasksTranslation();
+  const { currentLanguage } = useLanguage();
+
   if (!task) {
     return (
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
-            <DialogTitle>Create New Task</DialogTitle>
-            <DialogDescription>Add a new task to your project workflow.</DialogDescription>
+            <DialogTitle>{t("dialog.createTitle")}</DialogTitle>
+            <DialogDescription>{t("dialog.createDescription")}</DialogDescription>
           </DialogHeader>
 
           <div className="py-8 text-center text-muted-foreground">
             <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
               <IconEdit className="h-8 w-8" />
             </div>
-            <p>Task creation form will be implemented here</p>
+            <p>{t("form.willBeImplemented")}</p>
           </div>
         </DialogContent>
       </Dialog>
@@ -110,10 +114,10 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
 
           {/* Status & Priority Badges */}
           <div className="flex items-center gap-3 flex-wrap">
-            <Badge className={cn("px-3 py-1.5", statusInfo.color)}>{statusInfo.label}</Badge>
+            <Badge className={cn("px-3 py-1.5", statusInfo.color)}>{t(`board.${task.status}.label`)}</Badge>
             <Badge variant="outline" className={cn("px-3 py-1.5 border", priorityInfo.color)}>
               <span className="mr-1">{priorityInfo.icon}</span>
-              {priorityInfo.label}
+              {t(`priority.${task.priority}`)}
             </Badge>
           </div>
         </DialogHeader>
@@ -125,12 +129,12 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
           <div className="space-y-3">
             <h3 className="font-semibold text-sm flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
-              Project Information
+              {t("dialog.projectInfo")}
             </h3>
             <div className="bg-muted/50 rounded-lg p-4 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-medium">{task.projectName}</span>
-                {project && <Badge variant="outline">{project.progress}% complete</Badge>}
+                {project && <Badge variant="outline">{project.progress}% {t("dialog.complete")}</Badge>}
               </div>
               {project && <p className="text-sm text-muted-foreground">{project.description}</p>}
             </div>
@@ -142,10 +146,10 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
             <div className="space-y-2">
               <h4 className="font-medium text-sm flex items-center gap-2">
                 <IconUser className="h-4 w-4 text-muted-foreground" />
-                Assignee
+                {t("labels.assignee")}
               </h4>
               <div className="bg-muted/50 rounded-lg p-3">
-                <p className="text-sm">{task.assignee || "Unassigned"}</p>
+                <p className="text-sm">{task.assignee || t("card.unassigned")}</p>
               </div>
             </div>
 
@@ -153,7 +157,7 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
             <div className="space-y-2">
               <h4 className="font-medium text-sm flex items-center gap-2">
                 <IconCalendar className="h-4 w-4 text-muted-foreground" />
-                Due Date
+                {t("labels.dueDate")}
               </h4>
               <div
                 className={cn(
@@ -172,9 +176,9 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
                       : "",
                   )}
                 >
-                  {task.dueDate ? format(new Date(task.dueDate), "PPP") : "No due date set"}
+                  {task.dueDate ? format(new Date(task.dueDate), "PPP") : t("dialog.noDueDate")}
                   {isOverdue && task.status !== "completed" && (
-                    <span className="ml-2 text-xs">(Overdue)</span>
+                    <span className="ml-2 text-xs">{t("card.overdue")}</span>
                   )}
                 </p>
               </div>
@@ -186,7 +190,7 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
             <div className="space-y-3">
               <h4 className="font-medium text-sm flex items-center gap-2">
                 <IconTag className="h-4 w-4 text-muted-foreground" />
-                Tags
+                {t("dialog.tags")}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {task.tags.map((tag) => (
@@ -202,16 +206,16 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
           <div className="space-y-3">
             <h4 className="font-medium text-sm flex items-center gap-2">
               <IconClock className="h-4 w-4 text-muted-foreground" />
-              Timeline
+              {t("dialog.timeline")}
             </h4>
             <div className="bg-muted/50 rounded-lg p-4 space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Created:</span>
+                <span className="text-muted-foreground">{t("dialog.created")}</span>
                 <span>{format(new Date(task.createdAt), "PPp")}</span>
               </div>
               {task.dueDate && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Due:</span>
+                  <span className="text-muted-foreground">{t("dialog.due")}</span>
                   <span>{format(new Date(task.dueDate), "PPp")}</span>
                 </div>
               )}
@@ -226,15 +230,15 @@ export function TaskDialog({ task, open, onOpenChange, projects }: TaskDialogPro
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" className="gap-2">
               <IconEdit className="h-4 w-4" />
-              Edit Task
+              {t("dialog.editTask")}
             </Button>
             <Button variant="outline" size="sm" className="gap-2 text-red-600 hover:text-red-700">
               <IconTrash className="h-4 w-4" />
-              Delete
+              {t("dialog.deleteTask")}
             </Button>
           </div>
 
-          <div className="text-xs text-muted-foreground">Task ID: {task.id}</div>
+          <div className="text-xs text-muted-foreground">{t("dialog.taskId")} {task.id}</div>
         </div>
       </DialogContent>
     </Dialog>

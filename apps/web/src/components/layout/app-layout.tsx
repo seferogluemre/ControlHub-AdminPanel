@@ -13,16 +13,15 @@ import { SidebarData } from "./types";
 
 interface Props {
   children?: React.ReactNode;
-  sidebarData: SidebarData;
 }
 
-export function AppLayout({ children, sidebarData }: Props) {
+export function AppLayout({ children }: Props) {
   const defaultOpen = Cookies.get("sidebar_state") !== "false";
 
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
       <SkipToMain />
-      <AppSidebar sidebarData={sidebarData} />
+      <AppSidebar />
       <div
         id="content"
         className={cn(

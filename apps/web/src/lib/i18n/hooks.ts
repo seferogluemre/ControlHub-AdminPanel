@@ -50,6 +50,10 @@ export function useProjectsTranslation() {
   return useNamespaceTranslation("PROJECTS");
 }
 
+export function useAnalyticsTranslation() {
+  return useNamespaceTranslation("ANALYTICS");
+}
+
 export function useFormattedTranslation() {
   const { t } = useTranslation();
 

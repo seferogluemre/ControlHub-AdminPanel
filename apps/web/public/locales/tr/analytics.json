@@ -1,0 +1,71 @@
+{
+  "title": "Proje Analitikleri",
+  "subtitle": "Proje performansı ve ekip verimliliği hakkında kapsamlı içgörüler.",
+  "buttons": {
+    "exportData": "Veri Dışa Aktar",
+    "generateReport": "Rapor Oluştur"
+  },
+  "tabs": {
+    "overview": "Genel Bakış",
+    "projects": "Projeler",
+    "team": "Ekip Performansı",
+    "timeline": "Zaman Çizelgesi"
+  },
+  "metrics": {
+    "totalProjects": {
+      "title": "Toplam Proje",
+      "subtitle": "Geçen çeyrekten %{{percent}} artış"
+    },
+    "completionRate": {
+      "title": "Tamamlanma Oranı",
+      "subtitle": "Geçen aydan %{{percent}} artış"
+    },
+    "activeTeamMembers": {
+      "title": "Aktif Ekip Üyeleri",
+      "subtitle": "Bu hafta {{count}} yeni"
+    },
+    "avgDuration": {
+      "title": "Ort. Proje Süresi",
+      "subtitle": "{{months}} ay iyileşme"
+    }
+  },
+  "charts": {
+    "performanceTrends": {
+      "title": "Proje Performans Trendleri",
+      "description": "Aylık proje tamamlama ve başarı metrikleri"
+    },
+    "topProjects": {
+      "title": "En İyi Performans Gösteren Projeler",
+      "description": "En yüksek tamamlanma oranına sahip projeler"
+    },
+    "projectList": {
+      "title": "Proje Listesi",
+      "description": "Detaylı proje analitikleri ve metrikleri"
+    },
+    "teamPerformance": {
+      "title": "Ekip Performansı",
+      "description": "Bireysel ve ekip verimliliği metrikleri"
+    },
+    "projectTimeline": {
+      "title": "Proje Zaman Çizelgesi",
+      "description": "Geçmiş proje verileri ve trendleri"
+    }
+  },
+  "projects": {
+    "mobileRedesign": "Mobil Uygulama Yeniden Tasarımı",
+    "apiIntegration": "API Entegrasyonu",
+    "dataAnalytics": "Veri Analizi Platformu",
+    "userDashboard": "Kullanıcı Paneli"
+  },
+  "status": {
+    "onTrack": "Yolunda",
+    "completed": "Tamamlandı",
+    "inProgress": "Devam Ediyor"
+  },
+  "comingSoon": {
+    "charts": "İnteraktif grafikler burada görüntülenecek",
+    "projectList": "Detaylı analitikli proje listesi yakında geliyor...",
+    "teamAnalytics": "Ekip performans analitikleri yakında geliyor...",
+    "timelineAnalytics": "Zaman çizelgesi analitikleri yakında geliyor..."
+  }
+}

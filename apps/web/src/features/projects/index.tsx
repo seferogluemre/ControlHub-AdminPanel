@@ -14,8 +14,11 @@ import { ProjectArea } from "./components/project-area";
 import { NewProject } from "./components/new-project";
 import { DROPDOWN_OPTIONS, UI_TEXTS } from "./data/constants";
 import { useProjectState, useDisplayOptions } from "./hooks";
+import { useProjectsTranslation } from "#/lib/i18n/hooks";
 
 export default function Projects() {
+  const { t } = useProjectsTranslation();
+  
   const {
     projects: projectList,
     selectedProject,
@@ -58,13 +61,13 @@ export default function Projects() {
               <div className="flex items-center justify-between mb-2.5">
                 <div className="flex items-center gap-1.5">
                   <IconFolders className="h-4 w-4 text-primary" />
-                  <h1 className="text-base font-bold">Projects</h1>
+                  <h1 className="text-base font-bold">{t("title")}</h1>
                 </div>
 
                 {/* Display Options Dropdown */}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button size="icon" variant="ghost" className="h-7 w-7" title="Project Options">
+                    <Button size="icon" variant="ghost" className="h-7 w-7" title={t("sections.projectInfo")}>
                       <IconDotsVertical className="h-3.5 w-3.5 text-muted-foreground" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -120,12 +123,12 @@ export default function Projects() {
                   <IconFolders className="h-8 w-8 text-muted-foreground" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold mb-2">{UI_TEXTS.projectSelectMessage}</h2>
-                  <p className="text-muted-foreground">{UI_TEXTS.projectSelectSubMessage}</p>
+                  <h2 className="text-xl font-semibold mb-2">{t("selectMessage")}</h2>
+                  <p className="text-muted-foreground">{t("selectSubMessage")}</p>
                 </div>
                 <Button onClick={openNewProjectDialog} className="mt-4">
                   <IconDotsVertical className="h-4 w-4 mr-2" />
-                  {UI_TEXTS.newProjectButton}
+                  {t("newProjectButton")}
                 </Button>
               </div>
             </div>

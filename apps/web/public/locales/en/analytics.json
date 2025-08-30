@@ -1,0 +1,71 @@
+{
+  "title": "Project Analytics",
+  "subtitle": "Comprehensive insights into project performance and team productivity.",
+  "buttons": {
+    "exportData": "Export Data",
+    "generateReport": "Generate Report"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "projects": "Projects",
+    "team": "Team Performance",
+    "timeline": "Timeline"
+  },
+  "metrics": {
+    "totalProjects": {
+      "title": "Total Projects",
+      "subtitle": "+{{percent}}% from last quarter"
+    },
+    "completionRate": {
+      "title": "Completion Rate",
+      "subtitle": "+{{percent}}% from last month"
+    },
+    "activeTeamMembers": {
+      "title": "Active Team Members",
+      "subtitle": "{{count}} new this week"
+    },
+    "avgDuration": {
+      "title": "Avg. Project Duration",
+      "subtitle": "-{{months}} months improvement"
+    }
+  },
+  "charts": {
+    "performanceTrends": {
+      "title": "Project Performance Trends",
+      "description": "Monthly project completion and success metrics"
+    },
+    "topProjects": {
+      "title": "Top Performing Projects",
+      "description": "Projects with highest completion rates"
+    },
+    "projectList": {
+      "title": "Project List",
+      "description": "Detailed project analytics and metrics"
+    },
+    "teamPerformance": {
+      "title": "Team Performance",
+      "description": "Individual and team productivity metrics"
+    },
+    "projectTimeline": {
+      "title": "Project Timeline",
+      "description": "Historical project data and trends"
+    }
+  },
+  "projects": {
+    "mobileRedesign": "Mobile App Redesign",
+    "apiIntegration": "API Integration",
+    "dataAnalytics": "Data Analytics Platform",
+    "userDashboard": "User Dashboard"
+  },
+  "status": {
+    "onTrack": "On Track",
+    "completed": "Completed",
+    "inProgress": "In Progress"
+  },
+  "comingSoon": {
+    "charts": "Interactive charts will be displayed here",
+    "projectList": "Project list with detailed analytics coming soon...",
+    "teamAnalytics": "Team performance analytics coming soon...",
+    "timelineAnalytics": "Timeline analytics coming soon..."
+  }
+}

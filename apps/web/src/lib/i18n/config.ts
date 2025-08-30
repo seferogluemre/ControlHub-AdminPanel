@@ -11,6 +11,8 @@ import tasksTR from "../../../public/locales/tr/tasks.json";
 import tasksEN from "../../../public/locales/en/tasks.json";
 import projectsTR from "../../../public/locales/tr/projects.json";
 import projectsEN from "../../../public/locales/en/projects.json";
+import analyticsTR from "../../../public/locales/tr/analytics.json";
+import analyticsEN from "../../../public/locales/en/analytics.json";
 
 export const SUPPORTED_LANGUAGES = {
   tr: {
@@ -101,12 +103,14 @@ i18n
         [NAMESPACES.DASHBOARD]: dashboardTR,
         [NAMESPACES.TASKS]: tasksTR,
         [NAMESPACES.PROJECTS]: projectsTR,
+        [NAMESPACES.ANALYTICS]: analyticsTR,
       },
       en: {
         [NAMESPACES.COMMON]: commonEN,
         [NAMESPACES.DASHBOARD]: dashboardEN,
         [NAMESPACES.TASKS]: tasksEN,
         [NAMESPACES.PROJECTS]: projectsEN,
+        [NAMESPACES.ANALYTICS]: analyticsEN,
       },
     },
   });

@@ -1,7 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
 import { Badge } from "#/components/ui/badge";
+import { useDashboardTranslation } from "#/lib/i18n/hooks";
 
 export function RecentProjects() {
+  const { t } = useDashboardTranslation();
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">
@@ -10,10 +12,10 @@ export function RecentProjects() {
         </Avatar>
         <div className="flex flex-1 flex-wrap items-center justify-between">
           <div className="space-y-1">
-            <p className="text-sm leading-none font-medium">E-commerce Platform</p>
-            <p className="text-muted-foreground text-sm">Mobile app redesign</p>
+            <p className="text-sm leading-none font-medium">{t("projects.ecommerce")}</p>
+            <p className="text-muted-foreground text-sm">{t("projects.ecommerceDesc")}</p>
           </div>
-          <Badge variant="secondary">In Progress</Badge>
+          <Badge variant="secondary">{t("projectStatus.inProgress")}</Badge>
         </div>
       </div>
       <div className="flex items-center gap-4">
@@ -22,10 +24,10 @@ export function RecentProjects() {
         </Avatar>
         <div className="flex flex-1 flex-wrap items-center justify-between">
           <div className="space-y-1">
-            <p className="text-sm leading-none font-medium">Data Analytics</p>
-            <p className="text-muted-foreground text-sm">Business intelligence dashboard</p>
+            <p className="text-sm leading-none font-medium">{t("projects.dataAnalytics")}</p>
+            <p className="text-muted-foreground text-sm">{t("projects.dataAnalyticsDesc")}</p>
           </div>
-          <Badge className="bg-green-100 text-green-800 hover:bg-green-100">Completed</Badge>
+          <Badge className="bg-green-100 text-green-800 hover:bg-green-100">{t("projectStatus.completed")}</Badge>
         </div>
       </div>
       <div className="flex items-center gap-4">
@@ -34,10 +36,10 @@ export function RecentProjects() {
         </Avatar>
         <div className="flex flex-1 flex-wrap items-center justify-between">
           <div className="space-y-1">
-            <p className="text-sm leading-none font-medium">API Integration</p>
-            <p className="text-muted-foreground text-sm">Third-party service connections</p>
+            <p className="text-sm leading-none font-medium">{t("projects.apiIntegration")}</p>
+            <p className="text-muted-foreground text-sm">{t("projects.apiIntegrationDesc")}</p>
           </div>
-          <Badge variant="outline">Planning</Badge>
+          <Badge variant="outline">{t("projectStatus.planning")}</Badge>
         </div>
       </div>
 
@@ -47,10 +49,10 @@ export function RecentProjects() {
         </Avatar>
         <div className="flex flex-1 flex-wrap items-center justify-between">
           <div className="space-y-1">
-            <p className="text-sm leading-none font-medium">UI Component Library</p>
-            <p className="text-muted-foreground text-sm">Reusable design system</p>
+            <p className="text-sm leading-none font-medium">{t("projects.uiLibrary")}</p>
+            <p className="text-muted-foreground text-sm">{t("projects.uiLibraryDesc")}</p>
           </div>
-          <Badge variant="secondary">In Progress</Badge>
+          <Badge variant="secondary">{t("projectStatus.inProgress")}</Badge>
         </div>
       </div>
 
@@ -60,10 +62,10 @@ export function RecentProjects() {
         </Avatar>
         <div className="flex flex-1 flex-wrap items-center justify-between">
           <div className="space-y-1">
-            <p className="text-sm leading-none font-medium">Machine Learning</p>
-            <p className="text-muted-foreground text-sm">Predictive analytics model</p>
+            <p className="text-sm leading-none font-medium">{t("projects.machineLearning")}</p>
+            <p className="text-muted-foreground text-sm">{t("projects.machineLearningDesc")}</p>
           </div>
-          <Badge variant="destructive">Delayed</Badge>
+          <Badge variant="destructive">{t("projectStatus.delayed")}</Badge>
         </div>
       </div>
     </div>

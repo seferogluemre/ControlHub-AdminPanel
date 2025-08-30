@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { type SidebarData } from "../types";
 
+
 export const sidebarData: SidebarData = {
   navGroups: [
     {

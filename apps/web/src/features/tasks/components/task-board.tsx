@@ -14,6 +14,7 @@ import { ScrollArea } from "#/components/ui/scroll-area";
 import { cn } from "#/lib/utils";
 import { type Task } from "../../projects/hooks";
 import { format } from "date-fns";
+import { useTasksTranslation, useLanguage } from "#/lib/i18n/hooks";
 
 interface TaskBoardProps {
   tasksByStatus: {
@@ -64,6 +65,8 @@ const priorityConfig = {
 };
 
 function TaskCard({ task, onSelect }: { task: Task; onSelect: () => void }) {
+  const { t } = useTasksTranslation();
+  const { currentLanguage } = useLanguage();
   const isOverdue = task.dueDate && new Date(task.dueDate) < new Date();
 
   return (
@@ -92,7 +95,7 @@ function TaskCard({ task, onSelect }: { task: Task; onSelect: () => void }) {
             variant="outline"
             className={cn("text-xs px-2 py-0.5", priorityConfig[task.priority].color)}
           >
-            {task.priority}
+            {t(`priority.${task.priority}`)}
           </Badge>
 
           {task.tags?.map((tag) => (
@@ -114,7 +117,9 @@ function TaskCard({ task, onSelect }: { task: Task; onSelect: () => void }) {
           {/* Assignee */}
           <div className="flex items-center gap-1.5">
             <IconUser className="h-3.5 w-3.5 text-muted-foreground" />
-            <span className="text-muted-foreground truncate">{task.assignee || "Unassigned"}</span>
+            <span className="text-muted-foreground truncate">
+              {task.assignee || t("card.unassigned")}
+            </span>
           </div>
 
           {/* Due Date */}
@@ -131,7 +136,14 @@ function TaskCard({ task, onSelect }: { task: Task; onSelect: () => void }) {
                 <IconAlertTriangle className="h-3.5 w-3.5" />
               )}
               <IconClock className="h-3.5 w-3.5" />
-              <span className="font-medium">{format(new Date(task.dueDate), "MMM dd")}</span>
+              <span className="font-medium">
+                {format(new Date(task.dueDate), "MMM dd", {
+                  locale: currentLanguage === "tr" ? undefined : undefined, // date-fns locale burada eklenecek
+                })}
+                {isOverdue && task.status !== "completed" && (
+                  <span className="ml-1">{t("card.overdue")}</span>
+                )}
+              </span>
             </div>
           )}
         </div>
@@ -149,6 +161,7 @@ function StatusColumn({
   tasks: Task[];
   onTaskSelect: (task: Task) => void;
 }) {
+  const { t } = useTasksTranslation();
   const config = statusConfig[status];
   const Icon = config.icon;
 
@@ -161,7 +174,7 @@ function StatusColumn({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Icon className={cn("h-4 w-4", config.color)} />
-            <h2 className="font-semibold text-sm">{config.label}</h2>
+            <h2 className="font-semibold text-sm">{t(`board.${status}.label`)}</h2>
           </div>
           <Badge variant="secondary" className="px-2 py-1 text-xs">
             {tasks.length}
@@ -175,7 +188,7 @@ function StatusColumn({
           {tasks.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 text-center">
               <Icon className={cn("h-8 w-8 mb-2", config.color, "opacity-50")} />
-              <p className="text-sm text-muted-foreground">No tasks</p>
+              <p className="text-sm text-muted-foreground">{t(`board.${status}.empty`)}</p>
             </div>
           ) : (
             tasks.map((task) => (
