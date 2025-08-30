@@ -4,6 +4,7 @@ import { SidebarProvider } from "#/components/ui/sidebar";
 import { cn } from "#/lib/utils";
 import { ProfileDropdown } from "#components/profile-dropdown.tsx";
 import { ThemeSwitch } from "#components/theme-switch.tsx";
+import { LanguageSwitcher } from "#components/language-switcher.tsx";
 import { Outlet } from "@tanstack/react-router";
 import Cookies from "js-cookie";
 import { Header } from "./header";
@@ -35,7 +36,8 @@ export function AppLayout({ children, sidebarData }: Props) {
         )}
       >
         <Header fixed>
-          <div className="ml-auto flex items-center gap-4">
+          <div className="ml-auto flex items-center gap-2">
+            <LanguageSwitcher variant="compact" />
             <ThemeSwitch />
             <ProfileDropdown />
           </div>

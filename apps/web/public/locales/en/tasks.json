@@ -1,0 +1,56 @@
+{
+  "title": "Task Management",
+  "subtitle": "Track progress across all your projects in one place",
+  "newTask": "New Task",
+  "taskCount": "{{count}} tasks",
+  "filterByProject": "Filter by project:",
+  "allProjects": "All Projects",
+  "progress": "Progress: {{progress}}",
+  "board": {
+    "todo": {
+      "label": "To Do",
+      "empty": "No tasks"
+    },
+    "inProgress": {
+      "label": "In Progress",
+      "empty": "No tasks"
+    },
+    "review": {
+      "label": "Review",
+      "empty": "No tasks"
+    },
+    "completed": {
+      "label": "Completed",
+      "empty": "No tasks"
+    }
+  },
+  "card": {
+    "unassigned": "Unassigned",
+    "overdue": "(Overdue)"
+  },
+  "dialog": {
+    "createTitle": "Create New Task",
+    "createDescription": "Add a new task to your project workflow.",
+    "projectInfo": "Project Information",
+    "taskDetails": "Task Details",
+    "timeline": "Timeline",
+    "tags": "Tags",
+    "noDescription": "No description",
+    "noDueDate": "No due date set",
+    "created": "Created:",
+    "due": "Due:",
+    "taskId": "Task ID:",
+    "editTask": "Edit Task",
+    "deleteTask": "Delete",
+    "complete": "complete"
+  },
+  "priority": {
+    "low": "Low Priority",
+    "medium": "Medium Priority",
+    "high": "High Priority", 
+    "urgent": "Urgent"
+  },
+  "form": {
+    "willBeImplemented": "Task creation form will be implemented here"
+  }
+}

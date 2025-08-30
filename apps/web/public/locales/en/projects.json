@@ -1,0 +1,51 @@
+{
+  "title": "Projects",
+  "selectMessage": "Select a project to start managing tasks",
+  "selectSubMessage": "Choose from your existing projects or create a new one",
+  "newProjectButton": "Create New Project",
+  "tabs": {
+    "overview": "Overview",
+    "team": "Team",
+    "tasks": "Tasks"
+  },
+  "sections": {
+    "projectInfo": "Project Details",
+    "memberInfo": "Team Information", 
+    "projectTimeline": "Project Timeline",
+    "timelineEmpty": "No timeline data available"
+  },
+  "actions": {
+    "assign": "Assign",
+    "joinProject": "Join Project",
+    "leaveProject": "Leave Project",
+    "closeProject": "Archive Project"
+  },
+  "dropdown": {
+    "historyOption": "History",
+    "summaryOption": "Summary",
+    "settingsOption": "Settings"
+  },
+  "input": {
+    "commentPlaceholder": "Add a comment..."
+  },
+  "fileManager": {
+    "publicFolder": "Shared",
+    "manageButton": "Manage",
+    "uploadButton": "Upload",
+    "refreshButton": "Refresh"
+  },
+  "status": {
+    "active": "active",
+    "completed": "completed",
+    "onHold": "on-hold",
+    "planning": "planning",
+    "projectCompleted": "project completed",
+    "memberLeft": "Team Member",
+    "leftProject": "left the project"
+  },
+  "list": {
+    "progress": "Progress",
+    "members": "members",
+    "tasks": "tasks"
+  }
+}

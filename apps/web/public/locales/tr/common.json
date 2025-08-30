@@ -1,0 +1,74 @@
+{
+  "buttons": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "create": "Oluştur",
+    "update": "Güncelle",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "export": "Dışa Aktar",
+    "import": "İçe Aktar",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "submit": "Gönder",
+    "confirm": "Onayla",
+    "new": "Yeni"
+  },
+  "labels": {
+    "name": "Ad",
+    "title": "Başlık",
+    "description": "Açıklama",
+    "status": "Durum",
+    "priority": "Öncelik",
+    "assignee": "Atanan",
+    "dueDate": "Son Tarih",
+    "createdAt": "Oluşturulma Tarihi",
+    "updatedAt": "Güncellenme Tarihi",
+    "progress": "İlerleme",
+    "email": "E-posta",
+    "phone": "Telefon"
+  },
+  "status": {
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "completed": "Tamamlandı",
+    "pending": "Beklemede",
+    "cancelled": "İptal Edildi",
+    "draft": "Taslak"
+  },
+  "priority": {
+    "low": "Düşük",
+    "medium": "Orta",
+    "high": "Yüksek",
+    "urgent": "Acil"
+  },
+  "messages": {
+    "success": "İşlem başarıyla tamamlandı",
+    "error": "Bir hata oluştu",
+    "loading": "Yükleniyor...",
+    "noData": "Veri bulunamadı",
+    "confirmDelete": "Bu öğeyi silmek istediğinizden emin misiniz?",
+    "unsavedChanges": "Kaydedilmemiş değişiklikleriniz var"
+  },
+  "navigation": {
+    "dashboard": "Ana Sayfa",
+    "projects": "Projeler",
+    "tasks": "Görevler",
+    "team": "Ekip",
+    "analytics": "Analitik",
+    "settings": "Ayarlar"
+  },
+  "time": {
+    "today": "Bugün",
+    "yesterday": "Dün",
+    "tomorrow": "Yarın",
+    "thisWeek": "Bu Hafta",
+    "lastWeek": "Geçen Hafta",
+    "thisMonth": "Bu Ay",
+    "lastMonth": "Geçen Ay"
+  }
+}

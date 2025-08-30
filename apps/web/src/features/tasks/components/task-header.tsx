@@ -9,6 +9,7 @@ import {
 } from "#/components/ui/select";
 import { Badge } from "#/components/ui/badge";
 import { type Project } from "../../projects/hooks";
+import { useTasksTranslation, useFormattedTranslation } from "#/lib/i18n/hooks";
 
 interface TaskHeaderProps {
   selectedProject: string | "all";
@@ -25,6 +26,8 @@ export function TaskHeader({
   onNewTask,
   taskCount,
 }: TaskHeaderProps) {
+  const { t } = useTasksTranslation();
+  const { formatCount } = useFormattedTranslation();
   const activeProjects = projects.filter((p) => p.status === "active");
   const selectedProjectData = projects.find((p) => p.id === selectedProject);
 
@@ -38,9 +41,9 @@ export function TaskHeader({
               <IconChecklist className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight">Task Management</h1>
+              <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
               <p className="text-muted-foreground text-sm">
-                Track progress across all your projects in one place
+                {t("subtitle")}
               </p>
             </div>
           </div>
@@ -49,11 +52,11 @@ export function TaskHeader({
         {/* Action Buttons */}
         <div className="flex items-center gap-3">
           <Badge variant="secondary" className="px-3 py-1">
-            {taskCount} tasks
+            {t("taskCount", { count: taskCount })}
           </Badge>
           <Button onClick={onNewTask} className="gap-2">
             <IconPlus className="h-4 w-4" />
-            New Task
+            {t("newTask")}
           </Button>
         </div>
       </div>
@@ -62,7 +65,7 @@ export function TaskHeader({
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 bg-muted/30 rounded-lg border">
         <div className="flex items-center gap-2 text-sm font-medium">
           <IconFilter className="h-4 w-4 text-muted-foreground" />
-          <span>Filter by project:</span>
+          <span>{t("filterByProject")}</span>
         </div>
 
         <Select value={selectedProject} onValueChange={onProjectFilter}>
@@ -80,7 +83,7 @@ export function TaskHeader({
             <SelectItem value="all">
               <div className="flex items-center gap-2">
                 <IconFolders className="h-4 w-4 text-muted-foreground" />
-                <span>All Projects</span>
+                <span>{t("allProjects")}</span>
                 <Badge variant="outline" className="ml-auto">
                   {projects.length}
                 </Badge>
@@ -103,7 +106,7 @@ export function TaskHeader({
         {selectedProjectData && (
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <IconClock className="h-4 w-4" />
-            <span>Progress: {selectedProjectData.progress}%</span>
+            <span>{t("progress", { progress: selectedProjectData.progress })}%</span>
           </div>
         )}
       </div>

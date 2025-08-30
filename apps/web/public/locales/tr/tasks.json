@@ -1,0 +1,56 @@
+{
+  "title": "Görev Yönetimi",
+  "subtitle": "Tüm projelerinizdeki ilerlemeyi tek yerden takip edin",
+  "newTask": "Yeni Görev",
+  "taskCount": "{{count}} görev",
+  "filterByProject": "Projeye göre filtrele:",
+  "allProjects": "Tüm Projeler",
+  "progress": "İlerleme: {{progress}}",
+  "board": {
+    "todo": {
+      "label": "Yapılacak",
+      "empty": "Görev yok"
+    },
+    "inProgress": {
+      "label": "Devam Ediyor",
+      "empty": "Görev yok"
+    },
+    "review": {
+      "label": "İnceleme",
+      "empty": "Görev yok"
+    },
+    "completed": {
+      "label": "Tamamlandı",
+      "empty": "Görev yok"
+    }
+  },
+  "card": {
+    "unassigned": "Atanmamış",
+    "overdue": "(Gecikmiş)"
+  },
+  "dialog": {
+    "createTitle": "Yeni Görev Oluştur",
+    "createDescription": "Proje iş akışınıza yeni bir görev ekleyin.",
+    "projectInfo": "Proje Bilgileri",
+    "taskDetails": "Görev Detayları",
+    "timeline": "Zaman Çizelgesi",
+    "tags": "Etiketler",
+    "noDescription": "Açıklama yok",
+    "noDueDate": "Son tarih belirlenmemiş",
+    "created": "Oluşturuldu:",
+    "due": "Son tarih:",
+    "taskId": "Görev ID:",
+    "editTask": "Görevi Düzenle",
+    "deleteTask": "Sil",
+    "complete": "tamamlandı"
+  },
+  "priority": {
+    "low": "Düşük Öncelik",
+    "medium": "Orta Öncelik", 
+    "high": "Yüksek Öncelik",
+    "urgent": "Acil"
+  },
+  "form": {
+    "willBeImplemented": "Görev oluşturma formu burada implement edilecek"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "title": "Projeler",
+  "selectMessage": "Görev yönetmeye başlamak için bir proje seçin",
+  "selectSubMessage": "Mevcut projelerinizden birini seçin veya yeni bir tane oluşturun",
+  "newProjectButton": "Yeni Proje Oluştur",
+  "tabs": {
+    "overview": "Genel Bakış",
+    "team": "Ekip",
+    "tasks": "Görevler"
+  },
+  "sections": {
+    "projectInfo": "Proje Detayları",
+    "memberInfo": "Ekip Bilgileri",
+    "projectTimeline": "Proje Zaman Çizelgesi",
+    "timelineEmpty": "Zaman çizelgesi verisi mevcut değil"
+  },
+  "actions": {
+    "assign": "Ata",
+    "joinProject": "Projeye Katıl",
+    "leaveProject": "Projeden Ayrıl",
+    "closeProject": "Projeyi Arşivle"
+  },
+  "dropdown": {
+    "historyOption": "Geçmiş",
+    "summaryOption": "Özet",
+    "settingsOption": "Ayarlar"
+  },
+  "input": {
+    "commentPlaceholder": "Yorum ekle..."
+  },
+  "fileManager": {
+    "publicFolder": "Paylaşılan",
+    "manageButton": "Yönet",
+    "uploadButton": "Yükle",
+    "refreshButton": "Yenile"
+  },
+  "status": {
+    "active": "aktif",
+    "completed": "tamamlandı",
+    "onHold": "beklemede",
+    "planning": "planlanıyor",
+    "projectCompleted": "proje tamamlandı",
+    "memberLeft": "Ekip Üyesi",
+    "leftProject": "projeden ayrıldı"
+  },
+  "list": {
+    "progress": "İlerleme",
+    "members": "üye",
+    "tasks": "görev"
+  }
+}

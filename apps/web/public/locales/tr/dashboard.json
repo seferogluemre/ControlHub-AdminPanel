@@ -1,0 +1,60 @@
+{
+  "title": "Proje Paneli",
+  "subtitle": "Tekrar hoş geldiniz! Proje özetiniz burada.",
+  "buttons": {
+    "exportReport": "Rapor Dışa Aktar",
+    "newProject": "Yeni Proje"
+  },
+  "tabs": {
+    "overview": "Genel Bakış",
+    "projects": "Projeler", 
+    "team": "Ekip",
+    "analytics": "Analitik"
+  },
+  "metrics": {
+    "activeProjects": {
+      "title": "Aktif Projeler",
+      "subtitle": "+{{count}} yeni bu ay"
+    },
+    "teamMembers": {
+      "title": "Ekip Üyeleri",
+      "subtitle": "+{{count}} yeni bu hafta"
+    },
+    "tasksCompleted": {
+      "title": "Tamamlanan Görevler",
+      "subtitle": "+{{count}} dünden beri"
+    },
+    "onSchedule": {
+      "title": "Zamanında",
+      "subtitle": "+{{percent}}% geçen sprint'ten"
+    }
+  },
+  "charts": {
+    "projectTimeline": {
+      "title": "Proje Zaman Çizelgesi",
+      "description": "Aylık proje tamamlama özeti"
+    },
+    "recentProjects": {
+      "title": "Son Projeler",
+      "description": "En son proje aktiviteleri ve güncellemeler"
+    }
+  },
+  "projectStatus": {
+    "inProgress": "Devam Ediyor",
+    "completed": "Tamamlandı",
+    "planning": "Planlama",
+    "delayed": "Gecikmiş"
+  },
+  "projects": {
+    "ecommerce": "E-ticaret Platformu",
+    "ecommerceDesc": "Mobil uygulama yeniden tasarımı",
+    "dataAnalytics": "Veri Analizi",
+    "dataAnalyticsDesc": "İş zekası panosu",
+    "apiIntegration": "API Entegrasyonu", 
+    "apiIntegrationDesc": "Üçüncü parti servis bağlantıları",
+    "uiLibrary": "UI Bileşen Kütüphanesi",
+    "uiLibraryDesc": "Yeniden kullanılabilir tasarım sistemi",
+    "machineLearning": "Makine Öğrenmesi",
+    "machineLearningDesc": "Tahmine dayalı analitik modeli"
+  }
+}

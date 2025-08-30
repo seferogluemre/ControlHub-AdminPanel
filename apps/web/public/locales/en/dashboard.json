@@ -1,0 +1,60 @@
+{
+  "title": "Project Dashboard",
+  "subtitle": "Welcome back! Here's your project overview.",
+  "buttons": {
+    "exportReport": "Export Report",
+    "newProject": "New Project"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "projects": "Projects",
+    "team": "Team", 
+    "analytics": "Analytics"
+  },
+  "metrics": {
+    "activeProjects": {
+      "title": "Active Projects",
+      "subtitle": "+{{count}} new this month"
+    },
+    "teamMembers": {
+      "title": "Team Members",
+      "subtitle": "+{{count}} new this week"
+    },
+    "tasksCompleted": {
+      "title": "Tasks Completed",
+      "subtitle": "+{{count}} since yesterday"
+    },
+    "onSchedule": {
+      "title": "On Schedule",
+      "subtitle": "+{{percent}}% from last sprint"
+    }
+  },
+  "charts": {
+    "projectTimeline": {
+      "title": "Project Timeline",
+      "description": "Monthly project completion overview"
+    },
+    "recentProjects": {
+      "title": "Recent Projects",
+      "description": "Latest project activities and updates"
+    }
+  },
+  "projectStatus": {
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "planning": "Planning",
+    "delayed": "Delayed"
+  },
+  "projects": {
+    "ecommerce": "E-commerce Platform",
+    "ecommerceDesc": "Mobile app redesign",
+    "dataAnalytics": "Data Analytics",
+    "dataAnalyticsDesc": "Business intelligence dashboard",
+    "apiIntegration": "API Integration",
+    "apiIntegrationDesc": "Third-party service connections",
+    "uiLibrary": "UI Component Library",
+    "uiLibraryDesc": "Reusable design system",
+    "machineLearning": "Machine Learning",
+    "machineLearningDesc": "Predictive analytics model"
+  }
+}

@@ -1,6 +1,6 @@
 import { QueryCache, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
-import { StrictMode, useEffect } from "react";
+import { StrictMode, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 // Generated Routes
 import { handleServerError } from "#/utils/handle-server-error";
@@ -9,6 +9,8 @@ import { FontProvider } from "./context/font-context";
 import { ThemeProvider } from "./context/theme-context";
 import "./index.css";
 import { routeTree } from "./routeTree.gen";
+// i18n
+import "./lib/i18n/config";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -70,12 +72,14 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
         <FontProvider>
-          <RouterProvider
-            router={router}
-            context={{
-              auth,
-            }}
-          />
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+            <RouterProvider
+              router={router}
+              context={{
+                auth,
+              }}
+            />
+          </Suspense>
         </FontProvider>
       </ThemeProvider>
     </QueryClientProvider>
