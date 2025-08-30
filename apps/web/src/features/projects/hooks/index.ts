@@ -1,6 +1,7 @@
 export {
   useChatState,
   useProjectState,
+  useTaskState,
   type Project,
   type Task,
   type TeamMember,

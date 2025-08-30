@@ -1,30 +1,56 @@
 import { Main } from "#/components/layout/main";
-import { columns } from "./components/columns";
-import { DataTable } from "./components/data-table";
-import { TasksDialogs } from "./components/tasks-dialogs";
-import { TasksPrimaryButtons } from "./components/tasks-primary-buttons";
-import TasksProvider from "./context/tasks-context";
-import { tasks } from "./data/tasks";
+import { useTaskState } from "../projects/hooks";
+import { TaskBoard } from "./components/task-board";
+import { TaskHeader } from "./components/task-header";
+import { TaskDialog } from "./components/task-dialog";
 
 export default function Tasks() {
-  return (
-    <TasksProvider>
-      <Main>
-        <div className="mb-6 flex flex-wrap items-center justify-between space-y-2 gap-x-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Task Management</h1>
-            <p className="text-muted-foreground">
-              Organize, track, and manage your project tasks efficiently.
-            </p>
-          </div>
-          <TasksPrimaryButtons />
-        </div>
-        <div className="-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-y-0 lg:space-x-12">
-          <DataTable data={tasks} columns={columns} />
-        </div>
-      </Main>
+  const {
+    tasksByStatus,
+    selectedTask,
+    createTaskDialogOpened,
+    selectedProject,
+    projects,
+    handleTaskSelect,
+    handleCloseTask,
+    openNewTaskDialog,
+    handleProjectFilter,
+    setCreateTaskDialog,
+  } = useTaskState();
 
-      <TasksDialogs />
-    </TasksProvider>
+  return (
+    <Main className="h-full">
+      <div className="flex flex-col h-full space-y-6">
+        {/* Header Section */}
+        <TaskHeader
+          selectedProject={selectedProject}
+          projects={projects}
+          onProjectFilter={handleProjectFilter}
+          onNewTask={openNewTaskDialog}
+          taskCount={Object.values(tasksByStatus).flat().length}
+        />
+
+        {/* Task Board */}
+        <div className="flex-1 min-h-0">
+          <TaskBoard
+            tasksByStatus={tasksByStatus}
+            onTaskSelect={handleTaskSelect}
+          />
+        </div>
+      </div>
+
+      {/* Task Detail/Create Dialog */}
+      <TaskDialog
+        task={selectedTask}
+        open={!!selectedTask || createTaskDialogOpened}
+        onOpenChange={(open) => {
+          if (!open) {
+            handleCloseTask();
+            setCreateTaskDialog(false);
+          }
+        }}
+        projects={projects}
+      />
+    </Main>
   );
 }
