@@ -12,7 +12,7 @@ import { InfoPanel } from "./components/info-panel";
 import { ProjectList } from "./components/project-list";
 import { ProjectArea } from "./components/project-area";
 import { NewProject } from "./components/new-project";
-import { DROPDOWN_OPTIONS, UI_TEXTS } from "./data/constants";
+import { DROPDOWN_OPTIONS } from "./data/constants";
 import { useProjectState, useDisplayOptions } from "./hooks";
 import { useProjectsTranslation } from "#/lib/i18n/hooks";
 
