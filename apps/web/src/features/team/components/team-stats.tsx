@@ -74,7 +74,8 @@ export function TeamStats({ stats }: TeamStatsProps) {
               {/* Additional badges for certain stats */}
               {stat.title === t("stats.activeMembers.title") && (
                 <Badge variant="outline" className="mt-2">
-                  {Math.round((stats.activeMembers / stats.totalMembers) * 100)}% {t("stats.activeLabel")}
+                  {Math.round((stats.activeMembers / stats.totalMembers) * 100)}%{" "}
+                  {t("stats.activeLabel")}
                 </Badge>
               )}
 
