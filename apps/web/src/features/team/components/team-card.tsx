@@ -2,15 +2,7 @@ import { Badge } from "#/components/ui/badge";
 import { Button } from "#/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "#/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
-import { 
-  Users, 
-  FolderOpen, 
-  Calendar,
-  MoreVertical,
-  Settings,
-  Eye,
-  UserPlus
-} from "lucide-react";
+import { Users, FolderOpen, Calendar, MoreVertical, Settings, Eye, UserPlus } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,44 +18,39 @@ interface TeamCardProps {
   onAddMember?: (teamId: string) => void;
 }
 
-export function TeamCard({ 
-  team, 
-  onViewTeam,
-  onManageTeam,
-  onAddMember 
-}: TeamCardProps) {
-  const getStatusBadgeVariant = (status: Team['status']) => {
+export function TeamCard({ team, onViewTeam, onManageTeam, onAddMember }: TeamCardProps) {
+  const getStatusBadgeVariant = (status: Team["status"]) => {
     switch (status) {
-      case 'active':
-        return 'default';
-      case 'inactive':
-        return 'secondary';
+      case "active":
+        return "default";
+      case "inactive":
+        return "secondary";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
-  const getStatusText = (status: Team['status']) => {
+  const getStatusText = (status: Team["status"]) => {
     switch (status) {
-      case 'active':
-        return 'Aktif';
-      case 'inactive':
-        return 'Pasif';
+      case "active":
+        return "Aktif";
+      case "inactive":
+        return "Pasif";
       default:
-        return 'Bilinmiyor';
+        return "Bilinmiyor";
     }
   };
 
   const getInitials = (name: string) => {
     return name
-      .split(' ')
-      .map(part => part.charAt(0))
-      .join('')
+      .split(" ")
+      .map((part) => part.charAt(0))
+      .join("")
       .toUpperCase()
       .slice(0, 2);
   };
 
-  const leader = team.members.find(member => member.id === team.leaderId);
+  const leader = team.members.find((member) => member.id === team.leaderId);
 
   return (
     <Card className="group relative hover:shadow-md transition-shadow">
@@ -72,20 +59,18 @@ export function TeamCard({
           <div className="flex items-center space-x-3">
             <Avatar className="h-12 w-12">
               <AvatarImage src={team.avatar} alt={team.name} />
-              <AvatarFallback>
-                {getInitials(team.name)}
-              </AvatarFallback>
+              <AvatarFallback>{getInitials(team.name)}</AvatarFallback>
             </Avatar>
             <div>
               <CardTitle className="text-lg">{team.name}</CardTitle>
               <p className="text-sm text-muted-foreground">{team.department}</p>
             </div>
           </div>
-          
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="sm"
                 className="opacity-0 group-hover:opacity-100 transition-opacity"
               >
@@ -113,27 +98,21 @@ export function TeamCard({
       <CardContent className="space-y-4">
         {/* Status */}
         <div className="flex items-center justify-between">
-          <Badge variant={getStatusBadgeVariant(team.status)}>
-            {getStatusText(team.status)}
-          </Badge>
+          <Badge variant={getStatusBadgeVariant(team.status)}>{getStatusText(team.status)}</Badge>
           <span className="text-sm text-muted-foreground">
-            {new Date(team.createdAt).toLocaleDateString('tr-TR')}
+            {new Date(team.createdAt).toLocaleDateString("tr-TR")}
           </span>
         </div>
 
         {/* Description */}
-        <p className="text-sm text-muted-foreground line-clamp-2">
-          {team.description}
-        </p>
+        <p className="text-sm text-muted-foreground line-clamp-2">{team.description}</p>
 
         {/* Team Leader */}
         {leader && (
           <div className="flex items-center space-x-2">
             <Avatar className="h-6 w-6">
               <AvatarImage src={leader.avatar} alt={leader.name} />
-              <AvatarFallback className="text-xs">
-                {getInitials(leader.name)}
-              </AvatarFallback>
+              <AvatarFallback className="text-xs">{getInitials(leader.name)}</AvatarFallback>
             </Avatar>
             <div>
               <p className="text-sm font-medium">Takım Lideri</p>
@@ -150,22 +129,16 @@ export function TeamCard({
               {team.members.slice(0, 4).map((member) => (
                 <Avatar key={member.id} className="h-8 w-8 border-2 border-background">
                   <AvatarImage src={member.avatar} alt={member.name} />
-                  <AvatarFallback className="text-xs">
-                    {getInitials(member.name)}
-                  </AvatarFallback>
+                  <AvatarFallback className="text-xs">{getInitials(member.name)}</AvatarFallback>
                 </Avatar>
               ))}
               {team.members.length > 4 && (
                 <div className="h-8 w-8 rounded-full bg-muted border-2 border-background flex items-center justify-center">
-                  <span className="text-xs font-medium">
-                    +{team.members.length - 4}
-                  </span>
+                  <span className="text-xs font-medium">+{team.members.length - 4}</span>
                 </div>
               )}
             </div>
-            <span className="text-sm text-muted-foreground">
-              {team.members.length} üye
-            </span>
+            <span className="text-sm text-muted-foreground">{team.members.length} üye</span>
           </div>
         </div>
 
@@ -189,20 +162,16 @@ export function TeamCard({
 
         {/* Actions */}
         <div className="flex space-x-2 pt-2">
-          <Button 
-            variant="outline" 
-            size="sm" 
+          <Button
+            variant="outline"
+            size="sm"
             className="flex-1"
             onClick={() => onViewTeam?.(team.id)}
           >
             <Eye className="mr-2 h-4 w-4" />
             Görüntüle
           </Button>
-          <Button 
-            variant="outline" 
-            size="sm"
-            onClick={() => onAddMember?.(team.id)}
-          >
+          <Button variant="outline" size="sm" onClick={() => onAddMember?.(team.id)}>
             <UserPlus className="h-4 w-4" />
           </Button>
         </div>

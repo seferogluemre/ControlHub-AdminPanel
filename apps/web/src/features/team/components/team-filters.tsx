@@ -1,5 +1,5 @@
 import { Input } from "#/components/ui/input";
-import { 
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -8,14 +8,7 @@ import {
 } from "#/components/ui/select";
 import { Button } from "#/components/ui/button";
 import { Badge } from "#/components/ui/badge";
-import { 
-  Search, 
-  Filter,
-  X,
-  Grid3x3,
-  List,
-  Table
-} from "lucide-react";
+import { Search, Filter, X, Grid3x3, List, Table } from "lucide-react";
 import { TeamFilters, TeamView } from "../types/team";
 import { departments, roles } from "../data/team-data";
 
@@ -27,41 +20,41 @@ interface TeamFiltersProps {
   onClearFilters: () => void;
 }
 
-export function TeamFiltersComponent({ 
-  filters, 
+export function TeamFiltersComponent({
+  filters,
   view,
-  onFiltersChange, 
+  onFiltersChange,
   onViewChange,
-  onClearFilters 
+  onClearFilters,
 }: TeamFiltersProps) {
   const updateFilter = (key: keyof TeamFilters, value: string) => {
     onFiltersChange({
       ...filters,
-      [key]: value
+      [key]: value,
     });
   };
 
-  const hasActiveFilters = 
-    filters.search || 
-    filters.department !== 'Tümü' || 
-    filters.status !== 'all' || 
-    filters.role !== 'Tümü';
+  const hasActiveFilters =
+    filters.search ||
+    filters.department !== "Tümü" ||
+    filters.status !== "all" ||
+    filters.role !== "Tümü";
 
   const getViewIcon = (viewType: TeamView) => {
     switch (viewType) {
-      case 'grid':
+      case "grid":
         return Grid3x3;
-      case 'list':
+      case "list":
         return List;
-      case 'table':
+      case "table":
         return Table;
     }
   };
 
   const views: { value: TeamView; label: string }[] = [
-    { value: 'grid', label: 'Kart Görünümü' },
-    { value: 'list', label: 'Liste Görünümü' },
-    { value: 'table', label: 'Tablo Görünümü' }
+    { value: "grid", label: "Kart Görünümü" },
+    { value: "list", label: "Liste Görünümü" },
+    { value: "table", label: "Tablo Görünümü" },
   ];
 
   return (
@@ -73,7 +66,7 @@ export function TeamFiltersComponent({
           <Input
             placeholder="Takım üyelerinde ara..."
             value={filters.search}
-            onChange={(e) => updateFilter('search', e.target.value)}
+            onChange={(e) => updateFilter("search", e.target.value)}
             className="pl-10"
           />
         </div>
@@ -104,9 +97,9 @@ export function TeamFiltersComponent({
           <span className="text-sm font-medium">Filtrele:</span>
         </div>
 
-        <Select 
-          value={filters.department} 
-          onValueChange={(value) => updateFilter('department', value)}
+        <Select
+          value={filters.department}
+          onValueChange={(value) => updateFilter("department", value)}
         >
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Departman seçin" />
@@ -120,9 +113,9 @@ export function TeamFiltersComponent({
           </SelectContent>
         </Select>
 
-        <Select 
-          value={filters.status} 
-          onValueChange={(value) => updateFilter('status', value as TeamFilters['status'])}
+        <Select
+          value={filters.status}
+          onValueChange={(value) => updateFilter("status", value as TeamFilters["status"])}
         >
           <SelectTrigger className="w-[150px]">
             <SelectValue placeholder="Durum seçin" />
@@ -134,10 +127,7 @@ export function TeamFiltersComponent({
           </SelectContent>
         </Select>
 
-        <Select 
-          value={filters.role} 
-          onValueChange={(value) => updateFilter('role', value)}
-        >
+        <Select value={filters.role} onValueChange={(value) => updateFilter("role", value)}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Rol seçin" />
           </SelectTrigger>
@@ -151,12 +141,7 @@ export function TeamFiltersComponent({
         </Select>
 
         {hasActiveFilters && (
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={onClearFilters}
-            className="h-9"
-          >
+          <Button variant="outline" size="sm" onClick={onClearFilters} className="h-9">
             <X className="h-4 w-4 mr-1" />
             Filtreleri Temizle
           </Button>
@@ -167,44 +152,35 @@ export function TeamFiltersComponent({
       {hasActiveFilters && (
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-sm text-muted-foreground">Aktif filtreler:</span>
-          
+
           {filters.search && (
             <Badge variant="secondary" className="gap-1">
               Arama: {filters.search}
-              <X 
-                className="h-3 w-3 cursor-pointer" 
-                onClick={() => updateFilter('search', '')}
-              />
+              <X className="h-3 w-3 cursor-pointer" onClick={() => updateFilter("search", "")} />
             </Badge>
           )}
-          
-          {filters.department !== 'Tümü' && (
+
+          {filters.department !== "Tümü" && (
             <Badge variant="secondary" className="gap-1">
               Departman: {filters.department}
-              <X 
-                className="h-3 w-3 cursor-pointer" 
-                onClick={() => updateFilter('department', 'Tümü')}
+              <X
+                className="h-3 w-3 cursor-pointer"
+                onClick={() => updateFilter("department", "Tümü")}
               />
             </Badge>
           )}
-          
-          {filters.status !== 'all' && (
+
+          {filters.status !== "all" && (
             <Badge variant="secondary" className="gap-1">
-              Durum: {filters.status === 'active' ? 'Aktif' : 'Pasif'}
-              <X 
-                className="h-3 w-3 cursor-pointer" 
-                onClick={() => updateFilter('status', 'all')}
-              />
+              Durum: {filters.status === "active" ? "Aktif" : "Pasif"}
+              <X className="h-3 w-3 cursor-pointer" onClick={() => updateFilter("status", "all")} />
             </Badge>
           )}
-          
-          {filters.role !== 'Tümü' && (
+
+          {filters.role !== "Tümü" && (
             <Badge variant="secondary" className="gap-1">
               Rol: {filters.role}
-              <X 
-                className="h-3 w-3 cursor-pointer" 
-                onClick={() => updateFilter('role', 'Tümü')}
-              />
+              <X className="h-3 w-3 cursor-pointer" onClick={() => updateFilter("role", "Tümü")} />
             </Badge>
           )}
         </div>

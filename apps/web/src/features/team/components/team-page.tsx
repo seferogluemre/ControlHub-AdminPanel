@@ -15,14 +15,14 @@ import { TeamFilters, TeamView, TeamMember, Team } from "../types/team";
 
 export function TeamPage() {
   const [filters, setFilters] = useState<TeamFilters>({
-    search: '',
-    department: 'Tümü',
-    status: 'all',
-    role: 'Tümü'
+    search: "",
+    department: "Tümü",
+    status: "all",
+    role: "Tümü",
   });
-  
-  const [view, setView] = useState<TeamView>('grid');
-  const [activeTab, setActiveTab] = useState('overview');
+
+  const [view, setView] = useState<TeamView>("grid");
+  const [activeTab, setActiveTab] = useState("overview");
 
   // Filter members based on current filters
   const filteredMembers = useMemo(() => {
@@ -40,17 +40,17 @@ export function TeamPage() {
       }
 
       // Department filter
-      if (filters.department !== 'Tümü' && member.department !== filters.department) {
+      if (filters.department !== "Tümü" && member.department !== filters.department) {
         return false;
       }
 
       // Status filter
-      if (filters.status !== 'all' && member.status !== filters.status) {
+      if (filters.status !== "all" && member.status !== filters.status) {
         return false;
       }
 
       // Role filter
-      if (filters.role !== 'Tümü' && member.role !== filters.role) {
+      if (filters.role !== "Tümü" && member.role !== filters.role) {
         return false;
       }
 
@@ -74,12 +74,12 @@ export function TeamPage() {
       }
 
       // Department filter
-      if (filters.department !== 'Tümü' && team.department !== filters.department) {
+      if (filters.department !== "Tümü" && team.department !== filters.department) {
         return false;
       }
 
       // Status filter
-      if (filters.status !== 'all' && team.status !== filters.status) {
+      if (filters.status !== "all" && team.status !== filters.status) {
         return false;
       }
 
@@ -89,10 +89,10 @@ export function TeamPage() {
 
   const clearFilters = () => {
     setFilters({
-      search: '',
-      department: 'Tümü',
-      status: 'all',
-      role: 'Tümü'
+      search: "",
+      department: "Tümü",
+      status: "all",
+      role: "Tümü",
     });
   };
 
@@ -107,16 +107,16 @@ export function TeamPage() {
   };
 
   const renderMembersView = () => {
-    if (view === 'grid') {
+    if (view === "grid") {
       return (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredMembers.map((member) => (
             <TeamMemberCard
               key={member.id}
               member={member}
-              onViewProfile={(id) => handleMemberAction('viewProfile', id)}
-              onSendMessage={(id) => handleMemberAction('sendMessage', id)}
-              onRemoveFromTeam={(id) => handleMemberAction('removeFromTeam', id)}
+              onViewProfile={(id) => handleMemberAction("viewProfile", id)}
+              onSendMessage={(id) => handleMemberAction("sendMessage", id)}
+              onRemoveFromTeam={(id) => handleMemberAction("removeFromTeam", id)}
             />
           ))}
         </div>
@@ -135,9 +135,7 @@ export function TeamPage() {
                   <p className="text-sm text-muted-foreground">{member.role}</p>
                 </div>
               </div>
-              <div className="text-sm text-muted-foreground">
-                {member.department}
-              </div>
+              <div className="text-sm text-muted-foreground">{member.department}</div>
             </div>
           </Card>
         ))}
@@ -152,9 +150,9 @@ export function TeamPage() {
           <TeamCard
             key={team.id}
             team={team}
-            onViewTeam={(id) => handleTeamAction('viewTeam', id)}
-            onManageTeam={(id) => handleTeamAction('manageTeam', id)}
-            onAddMember={(id) => handleTeamAction('addMember', id)}
+            onViewTeam={(id) => handleTeamAction("viewTeam", id)}
+            onManageTeam={(id) => handleTeamAction("manageTeam", id)}
+            onAddMember={(id) => handleTeamAction("addMember", id)}
           />
         ))}
       </div>
@@ -207,23 +205,24 @@ export function TeamPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>Son Eklenen Üyeler</CardTitle>
-                  <CardDescription>
-                    Takıma son katılan üyeler
-                  </CardDescription>
+                  <CardDescription>Takıma son katılan üyeler</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {mockTeamMembers.slice(0, 3).map((member) => (
                       <div key={member.id} className="flex items-center space-x-3">
                         <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
-                          {member.name.split(' ').map(n => n[0]).join('')}
+                          {member.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
                         </div>
                         <div className="flex-1">
                           <p className="text-sm font-medium">{member.name}</p>
                           <p className="text-xs text-muted-foreground">{member.role}</p>
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          {new Date(member.joinDate).toLocaleDateString('tr-TR')}
+                          {new Date(member.joinDate).toLocaleDateString("tr-TR")}
                         </div>
                       </div>
                     ))}
@@ -235,26 +234,32 @@ export function TeamPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>Aktif Takımlar</CardTitle>
-                  <CardDescription>
-                    Şu anda aktif olan takımlar
-                  </CardDescription>
+                  <CardDescription>Şu anda aktif olan takımlar</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {mockTeams.filter(team => team.status === 'active').slice(0, 3).map((team) => (
-                      <div key={team.id} className="flex items-center space-x-3">
-                        <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
-                          {team.name.split(' ').map(n => n[0]).join('')}
+                    {mockTeams
+                      .filter((team) => team.status === "active")
+                      .slice(0, 3)
+                      .map((team) => (
+                        <div key={team.id} className="flex items-center space-x-3">
+                          <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
+                            {team.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-medium">{team.name}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {team.members.length} üye
+                            </p>
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            {team.projectsCount} proje
+                          </div>
                         </div>
-                        <div className="flex-1">
-                          <p className="text-sm font-medium">{team.name}</p>
-                          <p className="text-xs text-muted-foreground">{team.members.length} üye</p>
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          {team.projectsCount} proje
-                        </div>
-                      </div>
-                    ))}
+                      ))}
                   </div>
                 </CardContent>
               </Card>
@@ -269,7 +274,7 @@ export function TeamPage() {
               onViewChange={setView}
               onClearFilters={clearFilters}
             />
-            
+
             {filteredMembers.length === 0 ? (
               <Card>
                 <CardContent className="text-center py-8">
@@ -296,7 +301,7 @@ export function TeamPage() {
               onViewChange={setView}
               onClearFilters={clearFilters}
             />
-            
+
             {filteredTeams.length === 0 ? (
               <Card>
                 <CardContent className="text-center py-8">

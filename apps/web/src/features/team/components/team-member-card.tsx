@@ -2,14 +2,7 @@ import { Badge } from "#/components/ui/badge";
 import { Button } from "#/components/ui/button";
 import { Card, CardContent, CardHeader } from "#/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
-import { 
-  Mail, 
-  Calendar, 
-  Activity, 
-  MoreVertical,
-  MessageCircle,
-  User
-} from "lucide-react";
+import { Mail, Calendar, Activity, MoreVertical, MessageCircle, User } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,43 +20,43 @@ interface TeamMemberCardProps {
   onRemoveFromTeam?: (memberId: string) => void;
 }
 
-export function TeamMemberCard({ 
-  member, 
+export function TeamMemberCard({
+  member,
   onViewProfile,
   onSendMessage,
-  onRemoveFromTeam 
+  onRemoveFromTeam,
 }: TeamMemberCardProps) {
-  const getStatusBadgeVariant = (status: TeamMember['status']) => {
+  const getStatusBadgeVariant = (status: TeamMember["status"]) => {
     switch (status) {
-      case 'active':
-        return 'default';
-      case 'inactive':
-        return 'secondary';
-      case 'pending':
-        return 'outline';
+      case "active":
+        return "default";
+      case "inactive":
+        return "secondary";
+      case "pending":
+        return "outline";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
-  const getStatusText = (status: TeamMember['status']) => {
+  const getStatusText = (status: TeamMember["status"]) => {
     switch (status) {
-      case 'active':
-        return 'Aktif';
-      case 'inactive':
-        return 'Pasif';
-      case 'pending':
-        return 'Beklemede';
+      case "active":
+        return "Aktif";
+      case "inactive":
+        return "Pasif";
+      case "pending":
+        return "Beklemede";
       default:
-        return 'Bilinmiyor';
+        return "Bilinmiyor";
     }
   };
 
   const getInitials = (name: string) => {
     return name
-      .split(' ')
-      .map(part => part.charAt(0))
-      .join('')
+      .split(" ")
+      .map((part) => part.charAt(0))
+      .join("")
       .toUpperCase()
       .slice(0, 2);
   };
@@ -75,20 +68,18 @@ export function TeamMemberCard({
           <div className="flex items-center space-x-3">
             <Avatar className="h-12 w-12">
               <AvatarImage src={member.avatar} alt={member.name} />
-              <AvatarFallback>
-                {getInitials(member.name)}
-              </AvatarFallback>
+              <AvatarFallback>{getInitials(member.name)}</AvatarFallback>
             </Avatar>
             <div>
               <h3 className="font-semibold text-lg">{member.name}</h3>
               <p className="text-sm text-muted-foreground">{member.role}</p>
             </div>
           </div>
-          
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="sm"
                 className="opacity-0 group-hover:opacity-100 transition-opacity"
               >
@@ -104,7 +95,7 @@ export function TeamMemberCard({
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Mesaj Gönder
               </DropdownMenuItem>
-              <DropdownMenuItem 
+              <DropdownMenuItem
                 onClick={() => onRemoveFromTeam?.(member.id)}
                 className="text-destructive"
               >
@@ -130,11 +121,11 @@ export function TeamMemberCard({
             <Mail className="h-4 w-4 text-muted-foreground" />
             <span className="text-muted-foreground truncate">{member.email}</span>
           </div>
-          
+
           <div className="flex items-center space-x-2 text-sm">
             <Calendar className="h-4 w-4 text-muted-foreground" />
             <span className="text-muted-foreground">
-              Katılım: {new Date(member.joinDate).toLocaleDateString('tr-TR')}
+              Katılım: {new Date(member.joinDate).toLocaleDateString("tr-TR")}
             </span>
           </div>
 
@@ -142,9 +133,10 @@ export function TeamMemberCard({
             <div className="flex items-center space-x-2 text-sm">
               <Activity className="h-4 w-4 text-muted-foreground" />
               <span className="text-muted-foreground">
-                Son aktivite: {formatDistanceToNow(new Date(member.lastActivity), {
+                Son aktivite:{" "}
+                {formatDistanceToNow(new Date(member.lastActivity), {
                   addSuffix: true,
-                  locale: tr
+                  locale: tr,
                 })}
               </span>
             </div>

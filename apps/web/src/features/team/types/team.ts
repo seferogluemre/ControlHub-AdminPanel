@@ -6,7 +6,7 @@ export interface TeamMember {
   role: string;
   department: string;
   joinDate: string;
-  status: 'active' | 'inactive' | 'pending';
+  status: "active" | "inactive" | "pending";
   skills: string[];
   lastActivity?: string;
   projectsCount: number;
@@ -21,7 +21,7 @@ export interface Team {
   leaderId: string;
   createdAt: string;
   projectsCount: number;
-  status: 'active' | 'inactive';
+  status: "active" | "inactive";
   department: string;
   avatar?: string;
 }
@@ -38,8 +38,8 @@ export interface TeamStats {
 export interface TeamFilters {
   search: string;
   department: string;
-  status: 'all' | 'active' | 'inactive';
+  status: "all" | "active" | "inactive";
   role: string;
 }
 
-export type TeamView = 'grid' | 'list' | 'table';
+export type TeamView = "grid" | "list" | "table";
