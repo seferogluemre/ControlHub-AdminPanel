@@ -12,9 +12,7 @@ export default function Analytics() {
       <div className="mb-6 flex items-center justify-between space-y-2">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-          <p className="text-muted-foreground">
-            {t("subtitle")}
-          </p>
+          <p className="text-muted-foreground">{t("subtitle")}</p>
         </div>
         <div className="flex items-center space-x-2">
           <Button variant="outline">{t("buttons.exportData")}</Button>
@@ -35,45 +33,63 @@ export default function Analytics() {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">{t("metrics.totalProjects.title")}</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  {t("metrics.totalProjects.title")}
+                </CardTitle>
                 <FolderOpen className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">47</div>
-                <p className="text-xs text-muted-foreground">{t("metrics.totalProjects.subtitle", { percent: 12 })}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t("metrics.totalProjects.subtitle", { percent: 12 })}
+                </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">{t("metrics.completionRate.title")}</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  {t("metrics.completionRate.title")}
+                </CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">87%</div>
-                <p className="text-xs text-muted-foreground">{t("metrics.completionRate.subtitle", { percent: 5 })}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t("metrics.completionRate.subtitle", { percent: 5 })}
+                </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">{t("metrics.activeTeamMembers.title")}</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  {t("metrics.activeTeamMembers.title")}
+                </CardTitle>
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">24</div>
-                <p className="text-xs text-muted-foreground">{t("metrics.activeTeamMembers.subtitle", { count: 3 })}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t("metrics.activeTeamMembers.subtitle", { count: 3 })}
+                </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">{t("metrics.avgDuration.title")}</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  {t("metrics.avgDuration.title")}
+                </CardTitle>
                 <Clock className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">3.2 {t("metrics.avgDuration.months", { defaultValue: "months" })}</div>
-                <p className="text-xs text-muted-foreground">{t("metrics.avgDuration.subtitle", { months: "0.5" })}</p>
+                <div className="text-2xl font-bold">
+                  3.2 {t("metrics.avgDuration.months", { defaultValue: "months" })}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  {t("metrics.avgDuration.subtitle", { months: "0.5" })}
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -103,10 +119,26 @@ export default function Analytics() {
               <CardContent>
                 <div className="space-y-4">
                   {[
-                    { nameKey: "projects.mobileRedesign", completion: 95, statusKey: "status.onTrack" },
-                    { nameKey: "projects.apiIntegration", completion: 89, statusKey: "status.completed" },
-                    { nameKey: "projects.dataAnalytics", completion: 78, statusKey: "status.inProgress" },
-                    { nameKey: "projects.userDashboard", completion: 65, statusKey: "status.inProgress" },
+                    {
+                      nameKey: "projects.mobileRedesign",
+                      completion: 95,
+                      statusKey: "status.onTrack",
+                    },
+                    {
+                      nameKey: "projects.apiIntegration",
+                      completion: 89,
+                      statusKey: "status.completed",
+                    },
+                    {
+                      nameKey: "projects.dataAnalytics",
+                      completion: 78,
+                      statusKey: "status.inProgress",
+                    },
+                    {
+                      nameKey: "projects.userDashboard",
+                      completion: 65,
+                      statusKey: "status.inProgress",
+                    },
                   ].map((project, index) => (
                     <div key={index} className="flex items-center justify-between">
                       <div className="space-y-1">
