@@ -1,4 +1,4 @@
-import { createSeeder } from "@onlyjs/db/seeder/utils";
+import { createSeeder } from "@devflow/db/seeder/utils";
 import * as fs from "fs";
 import * as path from "path";
 

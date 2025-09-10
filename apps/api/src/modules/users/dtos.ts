@@ -1,7 +1,7 @@
-import { Prisma } from "@onlyjs/db/client";
-import { Gender } from "@onlyjs/db/enums";
-import { __nullable__ } from "@onlyjs/db/prismabox/__nullable__";
-import { UserInputUpdate, UserPlain } from "@onlyjs/db/prismabox/User";
+import { Prisma } from "@devflow/db/client";
+import { Gender } from "@devflow/db/enums";
+import { __nullable__ } from "@devflow/db/prismabox/__nullable__";
+import { UserInputUpdate, UserPlain } from "@devflow/db/prismabox/User";
 import { t } from "elysia";
 import { errorResponseDto } from "../../utils/common-dtos";
 import { type ControllerHook } from "../../utils/elysia-types";

@@ -1,4 +1,4 @@
-import prisma from "@onlyjs/db";
+import prisma from "@devflow/db";
 import { NotFoundError } from "elysia";
 import {
   type ChatWebsiteAIConfigCreatePayload,

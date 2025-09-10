@@ -3,7 +3,7 @@ import {
   ChatCannedMessageInputCreate,
   ChatCannedMessageInputUpdate,
   ChatCannedMessagePlain,
-} from "@onlyjs/db/prismabox/ChatCannedMessage";
+} from "@devflow/db/prismabox/ChatCannedMessage";
 import { t } from "elysia";
 
 export const chatCannedMessageResponseDto = t.Composite([

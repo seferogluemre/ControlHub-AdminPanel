@@ -1,6 +1,6 @@
-import prisma from "@onlyjs/db";
-import { Prisma } from "@onlyjs/db/client";
-import { PrismaClientKnownRequestError } from "@onlyjs/db/client/runtime/library";
+import prisma from "@devflow/db";
+import { Prisma } from "@devflow/db/client";
+import { PrismaClientKnownRequestError } from "@devflow/db/client/runtime/library";
 import { NotFoundException, type PaginationQuery } from "#utils";
 
 export abstract class LocationsService {

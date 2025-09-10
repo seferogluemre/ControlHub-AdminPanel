@@ -3,7 +3,7 @@ import {
   ChatVisitorInputCreate,
   ChatVisitorInputUpdate,
   ChatVisitorPlain,
-} from "@onlyjs/db/prismabox/ChatVisitor";
+} from "@devflow/db/prismabox/ChatVisitor";
 import { t } from "elysia";
 
 export const chatVisitorResponseDto = t.Composite([t.Omit(ChatVisitorPlain, ["id", "deletedAt"])]);

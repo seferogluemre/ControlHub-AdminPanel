@@ -1,9 +1,9 @@
-import { __nullable__ } from "@onlyjs/db/prismabox/__nullable__";
-import { CityPlain } from "@onlyjs/db/prismabox/City";
-import { CountryPlain } from "@onlyjs/db/prismabox/Country";
-import { RegionPlain } from "@onlyjs/db/prismabox/Region";
-import { StatePlain } from "@onlyjs/db/prismabox/State";
-import { SubregionPlain } from "@onlyjs/db/prismabox/Subregion";
+import { __nullable__ } from "@devflow/db/prismabox/__nullable__";
+import { CityPlain } from "@devflow/db/prismabox/City";
+import { CountryPlain } from "@devflow/db/prismabox/Country";
+import { RegionPlain } from "@devflow/db/prismabox/Region";
+import { StatePlain } from "@devflow/db/prismabox/State";
+import { SubregionPlain } from "@devflow/db/prismabox/Subregion";
 import { t } from "elysia";
 import {
   type ControllerHook,

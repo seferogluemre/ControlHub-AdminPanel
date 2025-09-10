@@ -1,4 +1,4 @@
-import { Prisma } from "@onlyjs/db/client";
+import { Prisma } from "@devflow/db/client";
 
 type SwapDecimalWithNumber<T> = {
   [k in keyof T]: T[k] extends Prisma.DecimalJsLike

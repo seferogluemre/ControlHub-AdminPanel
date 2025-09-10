@@ -1,7 +1,7 @@
 // API Seeders - Dynamic Exports
 // Tüm API seeder'ları dinamik import ile yüklenir (circular dependency önlemek için)
 
-import type { Seeder } from "@onlyjs/db/seeder/interfaces";
+import type { Seeder } from "@devflow/db/seeder/interfaces";
 
 // Dinamik import ile seeder'ları yükle
 export async function loadApiSeeders(): Promise<Seeder[]> {

@@ -20,7 +20,7 @@
     "@assistant-ui/react-markdown": "^0.10.6",
     "@hookform/resolvers": "^5.0.1",
     "@langchain/langgraph-sdk": "^0.0.99",
-    "@onlyjs/eden": "workspace:*",
+    "@devflow/eden": "workspace:*",
     "@radix-ui/react-alert-dialog": "^1.1.7",
     "@radix-ui/react-avatar": "^1.1.4",
     "@radix-ui/react-checkbox": "^1.1.5",

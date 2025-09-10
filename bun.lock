@@ -37,6 +37,7 @@
       "version": "0.0.1",
       "dependencies": {
         "@ai-sdk/langchain": "^1.0.8",
+        "@devflow/db": "workspace:*",
         "@elysiajs/bearer": "1.3.0",
         "@elysiajs/cors": "1.3.3",
         "@elysiajs/cron": "1.3.0",
@@ -46,7 +47,6 @@
         "@langchain/langgraph": "^0.4.3",
         "@langchain/ollama": "^0.2.3",
         "@langchain/openai": "^0.6.7",
-        "@onlyjs/db": "workspace:*",
         "@react-email/components": "^0.5.0",
         "ai": "^5.0.8",
         "better-auth": "^1.3.4",
@@ -77,9 +77,9 @@
         "@assistant-ui/react": "^0.10.25",
         "@assistant-ui/react-ai-sdk": "^0.10.15",
         "@assistant-ui/react-markdown": "^0.10.6",
+        "@devflow/eden": "workspace:*",
         "@hookform/resolvers": "^5.0.1",
         "@langchain/langgraph-sdk": "^0.0.99",
-        "@onlyjs/eden": "workspace:*",
         "@radix-ui/react-alert-dialog": "^1.1.7",
         "@radix-ui/react-avatar": "^1.1.4",
         "@radix-ui/react-checkbox": "^1.1.5",
@@ -151,7 +151,7 @@
       },
     },
     "packages/database": {
-      "name": "@onlyjs/db",
+      "name": "@devflow/db",
       "version": "0.0.0",
       "dependencies": {
         "@prisma/client": "^6.13.0",
@@ -163,7 +163,7 @@
       },
     },
     "packages/eden": {
-      "name": "@onlyjs/eden",
+      "name": "@devflow/eden",
       "version": "0.0.0",
       "dependencies": {
         "@elysiajs/eden": "1.3.2",
@@ -313,6 +313,10 @@
     "@date-fns/tz": ["@date-fns/tz@1.3.1", "", {}, "sha512-LnBOyuj+piItX/D5BWBSckBsuZyOt7Jg2obGNiObq7qjl1A2/8F+i4RS8/MmkSdnw6hOe6afrJLCWrUWZw5Mlw=="],
 
     "@devflow/api": ["@devflow/api@workspace:apps/api"],
+
+    "@devflow/db": ["@devflow/db@workspace:packages/database"],
+
+    "@devflow/eden": ["@devflow/eden@workspace:packages/eden"],
 
     "@devflow/web": ["@devflow/web@workspace:apps/web"],
 
@@ -473,10 +477,6 @@
     "@nodelib/fs.stat": ["@nodelib/fs.stat@2.0.5", "", {}, "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A=="],
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
-
-    "@onlyjs/db": ["@onlyjs/db@workspace:packages/database"],
-
-    "@onlyjs/eden": ["@onlyjs/eden@workspace:packages/eden"],
 
     "@opentelemetry/api": ["@opentelemetry/api@1.9.0", "", {}, "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="],
 
@@ -2376,6 +2376,8 @@
 
     "@babel/helper-create-class-features-plugin/semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
 
+    "@devflow/eden/@elysiajs/eden": ["@elysiajs/eden@1.3.2", "", { "peerDependencies": { "elysia": ">= 1.3.0" } }, "sha512-0bCU5DO7J7hQfS2y3O3399GtoxMWRDMgQNMTHOnf70/F2nF8SwGHvzwh3+wO62Ko5FMF7EYqTN9Csw/g/Q7qwg=="],
+
     "@devflow/web/ai": ["ai@4.3.19", "", { "dependencies": { "@ai-sdk/provider": "1.1.3", "@ai-sdk/provider-utils": "2.2.8", "@ai-sdk/react": "1.2.12", "@ai-sdk/ui-utils": "1.2.11", "@opentelemetry/api": "1.9.0", "jsondiffpatch": "0.6.0" }, "peerDependencies": { "react": "^18 || ^19 || ^19.0.0-rc", "zod": "^3.23.8" }, "optionalPeers": ["react"] }, "sha512-dIE2bfNpqHN3r6IINp9znguYdhIOheKW2LDigAMrgt/upT3B8eBGPSCblENvaZGoq+hxaN9fSMzjWpbqloP+7Q=="],
 
     "@devflow/web/globals": ["globals@16.3.0", "", {}, "sha512-bqWEnJ1Nt3neqx2q5SFfGS8r/ahumIakg3HcwtNlrVlwXIeNumWn/c7Pn/wKzGhf6SaW6H6uWXLqC30STCMchQ=="],
@@ -2403,8 +2405,6 @@
     "@langchain/langgraph/@langchain/langgraph-sdk": ["@langchain/langgraph-sdk@0.0.105", "", { "dependencies": { "@types/json-schema": "^7.0.15", "p-queue": "^6.6.2", "p-retry": "4", "uuid": "^9.0.0" }, "peerDependencies": { "@langchain/core": ">=0.2.31 <0.4.0", "react": "^18 || ^19", "react-dom": "^18 || ^19" }, "optionalPeers": ["@langchain/core", "react", "react-dom"] }, "sha512-3DD1W1wnbP48807qq+5gY248mFcwwNGqKdmZt05P3zeLpfP5Sfm6ELzVvqHGpr+qumP0yGRZs/7qArYGXRRfcQ=="],
 
     "@langchain/langgraph-sdk/uuid": ["uuid@9.0.1", "", { "bin": { "uuid": "dist/bin/uuid" } }, "sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA=="],
-
-    "@onlyjs/eden/@elysiajs/eden": ["@elysiajs/eden@1.3.2", "", { "peerDependencies": { "elysia": ">= 1.3.0" } }, "sha512-0bCU5DO7J7hQfS2y3O3399GtoxMWRDMgQNMTHOnf70/F2nF8SwGHvzwh3+wO62Ko5FMF7EYqTN9Csw/g/Q7qwg=="],
 
     "@prisma/debug/debug": ["debug@4.3.4", "", { "dependencies": { "ms": "2.1.2" } }, "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ=="],
 

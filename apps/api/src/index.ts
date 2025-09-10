@@ -2,7 +2,7 @@ import { auth, authSwagger } from "#modules/auth/authentication/plugin";
 import cors from "@elysiajs/cors";
 import staticPlugin from "@elysiajs/static";
 import swagger from "@elysiajs/swagger";
-import { createSeederServer } from "@onlyjs/db/seeder/server";
+import { createSeederServer } from "@devflow/db/seeder/server";
 import { Elysia } from "elysia";
 import path from "path";
 import { loadEnv } from "./config/env";

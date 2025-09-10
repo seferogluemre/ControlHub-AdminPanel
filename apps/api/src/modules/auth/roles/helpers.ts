@@ -1,5 +1,5 @@
-import prisma from "@onlyjs/db";
-import type { Role, User } from "@onlyjs/db/client";
+import prisma from "@devflow/db";
+import type { Role, User } from "@devflow/db/client";
 import { cache } from "#core";
 import { ForbiddenException, UnauthorizedException } from "#utils";
 import type { PermissionIdentifier, PermissionKey } from "./types";

@@ -1,4 +1,4 @@
-import type { File } from "@onlyjs/db/client";
+import type { File } from "@devflow/db/client";
 import { BaseFormatter } from "../../utils";
 import { fileResponseDto } from "./dtos";
 import type { FileShowResponse } from "./types";

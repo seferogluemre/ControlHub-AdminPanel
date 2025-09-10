@@ -1,4 +1,4 @@
-import { FileFileType, FileMimeType, FileType } from "@onlyjs/db/client";
+import { FileFileType, FileMimeType, FileType } from "@devflow/db/client";
 
 export const FILE_IMAGE_RULES = {
   allowedMimeTypes: [

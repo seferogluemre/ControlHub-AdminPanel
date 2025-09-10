@@ -1,4 +1,4 @@
-import { AuditLogPlain } from "@onlyjs/db/prismabox/AuditLog";
+import { AuditLogPlain } from "@devflow/db/prismabox/AuditLog";
 import { t } from "elysia";
 import { type ControllerHook, paginationQueryDto, paginationResponseDto } from "../../utils";
 import { AuditLogAction, AuditLogEntity } from "./constants";

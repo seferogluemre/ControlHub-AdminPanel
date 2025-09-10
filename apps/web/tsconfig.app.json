@@ -21,7 +21,7 @@
     "baseUrl": ".",
     "paths": {
       "#*": ["./src/*"],
-      "@onlyjs/api/*": ["../api/src/*"]
+      "@devflow/api/*": ["../api/src/*"]
     },
     "outDir": "../../dist/apps/web",
 
@@ -31,7 +31,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "types": ["@onlyjs/eden/types"]
+    "types": ["@devflow/eden/types"]
   },
 
   "include": [

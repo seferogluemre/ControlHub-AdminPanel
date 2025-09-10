@@ -1,4 +1,4 @@
-import type { City, Country, Region, State, Subregion } from "@onlyjs/db/client";
+import type { City, Country, Region, State, Subregion } from "@devflow/db/client";
 import { BaseFormatter } from "#utils";
 
 import {

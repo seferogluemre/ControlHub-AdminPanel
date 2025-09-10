@@ -1,4 +1,4 @@
-import type { User } from "@onlyjs/db/client";
+import type { User } from "@devflow/db/client";
 import type { DocumentDecoration } from "elysia";
 import { Elysia, t } from "elysia";
 import { UnauthorizedException } from "../../../utils";

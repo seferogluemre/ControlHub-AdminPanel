@@ -1,4 +1,4 @@
-import prisma from "@onlyjs/db";
+import prisma from "@devflow/db";
 import { type Context, Elysia, NotFoundError } from "elysia";
 import { UserFormatter } from "../../users";
 import { getUserPermissions } from "../roles";

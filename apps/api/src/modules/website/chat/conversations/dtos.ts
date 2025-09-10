@@ -3,7 +3,7 @@ import {
   ChatConversationInputCreate,
   ChatConversationInputUpdate,
   ChatConversationPlain,
-} from "@onlyjs/db/prismabox/ChatConversation";
+} from "@devflow/db/prismabox/ChatConversation";
 import { t } from "elysia";
 
 export const chatConversationResponseDto = t.Composite([

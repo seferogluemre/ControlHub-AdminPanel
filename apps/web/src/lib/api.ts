@@ -1,4 +1,4 @@
-import { treaty } from "@onlyjs/eden";
+import { treaty } from "@devflow/eden";
 import { env } from "#/config/env";
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion

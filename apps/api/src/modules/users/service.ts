@@ -1,9 +1,9 @@
 import { FilesService } from "#modules/file/index.ts";
-import prisma from "@onlyjs/db";
-import { type Gender, Prisma, type User } from "@onlyjs/db/client";
-import { PrismaClientKnownRequestError } from "@onlyjs/db/client/runtime/library";
-import { FileType } from "@onlyjs/db/enums";
-import { UserWhereUnique } from "@onlyjs/db/prismabox/User";
+import prisma from "@devflow/db";
+import { type Gender, Prisma, type User } from "@devflow/db/client";
+import { PrismaClientKnownRequestError } from "@devflow/db/client/runtime/library";
+import { FileType } from "@devflow/db/enums";
+import { UserWhereUnique } from "@devflow/db/prismabox/User";
 import { ConflictException, InternalServerErrorException, NotFoundException } from "../../utils";
 import { betterAuth } from "../auth/authentication/instance";
 import { getUserFilters } from "./dtos";

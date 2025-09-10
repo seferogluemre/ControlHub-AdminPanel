@@ -1,4 +1,4 @@
-import { RolePlain } from "@onlyjs/db/prismabox/Role";
+import { RolePlain } from "@devflow/db/prismabox/Role";
 import { t } from "elysia";
 import { type ControllerHook, errorResponseDto, prepareFilters, uuidValidation } from "#utils";
 import { PERMISSION_KEYS } from "./constants";

@@ -1,5 +1,5 @@
-import type { Role } from "@onlyjs/db/client";
-import { RolePlain } from "@onlyjs/db/prismabox/Role";
+import type { Role } from "@devflow/db/client";
+import { RolePlain } from "@devflow/db/prismabox/Role";
 import { BaseFormatter } from "../../../utils";
 
 export abstract class RoleFormatter {

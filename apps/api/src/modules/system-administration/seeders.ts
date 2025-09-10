@@ -1,5 +1,5 @@
-import prisma from "@onlyjs/db";
-import { Gender } from "@onlyjs/db/enums";
+import prisma from "@devflow/db";
+import { Gender } from "@devflow/db/enums";
 import { GoneException } from "#utils";
 import { RolesService } from "../auth";
 import { UsersService } from "../users";

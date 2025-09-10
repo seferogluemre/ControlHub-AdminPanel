@@ -1,5 +1,5 @@
-import prisma from "@onlyjs/db";
-import type { User } from "@onlyjs/db/client";
+import prisma from "@devflow/db";
+import type { User } from "@devflow/db/client";
 import { NotFoundException } from "../../../utils";
 import type { UserRoleUpdatePayload } from "./types";
 

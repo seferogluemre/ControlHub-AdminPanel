@@ -1,5 +1,5 @@
-import prisma from "@onlyjs/db";
-import { Prisma } from "@onlyjs/db/client";
+import prisma from "@devflow/db";
+import { Prisma } from "@devflow/db/client";
 import { PaginationService } from "../../utils";
 import { AuditLogFormatter } from "./formatters";
 import type { AuditLogActionType, AuditLogEntityType, AuditLogIndexQuery } from "./types";

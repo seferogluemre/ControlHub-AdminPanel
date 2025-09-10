@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
-import { Gender } from "@onlyjs/db/enums";
-import { createSeeder } from "@onlyjs/db/seeder/utils";
+import { Gender } from "@devflow/db/enums";
+import { createSeeder } from "@devflow/db/seeder/utils";
 
 const usersSeeder = createSeeder(
   {

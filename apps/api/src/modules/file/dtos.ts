@@ -1,5 +1,5 @@
-import { FileType } from "@onlyjs/db/client";
-import { FilePlain, FilePlainInputUpdate } from "@onlyjs/db/prismabox/File";
+import { FileType } from "@devflow/db/client";
+import { FilePlain, FilePlainInputUpdate } from "@devflow/db/prismabox/File";
 import { t } from "elysia";
 import { type ControllerHook, errorResponseDto, prepareFilters, uuidValidation } from "../../utils";
 import { paginationQueryDto, paginationResponseDto } from "../../utils/pagination";

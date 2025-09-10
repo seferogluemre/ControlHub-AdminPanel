@@ -1,5 +1,5 @@
 {
-  "name": "@onlyjs/db",
+  "name": "@devflow/db",
   "version": "0.0.0",
   "type": "module",
   "config": {

@@ -3,7 +3,7 @@ import {
   ChatWebsiteAIConfigInputCreate,
   ChatWebsiteAIConfigInputUpdate,
   ChatWebsiteAIConfigPlain,
-} from "@onlyjs/db/prismabox/ChatWebsiteAIConfig";
+} from "@devflow/db/prismabox/ChatWebsiteAIConfig";
 import { t } from "elysia";
 
 export const chatWebsiteAIConfigResponseDto = t.Composite([

@@ -1,4 +1,4 @@
-import { createSeeder } from "@onlyjs/db/seeder/utils";
+import { createSeeder } from "@devflow/db/seeder/utils";
 import { SeedersService } from "../modules/system-administration/seeders";
 
 const systemAdminSeeder = createSeeder(

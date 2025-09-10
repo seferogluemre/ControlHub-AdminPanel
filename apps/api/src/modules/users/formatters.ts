@@ -1,4 +1,4 @@
-import type { User } from "@onlyjs/db/client";
+import type { User } from "@devflow/db/client";
 
 import { BaseFormatter } from "../../utils";
 import { userResponseSchema } from "./dtos";

@@ -1,6 +1,6 @@
 import { cache } from "#core";
-import prisma from "@onlyjs/db";
-import { Gender } from "@onlyjs/db/enums";
+import prisma from "@devflow/db";
+import { Gender } from "@devflow/db/enums";
 import { betterAuth as betterAuthBase, type BetterAuthOptions } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { openAPI } from "better-auth/plugins";

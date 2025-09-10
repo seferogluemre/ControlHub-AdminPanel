@@ -3,7 +3,7 @@ import {
   ChatVisitorStaffNoteInputCreate,
   ChatVisitorStaffNoteInputUpdate,
   ChatVisitorStaffNotePlain,
-} from "@onlyjs/db/prismabox/ChatVisitorStaffNote";
+} from "@devflow/db/prismabox/ChatVisitorStaffNote";
 import { t } from "elysia";
 
 export const chatVisitorStaffNoteResponseDto = t.Composite([

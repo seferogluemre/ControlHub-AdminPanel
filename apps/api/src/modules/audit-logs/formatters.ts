@@ -1,5 +1,5 @@
-import type { AuditLog, User } from "@onlyjs/db/client";
-import { AuditLogPlain } from "@onlyjs/db/prismabox/AuditLog";
+import type { AuditLog, User } from "@devflow/db/client";
+import { AuditLogPlain } from "@devflow/db/prismabox/AuditLog";
 import { BaseFormatter } from "../../utils/base-formatter";
 
 export class AuditLogFormatter extends BaseFormatter {

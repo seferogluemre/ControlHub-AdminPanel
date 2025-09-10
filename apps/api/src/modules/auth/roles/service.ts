@@ -1,6 +1,6 @@
-import prisma from "@onlyjs/db";
-import type { Role } from "@onlyjs/db/client";
-import { PrismaClientKnownRequestError } from "@onlyjs/db/client/runtime/library";
+import prisma from "@devflow/db";
+import type { Role } from "@devflow/db/client";
+import { PrismaClientKnownRequestError } from "@devflow/db/client/runtime/library";
 import slugify from "slugify";
 import { cache } from "#core";
 import { BadRequestException, ConflictException, NotFoundException } from "../../../utils";
