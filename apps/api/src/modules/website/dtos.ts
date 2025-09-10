@@ -1,4 +1,8 @@
-import { WebsiteInputCreate, WebsiteInputUpdate, WebsitePlain } from "@devflow/db/prismabox/Website";
+import {
+  WebsiteInputCreate,
+  WebsiteInputUpdate,
+  WebsitePlain,
+} from "@devflow/db/prismabox/Website";
 import { t } from "elysia";
 import { type ControllerHook, errorResponseDto, uuidValidation } from "../../utils";
 

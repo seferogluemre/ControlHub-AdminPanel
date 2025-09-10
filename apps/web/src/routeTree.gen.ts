@@ -8,819 +8,806 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
-import { Route as authRouteRouteImport } from './routes/(auth)/route'
-import { Route as ChatIndexRouteImport } from './routes/chat/index'
-import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
-import { Route as errors503RouteImport } from './routes/(errors)/503'
-import { Route as errors500RouteImport } from './routes/(errors)/500'
-import { Route as errors404RouteImport } from './routes/(errors)/404'
-import { Route as errors403RouteImport } from './routes/(errors)/403'
-import { Route as errors401RouteImport } from './routes/(errors)/401'
-import { Route as authSignUpRouteImport } from './routes/(auth)/sign-up'
-import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
-import { Route as authOtpRouteImport } from './routes/(auth)/otp'
-import { Route as authForgotPasswordRouteImport } from './routes/(auth)/forgot-password'
-import { Route as AuthenticatedPanelRouteRouteImport } from './routes/_authenticated/panel/route'
-import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
-import { Route as AuthenticatedPanelSettingsRouteRouteImport } from './routes/_authenticated/panel/settings/route'
-import { Route as AuthenticatedPanelTeamIndexRouteImport } from './routes/_authenticated/panel/team/index'
-import { Route as AuthenticatedPanelTasksIndexRouteImport } from './routes/_authenticated/panel/tasks/index'
-import { Route as AuthenticatedPanelSettingsIndexRouteImport } from './routes/_authenticated/panel/settings/index'
-import { Route as AuthenticatedPanelProjectsIndexRouteImport } from './routes/_authenticated/panel/projects/index'
-import { Route as AuthenticatedPanelDashboardIndexRouteImport } from './routes/_authenticated/panel/dashboard/index'
-import { Route as AuthenticatedPanelAnalyticsIndexRouteImport } from './routes/_authenticated/panel/analytics/index'
-import { Route as AuthenticatedAdminHistoryIndexRouteImport } from './routes/_authenticated/admin/history/index'
-import { Route as AuthenticatedPanelSettingsNotificationsRouteImport } from './routes/_authenticated/panel/settings/notifications'
-import { Route as AuthenticatedPanelSettingsDisplayRouteImport } from './routes/_authenticated/panel/settings/display'
-import { Route as AuthenticatedPanelSettingsAppearanceRouteImport } from './routes/_authenticated/panel/settings/appearance'
-import { Route as AuthenticatedPanelSettingsAccountRouteImport } from './routes/_authenticated/panel/settings/account'
-import { Route as AuthenticatedAdminHistoryChatsRouteImport } from './routes/_authenticated/admin/history/chats'
-import { Route as AuthenticatedAdminHistoryAgentChatsRouteImport } from './routes/_authenticated/admin/history/agent-chats'
-import { Route as AuthenticatedAdminChatbotSettingsRouteImport } from './routes/_authenticated/admin/chatbot/settings'
-import { Route as AuthenticatedAdminChatbotConfigRouteImport } from './routes/_authenticated/admin/chatbot/config'
-import { Route as AuthenticatedAdminGlobalSettingsRolesIndexRouteImport } from './routes/_authenticated/admin/global-settings/roles/index'
-import { Route as AuthenticatedAdminGlobalSettingsDepartmentsIndexRouteImport } from './routes/_authenticated/admin/global-settings/departments/index'
-import { Route as AuthenticatedAdminGlobalSettingsAgentsIndexRouteImport } from './routes/_authenticated/admin/global-settings/agents/index'
-import { Route as AuthenticatedAdminGlobalSettingsRolesNewRouteImport } from './routes/_authenticated/admin/global-settings/roles/new'
-import { Route as AuthenticatedAdminGlobalSettingsDepartmentsNewRouteImport } from './routes/_authenticated/admin/global-settings/departments/new'
-import { Route as AuthenticatedAdminGlobalSettingsAgentsNewRouteImport } from './routes/_authenticated/admin/global-settings/agents/new'
-import { Route as AuthenticatedAdminGlobalSettingsRolesEditIdRouteImport } from './routes/_authenticated/admin/global-settings/roles/edit/$id'
-import { Route as AuthenticatedAdminGlobalSettingsDepartmentsEditIdRouteImport } from './routes/_authenticated/admin/global-settings/departments/edit/$id'
-import { Route as AuthenticatedAdminGlobalSettingsAgentsEditIdRouteImport } from './routes/_authenticated/admin/global-settings/agents/edit/$id'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as AuthenticatedRouteRouteImport } from "./routes/_authenticated/route";
+import { Route as authRouteRouteImport } from "./routes/(auth)/route";
+import { Route as ChatIndexRouteImport } from "./routes/chat/index";
+import { Route as AuthenticatedIndexRouteImport } from "./routes/_authenticated/index";
+import { Route as errors503RouteImport } from "./routes/(errors)/503";
+import { Route as errors500RouteImport } from "./routes/(errors)/500";
+import { Route as errors404RouteImport } from "./routes/(errors)/404";
+import { Route as errors403RouteImport } from "./routes/(errors)/403";
+import { Route as errors401RouteImport } from "./routes/(errors)/401";
+import { Route as authSignUpRouteImport } from "./routes/(auth)/sign-up";
+import { Route as authSignInRouteImport } from "./routes/(auth)/sign-in";
+import { Route as authOtpRouteImport } from "./routes/(auth)/otp";
+import { Route as authForgotPasswordRouteImport } from "./routes/(auth)/forgot-password";
+import { Route as AuthenticatedPanelRouteRouteImport } from "./routes/_authenticated/panel/route";
+import { Route as AuthenticatedAdminRouteRouteImport } from "./routes/_authenticated/admin/route";
+import { Route as AuthenticatedPanelSettingsRouteRouteImport } from "./routes/_authenticated/panel/settings/route";
+import { Route as AuthenticatedPanelTeamIndexRouteImport } from "./routes/_authenticated/panel/team/index";
+import { Route as AuthenticatedPanelTasksIndexRouteImport } from "./routes/_authenticated/panel/tasks/index";
+import { Route as AuthenticatedPanelSettingsIndexRouteImport } from "./routes/_authenticated/panel/settings/index";
+import { Route as AuthenticatedPanelProjectsIndexRouteImport } from "./routes/_authenticated/panel/projects/index";
+import { Route as AuthenticatedPanelDashboardIndexRouteImport } from "./routes/_authenticated/panel/dashboard/index";
+import { Route as AuthenticatedPanelAnalyticsIndexRouteImport } from "./routes/_authenticated/panel/analytics/index";
+import { Route as AuthenticatedAdminHistoryIndexRouteImport } from "./routes/_authenticated/admin/history/index";
+import { Route as AuthenticatedPanelSettingsNotificationsRouteImport } from "./routes/_authenticated/panel/settings/notifications";
+import { Route as AuthenticatedPanelSettingsDisplayRouteImport } from "./routes/_authenticated/panel/settings/display";
+import { Route as AuthenticatedPanelSettingsAppearanceRouteImport } from "./routes/_authenticated/panel/settings/appearance";
+import { Route as AuthenticatedPanelSettingsAccountRouteImport } from "./routes/_authenticated/panel/settings/account";
+import { Route as AuthenticatedAdminHistoryChatsRouteImport } from "./routes/_authenticated/admin/history/chats";
+import { Route as AuthenticatedAdminHistoryAgentChatsRouteImport } from "./routes/_authenticated/admin/history/agent-chats";
+import { Route as AuthenticatedAdminChatbotSettingsRouteImport } from "./routes/_authenticated/admin/chatbot/settings";
+import { Route as AuthenticatedAdminChatbotConfigRouteImport } from "./routes/_authenticated/admin/chatbot/config";
+import { Route as AuthenticatedAdminGlobalSettingsRolesIndexRouteImport } from "./routes/_authenticated/admin/global-settings/roles/index";
+import { Route as AuthenticatedAdminGlobalSettingsDepartmentsIndexRouteImport } from "./routes/_authenticated/admin/global-settings/departments/index";
+import { Route as AuthenticatedAdminGlobalSettingsAgentsIndexRouteImport } from "./routes/_authenticated/admin/global-settings/agents/index";
+import { Route as AuthenticatedAdminGlobalSettingsRolesNewRouteImport } from "./routes/_authenticated/admin/global-settings/roles/new";
+import { Route as AuthenticatedAdminGlobalSettingsDepartmentsNewRouteImport } from "./routes/_authenticated/admin/global-settings/departments/new";
+import { Route as AuthenticatedAdminGlobalSettingsAgentsNewRouteImport } from "./routes/_authenticated/admin/global-settings/agents/new";
+import { Route as AuthenticatedAdminGlobalSettingsRolesEditIdRouteImport } from "./routes/_authenticated/admin/global-settings/roles/edit/$id";
+import { Route as AuthenticatedAdminGlobalSettingsDepartmentsEditIdRouteImport } from "./routes/_authenticated/admin/global-settings/departments/edit/$id";
+import { Route as AuthenticatedAdminGlobalSettingsAgentsEditIdRouteImport } from "./routes/_authenticated/admin/global-settings/agents/edit/$id";
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+  id: "/_authenticated",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const authRouteRoute = authRouteRouteImport.update({
-  id: '/(auth)',
+  id: "/(auth)",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ChatIndexRoute = ChatIndexRouteImport.update({
-  id: '/chat/',
-  path: '/chat/',
+  id: "/chat/",
+  path: "/chat/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
+} as any);
 const errors503Route = errors503RouteImport.update({
-  id: '/(errors)/503',
-  path: '/503',
+  id: "/(errors)/503",
+  path: "/503",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const errors500Route = errors500RouteImport.update({
-  id: '/(errors)/500',
-  path: '/500',
+  id: "/(errors)/500",
+  path: "/500",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const errors404Route = errors404RouteImport.update({
-  id: '/(errors)/404',
-  path: '/404',
+  id: "/(errors)/404",
+  path: "/404",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const errors403Route = errors403RouteImport.update({
-  id: '/(errors)/403',
-  path: '/403',
+  id: "/(errors)/403",
+  path: "/403",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const errors401Route = errors401RouteImport.update({
-  id: '/(errors)/401',
-  path: '/401',
+  id: "/(errors)/401",
+  path: "/401",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const authSignUpRoute = authSignUpRouteImport.update({
-  id: '/sign-up',
-  path: '/sign-up',
+  id: "/sign-up",
+  path: "/sign-up",
   getParentRoute: () => authRouteRoute,
-} as any)
+} as any);
 const authSignInRoute = authSignInRouteImport.update({
-  id: '/sign-in',
-  path: '/sign-in',
+  id: "/sign-in",
+  path: "/sign-in",
   getParentRoute: () => authRouteRoute,
-} as any)
+} as any);
 const authOtpRoute = authOtpRouteImport.update({
-  id: '/otp',
-  path: '/otp',
+  id: "/otp",
+  path: "/otp",
   getParentRoute: () => authRouteRoute,
-} as any)
+} as any);
 const authForgotPasswordRoute = authForgotPasswordRouteImport.update({
-  id: '/forgot-password',
-  path: '/forgot-password',
+  id: "/forgot-password",
+  path: "/forgot-password",
   getParentRoute: () => authRouteRoute,
-} as any)
+} as any);
 const AuthenticatedPanelRouteRoute = AuthenticatedPanelRouteRouteImport.update({
-  id: '/panel',
-  path: '/panel',
+  id: "/panel",
+  path: "/panel",
   getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
+} as any);
 const AuthenticatedAdminRouteRoute = AuthenticatedAdminRouteRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+  id: "/admin",
+  path: "/admin",
   getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedPanelSettingsRouteRoute =
-  AuthenticatedPanelSettingsRouteRouteImport.update({
-    id: '/settings',
-    path: '/settings',
-    getParentRoute: () => AuthenticatedPanelRouteRoute,
-  } as any)
-const AuthenticatedPanelTeamIndexRoute =
-  AuthenticatedPanelTeamIndexRouteImport.update({
-    id: '/team/',
-    path: '/team/',
-    getParentRoute: () => AuthenticatedPanelRouteRoute,
-  } as any)
-const AuthenticatedPanelTasksIndexRoute =
-  AuthenticatedPanelTasksIndexRouteImport.update({
-    id: '/tasks/',
-    path: '/tasks/',
-    getParentRoute: () => AuthenticatedPanelRouteRoute,
-  } as any)
-const AuthenticatedPanelSettingsIndexRoute =
-  AuthenticatedPanelSettingsIndexRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
-  } as any)
-const AuthenticatedPanelProjectsIndexRoute =
-  AuthenticatedPanelProjectsIndexRouteImport.update({
-    id: '/projects/',
-    path: '/projects/',
-    getParentRoute: () => AuthenticatedPanelRouteRoute,
-  } as any)
-const AuthenticatedPanelDashboardIndexRoute =
-  AuthenticatedPanelDashboardIndexRouteImport.update({
-    id: '/dashboard/',
-    path: '/dashboard/',
-    getParentRoute: () => AuthenticatedPanelRouteRoute,
-  } as any)
-const AuthenticatedPanelAnalyticsIndexRoute =
-  AuthenticatedPanelAnalyticsIndexRouteImport.update({
-    id: '/analytics/',
-    path: '/analytics/',
-    getParentRoute: () => AuthenticatedPanelRouteRoute,
-  } as any)
-const AuthenticatedAdminHistoryIndexRoute =
-  AuthenticatedAdminHistoryIndexRouteImport.update({
-    id: '/history/',
-    path: '/history/',
-    getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+} as any);
+const AuthenticatedPanelSettingsRouteRoute = AuthenticatedPanelSettingsRouteRouteImport.update({
+  id: "/settings",
+  path: "/settings",
+  getParentRoute: () => AuthenticatedPanelRouteRoute,
+} as any);
+const AuthenticatedPanelTeamIndexRoute = AuthenticatedPanelTeamIndexRouteImport.update({
+  id: "/team/",
+  path: "/team/",
+  getParentRoute: () => AuthenticatedPanelRouteRoute,
+} as any);
+const AuthenticatedPanelTasksIndexRoute = AuthenticatedPanelTasksIndexRouteImport.update({
+  id: "/tasks/",
+  path: "/tasks/",
+  getParentRoute: () => AuthenticatedPanelRouteRoute,
+} as any);
+const AuthenticatedPanelSettingsIndexRoute = AuthenticatedPanelSettingsIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
+} as any);
+const AuthenticatedPanelProjectsIndexRoute = AuthenticatedPanelProjectsIndexRouteImport.update({
+  id: "/projects/",
+  path: "/projects/",
+  getParentRoute: () => AuthenticatedPanelRouteRoute,
+} as any);
+const AuthenticatedPanelDashboardIndexRoute = AuthenticatedPanelDashboardIndexRouteImport.update({
+  id: "/dashboard/",
+  path: "/dashboard/",
+  getParentRoute: () => AuthenticatedPanelRouteRoute,
+} as any);
+const AuthenticatedPanelAnalyticsIndexRoute = AuthenticatedPanelAnalyticsIndexRouteImport.update({
+  id: "/analytics/",
+  path: "/analytics/",
+  getParentRoute: () => AuthenticatedPanelRouteRoute,
+} as any);
+const AuthenticatedAdminHistoryIndexRoute = AuthenticatedAdminHistoryIndexRouteImport.update({
+  id: "/history/",
+  path: "/history/",
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any);
 const AuthenticatedPanelSettingsNotificationsRoute =
   AuthenticatedPanelSettingsNotificationsRouteImport.update({
-    id: '/notifications',
-    path: '/notifications',
+    id: "/notifications",
+    path: "/notifications",
     getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
-  } as any)
-const AuthenticatedPanelSettingsDisplayRoute =
-  AuthenticatedPanelSettingsDisplayRouteImport.update({
-    id: '/display',
-    path: '/display',
-    getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
-  } as any)
+  } as any);
+const AuthenticatedPanelSettingsDisplayRoute = AuthenticatedPanelSettingsDisplayRouteImport.update({
+  id: "/display",
+  path: "/display",
+  getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
+} as any);
 const AuthenticatedPanelSettingsAppearanceRoute =
   AuthenticatedPanelSettingsAppearanceRouteImport.update({
-    id: '/appearance',
-    path: '/appearance',
+    id: "/appearance",
+    path: "/appearance",
     getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
-  } as any)
-const AuthenticatedPanelSettingsAccountRoute =
-  AuthenticatedPanelSettingsAccountRouteImport.update({
-    id: '/account',
-    path: '/account',
-    getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
-  } as any)
-const AuthenticatedAdminHistoryChatsRoute =
-  AuthenticatedAdminHistoryChatsRouteImport.update({
-    id: '/history/chats',
-    path: '/history/chats',
-    getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
+const AuthenticatedPanelSettingsAccountRoute = AuthenticatedPanelSettingsAccountRouteImport.update({
+  id: "/account",
+  path: "/account",
+  getParentRoute: () => AuthenticatedPanelSettingsRouteRoute,
+} as any);
+const AuthenticatedAdminHistoryChatsRoute = AuthenticatedAdminHistoryChatsRouteImport.update({
+  id: "/history/chats",
+  path: "/history/chats",
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any);
 const AuthenticatedAdminHistoryAgentChatsRoute =
   AuthenticatedAdminHistoryAgentChatsRouteImport.update({
-    id: '/history/agent-chats',
-    path: '/history/agent-chats',
+    id: "/history/agent-chats",
+    path: "/history/agent-chats",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
-const AuthenticatedAdminChatbotSettingsRoute =
-  AuthenticatedAdminChatbotSettingsRouteImport.update({
-    id: '/chatbot/settings',
-    path: '/chatbot/settings',
-    getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
-const AuthenticatedAdminChatbotConfigRoute =
-  AuthenticatedAdminChatbotConfigRouteImport.update({
-    id: '/chatbot/config',
-    path: '/chatbot/config',
-    getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
+const AuthenticatedAdminChatbotSettingsRoute = AuthenticatedAdminChatbotSettingsRouteImport.update({
+  id: "/chatbot/settings",
+  path: "/chatbot/settings",
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any);
+const AuthenticatedAdminChatbotConfigRoute = AuthenticatedAdminChatbotConfigRouteImport.update({
+  id: "/chatbot/config",
+  path: "/chatbot/config",
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any);
 const AuthenticatedAdminGlobalSettingsRolesIndexRoute =
   AuthenticatedAdminGlobalSettingsRolesIndexRouteImport.update({
-    id: '/global-settings/roles/',
-    path: '/global-settings/roles/',
+    id: "/global-settings/roles/",
+    path: "/global-settings/roles/",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 const AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute =
   AuthenticatedAdminGlobalSettingsDepartmentsIndexRouteImport.update({
-    id: '/global-settings/departments/',
-    path: '/global-settings/departments/',
+    id: "/global-settings/departments/",
+    path: "/global-settings/departments/",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 const AuthenticatedAdminGlobalSettingsAgentsIndexRoute =
   AuthenticatedAdminGlobalSettingsAgentsIndexRouteImport.update({
-    id: '/global-settings/agents/',
-    path: '/global-settings/agents/',
+    id: "/global-settings/agents/",
+    path: "/global-settings/agents/",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 const AuthenticatedAdminGlobalSettingsRolesNewRoute =
   AuthenticatedAdminGlobalSettingsRolesNewRouteImport.update({
-    id: '/global-settings/roles/new',
-    path: '/global-settings/roles/new',
+    id: "/global-settings/roles/new",
+    path: "/global-settings/roles/new",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 const AuthenticatedAdminGlobalSettingsDepartmentsNewRoute =
   AuthenticatedAdminGlobalSettingsDepartmentsNewRouteImport.update({
-    id: '/global-settings/departments/new',
-    path: '/global-settings/departments/new',
+    id: "/global-settings/departments/new",
+    path: "/global-settings/departments/new",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 const AuthenticatedAdminGlobalSettingsAgentsNewRoute =
   AuthenticatedAdminGlobalSettingsAgentsNewRouteImport.update({
-    id: '/global-settings/agents/new',
-    path: '/global-settings/agents/new',
+    id: "/global-settings/agents/new",
+    path: "/global-settings/agents/new",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 const AuthenticatedAdminGlobalSettingsRolesEditIdRoute =
   AuthenticatedAdminGlobalSettingsRolesEditIdRouteImport.update({
-    id: '/global-settings/roles/edit/$id',
-    path: '/global-settings/roles/edit/$id',
+    id: "/global-settings/roles/edit/$id",
+    path: "/global-settings/roles/edit/$id",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 const AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute =
   AuthenticatedAdminGlobalSettingsDepartmentsEditIdRouteImport.update({
-    id: '/global-settings/departments/edit/$id',
-    path: '/global-settings/departments/edit/$id',
+    id: "/global-settings/departments/edit/$id",
+    path: "/global-settings/departments/edit/$id",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 const AuthenticatedAdminGlobalSettingsAgentsEditIdRoute =
   AuthenticatedAdminGlobalSettingsAgentsEditIdRouteImport.update({
-    id: '/global-settings/agents/edit/$id',
-    path: '/global-settings/agents/edit/$id',
+    id: "/global-settings/agents/edit/$id",
+    path: "/global-settings/agents/edit/$id",
     getParentRoute: () => AuthenticatedAdminRouteRoute,
-  } as any)
+  } as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof AuthenticatedIndexRoute
-  '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
-  '/panel': typeof AuthenticatedPanelRouteRouteWithChildren
-  '/forgot-password': typeof authForgotPasswordRoute
-  '/otp': typeof authOtpRoute
-  '/sign-in': typeof authSignInRoute
-  '/sign-up': typeof authSignUpRoute
-  '/401': typeof errors401Route
-  '/403': typeof errors403Route
-  '/404': typeof errors404Route
-  '/500': typeof errors500Route
-  '/503': typeof errors503Route
-  '/chat': typeof ChatIndexRoute
-  '/panel/settings': typeof AuthenticatedPanelSettingsRouteRouteWithChildren
-  '/admin/chatbot/config': typeof AuthenticatedAdminChatbotConfigRoute
-  '/admin/chatbot/settings': typeof AuthenticatedAdminChatbotSettingsRoute
-  '/admin/history/agent-chats': typeof AuthenticatedAdminHistoryAgentChatsRoute
-  '/admin/history/chats': typeof AuthenticatedAdminHistoryChatsRoute
-  '/panel/settings/account': typeof AuthenticatedPanelSettingsAccountRoute
-  '/panel/settings/appearance': typeof AuthenticatedPanelSettingsAppearanceRoute
-  '/panel/settings/display': typeof AuthenticatedPanelSettingsDisplayRoute
-  '/panel/settings/notifications': typeof AuthenticatedPanelSettingsNotificationsRoute
-  '/admin/history': typeof AuthenticatedAdminHistoryIndexRoute
-  '/panel/analytics': typeof AuthenticatedPanelAnalyticsIndexRoute
-  '/panel/dashboard': typeof AuthenticatedPanelDashboardIndexRoute
-  '/panel/projects': typeof AuthenticatedPanelProjectsIndexRoute
-  '/panel/settings/': typeof AuthenticatedPanelSettingsIndexRoute
-  '/panel/tasks': typeof AuthenticatedPanelTasksIndexRoute
-  '/panel/team': typeof AuthenticatedPanelTeamIndexRoute
-  '/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
-  '/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
-  '/admin/global-settings/roles/new': typeof AuthenticatedAdminGlobalSettingsRolesNewRoute
-  '/admin/global-settings/agents': typeof AuthenticatedAdminGlobalSettingsAgentsIndexRoute
-  '/admin/global-settings/departments': typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute
-  '/admin/global-settings/roles': typeof AuthenticatedAdminGlobalSettingsRolesIndexRoute
-  '/admin/global-settings/agents/edit/$id': typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRoute
-  '/admin/global-settings/departments/edit/$id': typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute
-  '/admin/global-settings/roles/edit/$id': typeof AuthenticatedAdminGlobalSettingsRolesEditIdRoute
+  "/": typeof AuthenticatedIndexRoute;
+  "/admin": typeof AuthenticatedAdminRouteRouteWithChildren;
+  "/panel": typeof AuthenticatedPanelRouteRouteWithChildren;
+  "/forgot-password": typeof authForgotPasswordRoute;
+  "/otp": typeof authOtpRoute;
+  "/sign-in": typeof authSignInRoute;
+  "/sign-up": typeof authSignUpRoute;
+  "/401": typeof errors401Route;
+  "/403": typeof errors403Route;
+  "/404": typeof errors404Route;
+  "/500": typeof errors500Route;
+  "/503": typeof errors503Route;
+  "/chat": typeof ChatIndexRoute;
+  "/panel/settings": typeof AuthenticatedPanelSettingsRouteRouteWithChildren;
+  "/admin/chatbot/config": typeof AuthenticatedAdminChatbotConfigRoute;
+  "/admin/chatbot/settings": typeof AuthenticatedAdminChatbotSettingsRoute;
+  "/admin/history/agent-chats": typeof AuthenticatedAdminHistoryAgentChatsRoute;
+  "/admin/history/chats": typeof AuthenticatedAdminHistoryChatsRoute;
+  "/panel/settings/account": typeof AuthenticatedPanelSettingsAccountRoute;
+  "/panel/settings/appearance": typeof AuthenticatedPanelSettingsAppearanceRoute;
+  "/panel/settings/display": typeof AuthenticatedPanelSettingsDisplayRoute;
+  "/panel/settings/notifications": typeof AuthenticatedPanelSettingsNotificationsRoute;
+  "/admin/history": typeof AuthenticatedAdminHistoryIndexRoute;
+  "/panel/analytics": typeof AuthenticatedPanelAnalyticsIndexRoute;
+  "/panel/dashboard": typeof AuthenticatedPanelDashboardIndexRoute;
+  "/panel/projects": typeof AuthenticatedPanelProjectsIndexRoute;
+  "/panel/settings/": typeof AuthenticatedPanelSettingsIndexRoute;
+  "/panel/tasks": typeof AuthenticatedPanelTasksIndexRoute;
+  "/panel/team": typeof AuthenticatedPanelTeamIndexRoute;
+  "/admin/global-settings/agents/new": typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute;
+  "/admin/global-settings/departments/new": typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute;
+  "/admin/global-settings/roles/new": typeof AuthenticatedAdminGlobalSettingsRolesNewRoute;
+  "/admin/global-settings/agents": typeof AuthenticatedAdminGlobalSettingsAgentsIndexRoute;
+  "/admin/global-settings/departments": typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute;
+  "/admin/global-settings/roles": typeof AuthenticatedAdminGlobalSettingsRolesIndexRoute;
+  "/admin/global-settings/agents/edit/$id": typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRoute;
+  "/admin/global-settings/departments/edit/$id": typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute;
+  "/admin/global-settings/roles/edit/$id": typeof AuthenticatedAdminGlobalSettingsRolesEditIdRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof AuthenticatedIndexRoute
-  '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
-  '/panel': typeof AuthenticatedPanelRouteRouteWithChildren
-  '/forgot-password': typeof authForgotPasswordRoute
-  '/otp': typeof authOtpRoute
-  '/sign-in': typeof authSignInRoute
-  '/sign-up': typeof authSignUpRoute
-  '/401': typeof errors401Route
-  '/403': typeof errors403Route
-  '/404': typeof errors404Route
-  '/500': typeof errors500Route
-  '/503': typeof errors503Route
-  '/chat': typeof ChatIndexRoute
-  '/admin/chatbot/config': typeof AuthenticatedAdminChatbotConfigRoute
-  '/admin/chatbot/settings': typeof AuthenticatedAdminChatbotSettingsRoute
-  '/admin/history/agent-chats': typeof AuthenticatedAdminHistoryAgentChatsRoute
-  '/admin/history/chats': typeof AuthenticatedAdminHistoryChatsRoute
-  '/panel/settings/account': typeof AuthenticatedPanelSettingsAccountRoute
-  '/panel/settings/appearance': typeof AuthenticatedPanelSettingsAppearanceRoute
-  '/panel/settings/display': typeof AuthenticatedPanelSettingsDisplayRoute
-  '/panel/settings/notifications': typeof AuthenticatedPanelSettingsNotificationsRoute
-  '/admin/history': typeof AuthenticatedAdminHistoryIndexRoute
-  '/panel/analytics': typeof AuthenticatedPanelAnalyticsIndexRoute
-  '/panel/dashboard': typeof AuthenticatedPanelDashboardIndexRoute
-  '/panel/projects': typeof AuthenticatedPanelProjectsIndexRoute
-  '/panel/settings': typeof AuthenticatedPanelSettingsIndexRoute
-  '/panel/tasks': typeof AuthenticatedPanelTasksIndexRoute
-  '/panel/team': typeof AuthenticatedPanelTeamIndexRoute
-  '/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
-  '/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
-  '/admin/global-settings/roles/new': typeof AuthenticatedAdminGlobalSettingsRolesNewRoute
-  '/admin/global-settings/agents': typeof AuthenticatedAdminGlobalSettingsAgentsIndexRoute
-  '/admin/global-settings/departments': typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute
-  '/admin/global-settings/roles': typeof AuthenticatedAdminGlobalSettingsRolesIndexRoute
-  '/admin/global-settings/agents/edit/$id': typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRoute
-  '/admin/global-settings/departments/edit/$id': typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute
-  '/admin/global-settings/roles/edit/$id': typeof AuthenticatedAdminGlobalSettingsRolesEditIdRoute
+  "/": typeof AuthenticatedIndexRoute;
+  "/admin": typeof AuthenticatedAdminRouteRouteWithChildren;
+  "/panel": typeof AuthenticatedPanelRouteRouteWithChildren;
+  "/forgot-password": typeof authForgotPasswordRoute;
+  "/otp": typeof authOtpRoute;
+  "/sign-in": typeof authSignInRoute;
+  "/sign-up": typeof authSignUpRoute;
+  "/401": typeof errors401Route;
+  "/403": typeof errors403Route;
+  "/404": typeof errors404Route;
+  "/500": typeof errors500Route;
+  "/503": typeof errors503Route;
+  "/chat": typeof ChatIndexRoute;
+  "/admin/chatbot/config": typeof AuthenticatedAdminChatbotConfigRoute;
+  "/admin/chatbot/settings": typeof AuthenticatedAdminChatbotSettingsRoute;
+  "/admin/history/agent-chats": typeof AuthenticatedAdminHistoryAgentChatsRoute;
+  "/admin/history/chats": typeof AuthenticatedAdminHistoryChatsRoute;
+  "/panel/settings/account": typeof AuthenticatedPanelSettingsAccountRoute;
+  "/panel/settings/appearance": typeof AuthenticatedPanelSettingsAppearanceRoute;
+  "/panel/settings/display": typeof AuthenticatedPanelSettingsDisplayRoute;
+  "/panel/settings/notifications": typeof AuthenticatedPanelSettingsNotificationsRoute;
+  "/admin/history": typeof AuthenticatedAdminHistoryIndexRoute;
+  "/panel/analytics": typeof AuthenticatedPanelAnalyticsIndexRoute;
+  "/panel/dashboard": typeof AuthenticatedPanelDashboardIndexRoute;
+  "/panel/projects": typeof AuthenticatedPanelProjectsIndexRoute;
+  "/panel/settings": typeof AuthenticatedPanelSettingsIndexRoute;
+  "/panel/tasks": typeof AuthenticatedPanelTasksIndexRoute;
+  "/panel/team": typeof AuthenticatedPanelTeamIndexRoute;
+  "/admin/global-settings/agents/new": typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute;
+  "/admin/global-settings/departments/new": typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute;
+  "/admin/global-settings/roles/new": typeof AuthenticatedAdminGlobalSettingsRolesNewRoute;
+  "/admin/global-settings/agents": typeof AuthenticatedAdminGlobalSettingsAgentsIndexRoute;
+  "/admin/global-settings/departments": typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute;
+  "/admin/global-settings/roles": typeof AuthenticatedAdminGlobalSettingsRolesIndexRoute;
+  "/admin/global-settings/agents/edit/$id": typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRoute;
+  "/admin/global-settings/departments/edit/$id": typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute;
+  "/admin/global-settings/roles/edit/$id": typeof AuthenticatedAdminGlobalSettingsRolesEditIdRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/(auth)': typeof authRouteRouteWithChildren
-  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
-  '/_authenticated/panel': typeof AuthenticatedPanelRouteRouteWithChildren
-  '/(auth)/forgot-password': typeof authForgotPasswordRoute
-  '/(auth)/otp': typeof authOtpRoute
-  '/(auth)/sign-in': typeof authSignInRoute
-  '/(auth)/sign-up': typeof authSignUpRoute
-  '/(errors)/401': typeof errors401Route
-  '/(errors)/403': typeof errors403Route
-  '/(errors)/404': typeof errors404Route
-  '/(errors)/500': typeof errors500Route
-  '/(errors)/503': typeof errors503Route
-  '/_authenticated/': typeof AuthenticatedIndexRoute
-  '/chat/': typeof ChatIndexRoute
-  '/_authenticated/panel/settings': typeof AuthenticatedPanelSettingsRouteRouteWithChildren
-  '/_authenticated/admin/chatbot/config': typeof AuthenticatedAdminChatbotConfigRoute
-  '/_authenticated/admin/chatbot/settings': typeof AuthenticatedAdminChatbotSettingsRoute
-  '/_authenticated/admin/history/agent-chats': typeof AuthenticatedAdminHistoryAgentChatsRoute
-  '/_authenticated/admin/history/chats': typeof AuthenticatedAdminHistoryChatsRoute
-  '/_authenticated/panel/settings/account': typeof AuthenticatedPanelSettingsAccountRoute
-  '/_authenticated/panel/settings/appearance': typeof AuthenticatedPanelSettingsAppearanceRoute
-  '/_authenticated/panel/settings/display': typeof AuthenticatedPanelSettingsDisplayRoute
-  '/_authenticated/panel/settings/notifications': typeof AuthenticatedPanelSettingsNotificationsRoute
-  '/_authenticated/admin/history/': typeof AuthenticatedAdminHistoryIndexRoute
-  '/_authenticated/panel/analytics/': typeof AuthenticatedPanelAnalyticsIndexRoute
-  '/_authenticated/panel/dashboard/': typeof AuthenticatedPanelDashboardIndexRoute
-  '/_authenticated/panel/projects/': typeof AuthenticatedPanelProjectsIndexRoute
-  '/_authenticated/panel/settings/': typeof AuthenticatedPanelSettingsIndexRoute
-  '/_authenticated/panel/tasks/': typeof AuthenticatedPanelTasksIndexRoute
-  '/_authenticated/panel/team/': typeof AuthenticatedPanelTeamIndexRoute
-  '/_authenticated/admin/global-settings/agents/new': typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
-  '/_authenticated/admin/global-settings/departments/new': typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
-  '/_authenticated/admin/global-settings/roles/new': typeof AuthenticatedAdminGlobalSettingsRolesNewRoute
-  '/_authenticated/admin/global-settings/agents/': typeof AuthenticatedAdminGlobalSettingsAgentsIndexRoute
-  '/_authenticated/admin/global-settings/departments/': typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute
-  '/_authenticated/admin/global-settings/roles/': typeof AuthenticatedAdminGlobalSettingsRolesIndexRoute
-  '/_authenticated/admin/global-settings/agents/edit/$id': typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRoute
-  '/_authenticated/admin/global-settings/departments/edit/$id': typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute
-  '/_authenticated/admin/global-settings/roles/edit/$id': typeof AuthenticatedAdminGlobalSettingsRolesEditIdRoute
+  __root__: typeof rootRouteImport;
+  "/(auth)": typeof authRouteRouteWithChildren;
+  "/_authenticated": typeof AuthenticatedRouteRouteWithChildren;
+  "/_authenticated/admin": typeof AuthenticatedAdminRouteRouteWithChildren;
+  "/_authenticated/panel": typeof AuthenticatedPanelRouteRouteWithChildren;
+  "/(auth)/forgot-password": typeof authForgotPasswordRoute;
+  "/(auth)/otp": typeof authOtpRoute;
+  "/(auth)/sign-in": typeof authSignInRoute;
+  "/(auth)/sign-up": typeof authSignUpRoute;
+  "/(errors)/401": typeof errors401Route;
+  "/(errors)/403": typeof errors403Route;
+  "/(errors)/404": typeof errors404Route;
+  "/(errors)/500": typeof errors500Route;
+  "/(errors)/503": typeof errors503Route;
+  "/_authenticated/": typeof AuthenticatedIndexRoute;
+  "/chat/": typeof ChatIndexRoute;
+  "/_authenticated/panel/settings": typeof AuthenticatedPanelSettingsRouteRouteWithChildren;
+  "/_authenticated/admin/chatbot/config": typeof AuthenticatedAdminChatbotConfigRoute;
+  "/_authenticated/admin/chatbot/settings": typeof AuthenticatedAdminChatbotSettingsRoute;
+  "/_authenticated/admin/history/agent-chats": typeof AuthenticatedAdminHistoryAgentChatsRoute;
+  "/_authenticated/admin/history/chats": typeof AuthenticatedAdminHistoryChatsRoute;
+  "/_authenticated/panel/settings/account": typeof AuthenticatedPanelSettingsAccountRoute;
+  "/_authenticated/panel/settings/appearance": typeof AuthenticatedPanelSettingsAppearanceRoute;
+  "/_authenticated/panel/settings/display": typeof AuthenticatedPanelSettingsDisplayRoute;
+  "/_authenticated/panel/settings/notifications": typeof AuthenticatedPanelSettingsNotificationsRoute;
+  "/_authenticated/admin/history/": typeof AuthenticatedAdminHistoryIndexRoute;
+  "/_authenticated/panel/analytics/": typeof AuthenticatedPanelAnalyticsIndexRoute;
+  "/_authenticated/panel/dashboard/": typeof AuthenticatedPanelDashboardIndexRoute;
+  "/_authenticated/panel/projects/": typeof AuthenticatedPanelProjectsIndexRoute;
+  "/_authenticated/panel/settings/": typeof AuthenticatedPanelSettingsIndexRoute;
+  "/_authenticated/panel/tasks/": typeof AuthenticatedPanelTasksIndexRoute;
+  "/_authenticated/panel/team/": typeof AuthenticatedPanelTeamIndexRoute;
+  "/_authenticated/admin/global-settings/agents/new": typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute;
+  "/_authenticated/admin/global-settings/departments/new": typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute;
+  "/_authenticated/admin/global-settings/roles/new": typeof AuthenticatedAdminGlobalSettingsRolesNewRoute;
+  "/_authenticated/admin/global-settings/agents/": typeof AuthenticatedAdminGlobalSettingsAgentsIndexRoute;
+  "/_authenticated/admin/global-settings/departments/": typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute;
+  "/_authenticated/admin/global-settings/roles/": typeof AuthenticatedAdminGlobalSettingsRolesIndexRoute;
+  "/_authenticated/admin/global-settings/agents/edit/$id": typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRoute;
+  "/_authenticated/admin/global-settings/departments/edit/$id": typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute;
+  "/_authenticated/admin/global-settings/roles/edit/$id": typeof AuthenticatedAdminGlobalSettingsRolesEditIdRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
+  fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
-    | '/'
-    | '/admin'
-    | '/panel'
-    | '/forgot-password'
-    | '/otp'
-    | '/sign-in'
-    | '/sign-up'
-    | '/401'
-    | '/403'
-    | '/404'
-    | '/500'
-    | '/503'
-    | '/chat'
-    | '/panel/settings'
-    | '/admin/chatbot/config'
-    | '/admin/chatbot/settings'
-    | '/admin/history/agent-chats'
-    | '/admin/history/chats'
-    | '/panel/settings/account'
-    | '/panel/settings/appearance'
-    | '/panel/settings/display'
-    | '/panel/settings/notifications'
-    | '/admin/history'
-    | '/panel/analytics'
-    | '/panel/dashboard'
-    | '/panel/projects'
-    | '/panel/settings/'
-    | '/panel/tasks'
-    | '/panel/team'
-    | '/admin/global-settings/agents/new'
-    | '/admin/global-settings/departments/new'
-    | '/admin/global-settings/roles/new'
-    | '/admin/global-settings/agents'
-    | '/admin/global-settings/departments'
-    | '/admin/global-settings/roles'
-    | '/admin/global-settings/agents/edit/$id'
-    | '/admin/global-settings/departments/edit/$id'
-    | '/admin/global-settings/roles/edit/$id'
-  fileRoutesByTo: FileRoutesByTo
+    | "/"
+    | "/admin"
+    | "/panel"
+    | "/forgot-password"
+    | "/otp"
+    | "/sign-in"
+    | "/sign-up"
+    | "/401"
+    | "/403"
+    | "/404"
+    | "/500"
+    | "/503"
+    | "/chat"
+    | "/panel/settings"
+    | "/admin/chatbot/config"
+    | "/admin/chatbot/settings"
+    | "/admin/history/agent-chats"
+    | "/admin/history/chats"
+    | "/panel/settings/account"
+    | "/panel/settings/appearance"
+    | "/panel/settings/display"
+    | "/panel/settings/notifications"
+    | "/admin/history"
+    | "/panel/analytics"
+    | "/panel/dashboard"
+    | "/panel/projects"
+    | "/panel/settings/"
+    | "/panel/tasks"
+    | "/panel/team"
+    | "/admin/global-settings/agents/new"
+    | "/admin/global-settings/departments/new"
+    | "/admin/global-settings/roles/new"
+    | "/admin/global-settings/agents"
+    | "/admin/global-settings/departments"
+    | "/admin/global-settings/roles"
+    | "/admin/global-settings/agents/edit/$id"
+    | "/admin/global-settings/departments/edit/$id"
+    | "/admin/global-settings/roles/edit/$id";
+  fileRoutesByTo: FileRoutesByTo;
   to:
-    | '/'
-    | '/admin'
-    | '/panel'
-    | '/forgot-password'
-    | '/otp'
-    | '/sign-in'
-    | '/sign-up'
-    | '/401'
-    | '/403'
-    | '/404'
-    | '/500'
-    | '/503'
-    | '/chat'
-    | '/admin/chatbot/config'
-    | '/admin/chatbot/settings'
-    | '/admin/history/agent-chats'
-    | '/admin/history/chats'
-    | '/panel/settings/account'
-    | '/panel/settings/appearance'
-    | '/panel/settings/display'
-    | '/panel/settings/notifications'
-    | '/admin/history'
-    | '/panel/analytics'
-    | '/panel/dashboard'
-    | '/panel/projects'
-    | '/panel/settings'
-    | '/panel/tasks'
-    | '/panel/team'
-    | '/admin/global-settings/agents/new'
-    | '/admin/global-settings/departments/new'
-    | '/admin/global-settings/roles/new'
-    | '/admin/global-settings/agents'
-    | '/admin/global-settings/departments'
-    | '/admin/global-settings/roles'
-    | '/admin/global-settings/agents/edit/$id'
-    | '/admin/global-settings/departments/edit/$id'
-    | '/admin/global-settings/roles/edit/$id'
+    | "/"
+    | "/admin"
+    | "/panel"
+    | "/forgot-password"
+    | "/otp"
+    | "/sign-in"
+    | "/sign-up"
+    | "/401"
+    | "/403"
+    | "/404"
+    | "/500"
+    | "/503"
+    | "/chat"
+    | "/admin/chatbot/config"
+    | "/admin/chatbot/settings"
+    | "/admin/history/agent-chats"
+    | "/admin/history/chats"
+    | "/panel/settings/account"
+    | "/panel/settings/appearance"
+    | "/panel/settings/display"
+    | "/panel/settings/notifications"
+    | "/admin/history"
+    | "/panel/analytics"
+    | "/panel/dashboard"
+    | "/panel/projects"
+    | "/panel/settings"
+    | "/panel/tasks"
+    | "/panel/team"
+    | "/admin/global-settings/agents/new"
+    | "/admin/global-settings/departments/new"
+    | "/admin/global-settings/roles/new"
+    | "/admin/global-settings/agents"
+    | "/admin/global-settings/departments"
+    | "/admin/global-settings/roles"
+    | "/admin/global-settings/agents/edit/$id"
+    | "/admin/global-settings/departments/edit/$id"
+    | "/admin/global-settings/roles/edit/$id";
   id:
-    | '__root__'
-    | '/(auth)'
-    | '/_authenticated'
-    | '/_authenticated/admin'
-    | '/_authenticated/panel'
-    | '/(auth)/forgot-password'
-    | '/(auth)/otp'
-    | '/(auth)/sign-in'
-    | '/(auth)/sign-up'
-    | '/(errors)/401'
-    | '/(errors)/403'
-    | '/(errors)/404'
-    | '/(errors)/500'
-    | '/(errors)/503'
-    | '/_authenticated/'
-    | '/chat/'
-    | '/_authenticated/panel/settings'
-    | '/_authenticated/admin/chatbot/config'
-    | '/_authenticated/admin/chatbot/settings'
-    | '/_authenticated/admin/history/agent-chats'
-    | '/_authenticated/admin/history/chats'
-    | '/_authenticated/panel/settings/account'
-    | '/_authenticated/panel/settings/appearance'
-    | '/_authenticated/panel/settings/display'
-    | '/_authenticated/panel/settings/notifications'
-    | '/_authenticated/admin/history/'
-    | '/_authenticated/panel/analytics/'
-    | '/_authenticated/panel/dashboard/'
-    | '/_authenticated/panel/projects/'
-    | '/_authenticated/panel/settings/'
-    | '/_authenticated/panel/tasks/'
-    | '/_authenticated/panel/team/'
-    | '/_authenticated/admin/global-settings/agents/new'
-    | '/_authenticated/admin/global-settings/departments/new'
-    | '/_authenticated/admin/global-settings/roles/new'
-    | '/_authenticated/admin/global-settings/agents/'
-    | '/_authenticated/admin/global-settings/departments/'
-    | '/_authenticated/admin/global-settings/roles/'
-    | '/_authenticated/admin/global-settings/agents/edit/$id'
-    | '/_authenticated/admin/global-settings/departments/edit/$id'
-    | '/_authenticated/admin/global-settings/roles/edit/$id'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/(auth)"
+    | "/_authenticated"
+    | "/_authenticated/admin"
+    | "/_authenticated/panel"
+    | "/(auth)/forgot-password"
+    | "/(auth)/otp"
+    | "/(auth)/sign-in"
+    | "/(auth)/sign-up"
+    | "/(errors)/401"
+    | "/(errors)/403"
+    | "/(errors)/404"
+    | "/(errors)/500"
+    | "/(errors)/503"
+    | "/_authenticated/"
+    | "/chat/"
+    | "/_authenticated/panel/settings"
+    | "/_authenticated/admin/chatbot/config"
+    | "/_authenticated/admin/chatbot/settings"
+    | "/_authenticated/admin/history/agent-chats"
+    | "/_authenticated/admin/history/chats"
+    | "/_authenticated/panel/settings/account"
+    | "/_authenticated/panel/settings/appearance"
+    | "/_authenticated/panel/settings/display"
+    | "/_authenticated/panel/settings/notifications"
+    | "/_authenticated/admin/history/"
+    | "/_authenticated/panel/analytics/"
+    | "/_authenticated/panel/dashboard/"
+    | "/_authenticated/panel/projects/"
+    | "/_authenticated/panel/settings/"
+    | "/_authenticated/panel/tasks/"
+    | "/_authenticated/panel/team/"
+    | "/_authenticated/admin/global-settings/agents/new"
+    | "/_authenticated/admin/global-settings/departments/new"
+    | "/_authenticated/admin/global-settings/roles/new"
+    | "/_authenticated/admin/global-settings/agents/"
+    | "/_authenticated/admin/global-settings/departments/"
+    | "/_authenticated/admin/global-settings/roles/"
+    | "/_authenticated/admin/global-settings/agents/edit/$id"
+    | "/_authenticated/admin/global-settings/departments/edit/$id"
+    | "/_authenticated/admin/global-settings/roles/edit/$id";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  authRouteRoute: typeof authRouteRouteWithChildren
-  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  errors401Route: typeof errors401Route
-  errors403Route: typeof errors403Route
-  errors404Route: typeof errors404Route
-  errors500Route: typeof errors500Route
-  errors503Route: typeof errors503Route
-  ChatIndexRoute: typeof ChatIndexRoute
+  authRouteRoute: typeof authRouteRouteWithChildren;
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren;
+  errors401Route: typeof errors401Route;
+  errors403Route: typeof errors403Route;
+  errors404Route: typeof errors404Route;
+  errors500Route: typeof errors500Route;
+  errors503Route: typeof errors503Route;
+  ChatIndexRoute: typeof ChatIndexRoute;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof AuthenticatedRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(auth)': {
-      id: '/(auth)'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof authRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/chat/': {
-      id: '/chat/'
-      path: '/chat'
-      fullPath: '/chat'
-      preLoaderRoute: typeof ChatIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/': {
-      id: '/_authenticated/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/(errors)/503': {
-      id: '/(errors)/503'
-      path: '/503'
-      fullPath: '/503'
-      preLoaderRoute: typeof errors503RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/500': {
-      id: '/(errors)/500'
-      path: '/500'
-      fullPath: '/500'
-      preLoaderRoute: typeof errors500RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/404': {
-      id: '/(errors)/404'
-      path: '/404'
-      fullPath: '/404'
-      preLoaderRoute: typeof errors404RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/403': {
-      id: '/(errors)/403'
-      path: '/403'
-      fullPath: '/403'
-      preLoaderRoute: typeof errors403RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/401': {
-      id: '/(errors)/401'
-      path: '/401'
-      fullPath: '/401'
-      preLoaderRoute: typeof errors401RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(auth)/sign-up': {
-      id: '/(auth)/sign-up'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof authSignUpRouteImport
-      parentRoute: typeof authRouteRoute
-    }
-    '/(auth)/sign-in': {
-      id: '/(auth)/sign-in'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: typeof authSignInRouteImport
-      parentRoute: typeof authRouteRoute
-    }
-    '/(auth)/otp': {
-      id: '/(auth)/otp'
-      path: '/otp'
-      fullPath: '/otp'
-      preLoaderRoute: typeof authOtpRouteImport
-      parentRoute: typeof authRouteRoute
-    }
-    '/(auth)/forgot-password': {
-      id: '/(auth)/forgot-password'
-      path: '/forgot-password'
-      fullPath: '/forgot-password'
-      preLoaderRoute: typeof authForgotPasswordRouteImport
-      parentRoute: typeof authRouteRoute
-    }
-    '/_authenticated/panel': {
-      id: '/_authenticated/panel'
-      path: '/panel'
-      fullPath: '/panel'
-      preLoaderRoute: typeof AuthenticatedPanelRouteRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/admin': {
-      id: '/_authenticated/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AuthenticatedAdminRouteRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/panel/settings': {
-      id: '/_authenticated/panel/settings'
-      path: '/settings'
-      fullPath: '/panel/settings'
-      preLoaderRoute: typeof AuthenticatedPanelSettingsRouteRouteImport
-      parentRoute: typeof AuthenticatedPanelRouteRoute
-    }
-    '/_authenticated/panel/team/': {
-      id: '/_authenticated/panel/team/'
-      path: '/team'
-      fullPath: '/panel/team'
-      preLoaderRoute: typeof AuthenticatedPanelTeamIndexRouteImport
-      parentRoute: typeof AuthenticatedPanelRouteRoute
-    }
-    '/_authenticated/panel/tasks/': {
-      id: '/_authenticated/panel/tasks/'
-      path: '/tasks'
-      fullPath: '/panel/tasks'
-      preLoaderRoute: typeof AuthenticatedPanelTasksIndexRouteImport
-      parentRoute: typeof AuthenticatedPanelRouteRoute
-    }
-    '/_authenticated/panel/settings/': {
-      id: '/_authenticated/panel/settings/'
-      path: '/'
-      fullPath: '/panel/settings/'
-      preLoaderRoute: typeof AuthenticatedPanelSettingsIndexRouteImport
-      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute
-    }
-    '/_authenticated/panel/projects/': {
-      id: '/_authenticated/panel/projects/'
-      path: '/projects'
-      fullPath: '/panel/projects'
-      preLoaderRoute: typeof AuthenticatedPanelProjectsIndexRouteImport
-      parentRoute: typeof AuthenticatedPanelRouteRoute
-    }
-    '/_authenticated/panel/dashboard/': {
-      id: '/_authenticated/panel/dashboard/'
-      path: '/dashboard'
-      fullPath: '/panel/dashboard'
-      preLoaderRoute: typeof AuthenticatedPanelDashboardIndexRouteImport
-      parentRoute: typeof AuthenticatedPanelRouteRoute
-    }
-    '/_authenticated/panel/analytics/': {
-      id: '/_authenticated/panel/analytics/'
-      path: '/analytics'
-      fullPath: '/panel/analytics'
-      preLoaderRoute: typeof AuthenticatedPanelAnalyticsIndexRouteImport
-      parentRoute: typeof AuthenticatedPanelRouteRoute
-    }
-    '/_authenticated/admin/history/': {
-      id: '/_authenticated/admin/history/'
-      path: '/history'
-      fullPath: '/admin/history'
-      preLoaderRoute: typeof AuthenticatedAdminHistoryIndexRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/panel/settings/notifications': {
-      id: '/_authenticated/panel/settings/notifications'
-      path: '/notifications'
-      fullPath: '/panel/settings/notifications'
-      preLoaderRoute: typeof AuthenticatedPanelSettingsNotificationsRouteImport
-      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute
-    }
-    '/_authenticated/panel/settings/display': {
-      id: '/_authenticated/panel/settings/display'
-      path: '/display'
-      fullPath: '/panel/settings/display'
-      preLoaderRoute: typeof AuthenticatedPanelSettingsDisplayRouteImport
-      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute
-    }
-    '/_authenticated/panel/settings/appearance': {
-      id: '/_authenticated/panel/settings/appearance'
-      path: '/appearance'
-      fullPath: '/panel/settings/appearance'
-      preLoaderRoute: typeof AuthenticatedPanelSettingsAppearanceRouteImport
-      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute
-    }
-    '/_authenticated/panel/settings/account': {
-      id: '/_authenticated/panel/settings/account'
-      path: '/account'
-      fullPath: '/panel/settings/account'
-      preLoaderRoute: typeof AuthenticatedPanelSettingsAccountRouteImport
-      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute
-    }
-    '/_authenticated/admin/history/chats': {
-      id: '/_authenticated/admin/history/chats'
-      path: '/history/chats'
-      fullPath: '/admin/history/chats'
-      preLoaderRoute: typeof AuthenticatedAdminHistoryChatsRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/history/agent-chats': {
-      id: '/_authenticated/admin/history/agent-chats'
-      path: '/history/agent-chats'
-      fullPath: '/admin/history/agent-chats'
-      preLoaderRoute: typeof AuthenticatedAdminHistoryAgentChatsRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/chatbot/settings': {
-      id: '/_authenticated/admin/chatbot/settings'
-      path: '/chatbot/settings'
-      fullPath: '/admin/chatbot/settings'
-      preLoaderRoute: typeof AuthenticatedAdminChatbotSettingsRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/chatbot/config': {
-      id: '/_authenticated/admin/chatbot/config'
-      path: '/chatbot/config'
-      fullPath: '/admin/chatbot/config'
-      preLoaderRoute: typeof AuthenticatedAdminChatbotConfigRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/roles/': {
-      id: '/_authenticated/admin/global-settings/roles/'
-      path: '/global-settings/roles'
-      fullPath: '/admin/global-settings/roles'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsRolesIndexRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/departments/': {
-      id: '/_authenticated/admin/global-settings/departments/'
-      path: '/global-settings/departments'
-      fullPath: '/admin/global-settings/departments'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/agents/': {
-      id: '/_authenticated/admin/global-settings/agents/'
-      path: '/global-settings/agents'
-      fullPath: '/admin/global-settings/agents'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsAgentsIndexRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/roles/new': {
-      id: '/_authenticated/admin/global-settings/roles/new'
-      path: '/global-settings/roles/new'
-      fullPath: '/admin/global-settings/roles/new'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsRolesNewRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/departments/new': {
-      id: '/_authenticated/admin/global-settings/departments/new'
-      path: '/global-settings/departments/new'
-      fullPath: '/admin/global-settings/departments/new'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/agents/new': {
-      id: '/_authenticated/admin/global-settings/agents/new'
-      path: '/global-settings/agents/new'
-      fullPath: '/admin/global-settings/agents/new'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsAgentsNewRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/roles/edit/$id': {
-      id: '/_authenticated/admin/global-settings/roles/edit/$id'
-      path: '/global-settings/roles/edit/$id'
-      fullPath: '/admin/global-settings/roles/edit/$id'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsRolesEditIdRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/departments/edit/$id': {
-      id: '/_authenticated/admin/global-settings/departments/edit/$id'
-      path: '/global-settings/departments/edit/$id'
-      fullPath: '/admin/global-settings/departments/edit/$id'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
-    '/_authenticated/admin/global-settings/agents/edit/$id': {
-      id: '/_authenticated/admin/global-settings/agents/edit/$id'
-      path: '/global-settings/agents/edit/$id'
-      fullPath: '/admin/global-settings/agents/edit/$id'
-      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRouteImport
-      parentRoute: typeof AuthenticatedAdminRouteRoute
-    }
+    "/_authenticated": {
+      id: "/_authenticated";
+      path: "";
+      fullPath: "";
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/(auth)": {
+      id: "/(auth)";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof authRouteRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/chat/": {
+      id: "/chat/";
+      path: "/chat";
+      fullPath: "/chat";
+      preLoaderRoute: typeof ChatIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_authenticated/": {
+      id: "/_authenticated/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof AuthenticatedIndexRouteImport;
+      parentRoute: typeof AuthenticatedRouteRoute;
+    };
+    "/(errors)/503": {
+      id: "/(errors)/503";
+      path: "/503";
+      fullPath: "/503";
+      preLoaderRoute: typeof errors503RouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/(errors)/500": {
+      id: "/(errors)/500";
+      path: "/500";
+      fullPath: "/500";
+      preLoaderRoute: typeof errors500RouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/(errors)/404": {
+      id: "/(errors)/404";
+      path: "/404";
+      fullPath: "/404";
+      preLoaderRoute: typeof errors404RouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/(errors)/403": {
+      id: "/(errors)/403";
+      path: "/403";
+      fullPath: "/403";
+      preLoaderRoute: typeof errors403RouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/(errors)/401": {
+      id: "/(errors)/401";
+      path: "/401";
+      fullPath: "/401";
+      preLoaderRoute: typeof errors401RouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/(auth)/sign-up": {
+      id: "/(auth)/sign-up";
+      path: "/sign-up";
+      fullPath: "/sign-up";
+      preLoaderRoute: typeof authSignUpRouteImport;
+      parentRoute: typeof authRouteRoute;
+    };
+    "/(auth)/sign-in": {
+      id: "/(auth)/sign-in";
+      path: "/sign-in";
+      fullPath: "/sign-in";
+      preLoaderRoute: typeof authSignInRouteImport;
+      parentRoute: typeof authRouteRoute;
+    };
+    "/(auth)/otp": {
+      id: "/(auth)/otp";
+      path: "/otp";
+      fullPath: "/otp";
+      preLoaderRoute: typeof authOtpRouteImport;
+      parentRoute: typeof authRouteRoute;
+    };
+    "/(auth)/forgot-password": {
+      id: "/(auth)/forgot-password";
+      path: "/forgot-password";
+      fullPath: "/forgot-password";
+      preLoaderRoute: typeof authForgotPasswordRouteImport;
+      parentRoute: typeof authRouteRoute;
+    };
+    "/_authenticated/panel": {
+      id: "/_authenticated/panel";
+      path: "/panel";
+      fullPath: "/panel";
+      preLoaderRoute: typeof AuthenticatedPanelRouteRouteImport;
+      parentRoute: typeof AuthenticatedRouteRoute;
+    };
+    "/_authenticated/admin": {
+      id: "/_authenticated/admin";
+      path: "/admin";
+      fullPath: "/admin";
+      preLoaderRoute: typeof AuthenticatedAdminRouteRouteImport;
+      parentRoute: typeof AuthenticatedRouteRoute;
+    };
+    "/_authenticated/panel/settings": {
+      id: "/_authenticated/panel/settings";
+      path: "/settings";
+      fullPath: "/panel/settings";
+      preLoaderRoute: typeof AuthenticatedPanelSettingsRouteRouteImport;
+      parentRoute: typeof AuthenticatedPanelRouteRoute;
+    };
+    "/_authenticated/panel/team/": {
+      id: "/_authenticated/panel/team/";
+      path: "/team";
+      fullPath: "/panel/team";
+      preLoaderRoute: typeof AuthenticatedPanelTeamIndexRouteImport;
+      parentRoute: typeof AuthenticatedPanelRouteRoute;
+    };
+    "/_authenticated/panel/tasks/": {
+      id: "/_authenticated/panel/tasks/";
+      path: "/tasks";
+      fullPath: "/panel/tasks";
+      preLoaderRoute: typeof AuthenticatedPanelTasksIndexRouteImport;
+      parentRoute: typeof AuthenticatedPanelRouteRoute;
+    };
+    "/_authenticated/panel/settings/": {
+      id: "/_authenticated/panel/settings/";
+      path: "/";
+      fullPath: "/panel/settings/";
+      preLoaderRoute: typeof AuthenticatedPanelSettingsIndexRouteImport;
+      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute;
+    };
+    "/_authenticated/panel/projects/": {
+      id: "/_authenticated/panel/projects/";
+      path: "/projects";
+      fullPath: "/panel/projects";
+      preLoaderRoute: typeof AuthenticatedPanelProjectsIndexRouteImport;
+      parentRoute: typeof AuthenticatedPanelRouteRoute;
+    };
+    "/_authenticated/panel/dashboard/": {
+      id: "/_authenticated/panel/dashboard/";
+      path: "/dashboard";
+      fullPath: "/panel/dashboard";
+      preLoaderRoute: typeof AuthenticatedPanelDashboardIndexRouteImport;
+      parentRoute: typeof AuthenticatedPanelRouteRoute;
+    };
+    "/_authenticated/panel/analytics/": {
+      id: "/_authenticated/panel/analytics/";
+      path: "/analytics";
+      fullPath: "/panel/analytics";
+      preLoaderRoute: typeof AuthenticatedPanelAnalyticsIndexRouteImport;
+      parentRoute: typeof AuthenticatedPanelRouteRoute;
+    };
+    "/_authenticated/admin/history/": {
+      id: "/_authenticated/admin/history/";
+      path: "/history";
+      fullPath: "/admin/history";
+      preLoaderRoute: typeof AuthenticatedAdminHistoryIndexRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/panel/settings/notifications": {
+      id: "/_authenticated/panel/settings/notifications";
+      path: "/notifications";
+      fullPath: "/panel/settings/notifications";
+      preLoaderRoute: typeof AuthenticatedPanelSettingsNotificationsRouteImport;
+      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute;
+    };
+    "/_authenticated/panel/settings/display": {
+      id: "/_authenticated/panel/settings/display";
+      path: "/display";
+      fullPath: "/panel/settings/display";
+      preLoaderRoute: typeof AuthenticatedPanelSettingsDisplayRouteImport;
+      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute;
+    };
+    "/_authenticated/panel/settings/appearance": {
+      id: "/_authenticated/panel/settings/appearance";
+      path: "/appearance";
+      fullPath: "/panel/settings/appearance";
+      preLoaderRoute: typeof AuthenticatedPanelSettingsAppearanceRouteImport;
+      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute;
+    };
+    "/_authenticated/panel/settings/account": {
+      id: "/_authenticated/panel/settings/account";
+      path: "/account";
+      fullPath: "/panel/settings/account";
+      preLoaderRoute: typeof AuthenticatedPanelSettingsAccountRouteImport;
+      parentRoute: typeof AuthenticatedPanelSettingsRouteRoute;
+    };
+    "/_authenticated/admin/history/chats": {
+      id: "/_authenticated/admin/history/chats";
+      path: "/history/chats";
+      fullPath: "/admin/history/chats";
+      preLoaderRoute: typeof AuthenticatedAdminHistoryChatsRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/history/agent-chats": {
+      id: "/_authenticated/admin/history/agent-chats";
+      path: "/history/agent-chats";
+      fullPath: "/admin/history/agent-chats";
+      preLoaderRoute: typeof AuthenticatedAdminHistoryAgentChatsRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/chatbot/settings": {
+      id: "/_authenticated/admin/chatbot/settings";
+      path: "/chatbot/settings";
+      fullPath: "/admin/chatbot/settings";
+      preLoaderRoute: typeof AuthenticatedAdminChatbotSettingsRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/chatbot/config": {
+      id: "/_authenticated/admin/chatbot/config";
+      path: "/chatbot/config";
+      fullPath: "/admin/chatbot/config";
+      preLoaderRoute: typeof AuthenticatedAdminChatbotConfigRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/roles/": {
+      id: "/_authenticated/admin/global-settings/roles/";
+      path: "/global-settings/roles";
+      fullPath: "/admin/global-settings/roles";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsRolesIndexRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/departments/": {
+      id: "/_authenticated/admin/global-settings/departments/";
+      path: "/global-settings/departments";
+      fullPath: "/admin/global-settings/departments";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/agents/": {
+      id: "/_authenticated/admin/global-settings/agents/";
+      path: "/global-settings/agents";
+      fullPath: "/admin/global-settings/agents";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsAgentsIndexRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/roles/new": {
+      id: "/_authenticated/admin/global-settings/roles/new";
+      path: "/global-settings/roles/new";
+      fullPath: "/admin/global-settings/roles/new";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsRolesNewRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/departments/new": {
+      id: "/_authenticated/admin/global-settings/departments/new";
+      path: "/global-settings/departments/new";
+      fullPath: "/admin/global-settings/departments/new";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/agents/new": {
+      id: "/_authenticated/admin/global-settings/agents/new";
+      path: "/global-settings/agents/new";
+      fullPath: "/admin/global-settings/agents/new";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsAgentsNewRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/roles/edit/$id": {
+      id: "/_authenticated/admin/global-settings/roles/edit/$id";
+      path: "/global-settings/roles/edit/$id";
+      fullPath: "/admin/global-settings/roles/edit/$id";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsRolesEditIdRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/departments/edit/$id": {
+      id: "/_authenticated/admin/global-settings/departments/edit/$id";
+      path: "/global-settings/departments/edit/$id";
+      fullPath: "/admin/global-settings/departments/edit/$id";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
+    "/_authenticated/admin/global-settings/agents/edit/$id": {
+      id: "/_authenticated/admin/global-settings/agents/edit/$id";
+      path: "/global-settings/agents/edit/$id";
+      fullPath: "/admin/global-settings/agents/edit/$id";
+      preLoaderRoute: typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRouteImport;
+      parentRoute: typeof AuthenticatedAdminRouteRoute;
+    };
   }
 }
 
 interface authRouteRouteChildren {
-  authForgotPasswordRoute: typeof authForgotPasswordRoute
-  authOtpRoute: typeof authOtpRoute
-  authSignInRoute: typeof authSignInRoute
-  authSignUpRoute: typeof authSignUpRoute
+  authForgotPasswordRoute: typeof authForgotPasswordRoute;
+  authOtpRoute: typeof authOtpRoute;
+  authSignInRoute: typeof authSignInRoute;
+  authSignUpRoute: typeof authSignUpRoute;
 }
 
 const authRouteRouteChildren: authRouteRouteChildren = {
@@ -828,130 +815,112 @@ const authRouteRouteChildren: authRouteRouteChildren = {
   authOtpRoute: authOtpRoute,
   authSignInRoute: authSignInRoute,
   authSignUpRoute: authSignUpRoute,
-}
+};
 
-const authRouteRouteWithChildren = authRouteRoute._addFileChildren(
-  authRouteRouteChildren,
-)
+const authRouteRouteWithChildren = authRouteRoute._addFileChildren(authRouteRouteChildren);
 
 interface AuthenticatedAdminRouteRouteChildren {
-  AuthenticatedAdminChatbotConfigRoute: typeof AuthenticatedAdminChatbotConfigRoute
-  AuthenticatedAdminChatbotSettingsRoute: typeof AuthenticatedAdminChatbotSettingsRoute
-  AuthenticatedAdminHistoryAgentChatsRoute: typeof AuthenticatedAdminHistoryAgentChatsRoute
-  AuthenticatedAdminHistoryChatsRoute: typeof AuthenticatedAdminHistoryChatsRoute
-  AuthenticatedAdminHistoryIndexRoute: typeof AuthenticatedAdminHistoryIndexRoute
-  AuthenticatedAdminGlobalSettingsAgentsNewRoute: typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute
-  AuthenticatedAdminGlobalSettingsDepartmentsNewRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute
-  AuthenticatedAdminGlobalSettingsRolesNewRoute: typeof AuthenticatedAdminGlobalSettingsRolesNewRoute
-  AuthenticatedAdminGlobalSettingsAgentsIndexRoute: typeof AuthenticatedAdminGlobalSettingsAgentsIndexRoute
-  AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute
-  AuthenticatedAdminGlobalSettingsRolesIndexRoute: typeof AuthenticatedAdminGlobalSettingsRolesIndexRoute
-  AuthenticatedAdminGlobalSettingsAgentsEditIdRoute: typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRoute
-  AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute
-  AuthenticatedAdminGlobalSettingsRolesEditIdRoute: typeof AuthenticatedAdminGlobalSettingsRolesEditIdRoute
+  AuthenticatedAdminChatbotConfigRoute: typeof AuthenticatedAdminChatbotConfigRoute;
+  AuthenticatedAdminChatbotSettingsRoute: typeof AuthenticatedAdminChatbotSettingsRoute;
+  AuthenticatedAdminHistoryAgentChatsRoute: typeof AuthenticatedAdminHistoryAgentChatsRoute;
+  AuthenticatedAdminHistoryChatsRoute: typeof AuthenticatedAdminHistoryChatsRoute;
+  AuthenticatedAdminHistoryIndexRoute: typeof AuthenticatedAdminHistoryIndexRoute;
+  AuthenticatedAdminGlobalSettingsAgentsNewRoute: typeof AuthenticatedAdminGlobalSettingsAgentsNewRoute;
+  AuthenticatedAdminGlobalSettingsDepartmentsNewRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsNewRoute;
+  AuthenticatedAdminGlobalSettingsRolesNewRoute: typeof AuthenticatedAdminGlobalSettingsRolesNewRoute;
+  AuthenticatedAdminGlobalSettingsAgentsIndexRoute: typeof AuthenticatedAdminGlobalSettingsAgentsIndexRoute;
+  AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute;
+  AuthenticatedAdminGlobalSettingsRolesIndexRoute: typeof AuthenticatedAdminGlobalSettingsRolesIndexRoute;
+  AuthenticatedAdminGlobalSettingsAgentsEditIdRoute: typeof AuthenticatedAdminGlobalSettingsAgentsEditIdRoute;
+  AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute: typeof AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute;
+  AuthenticatedAdminGlobalSettingsRolesEditIdRoute: typeof AuthenticatedAdminGlobalSettingsRolesEditIdRoute;
 }
 
-const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren =
-  {
-    AuthenticatedAdminChatbotConfigRoute: AuthenticatedAdminChatbotConfigRoute,
-    AuthenticatedAdminChatbotSettingsRoute:
-      AuthenticatedAdminChatbotSettingsRoute,
-    AuthenticatedAdminHistoryAgentChatsRoute:
-      AuthenticatedAdminHistoryAgentChatsRoute,
-    AuthenticatedAdminHistoryChatsRoute: AuthenticatedAdminHistoryChatsRoute,
-    AuthenticatedAdminHistoryIndexRoute: AuthenticatedAdminHistoryIndexRoute,
-    AuthenticatedAdminGlobalSettingsAgentsNewRoute:
-      AuthenticatedAdminGlobalSettingsAgentsNewRoute,
-    AuthenticatedAdminGlobalSettingsDepartmentsNewRoute:
-      AuthenticatedAdminGlobalSettingsDepartmentsNewRoute,
-    AuthenticatedAdminGlobalSettingsRolesNewRoute:
-      AuthenticatedAdminGlobalSettingsRolesNewRoute,
-    AuthenticatedAdminGlobalSettingsAgentsIndexRoute:
-      AuthenticatedAdminGlobalSettingsAgentsIndexRoute,
-    AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute:
-      AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute,
-    AuthenticatedAdminGlobalSettingsRolesIndexRoute:
-      AuthenticatedAdminGlobalSettingsRolesIndexRoute,
-    AuthenticatedAdminGlobalSettingsAgentsEditIdRoute:
-      AuthenticatedAdminGlobalSettingsAgentsEditIdRoute,
-    AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute:
-      AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute,
-    AuthenticatedAdminGlobalSettingsRolesEditIdRoute:
-      AuthenticatedAdminGlobalSettingsRolesEditIdRoute,
-  }
+const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren = {
+  AuthenticatedAdminChatbotConfigRoute: AuthenticatedAdminChatbotConfigRoute,
+  AuthenticatedAdminChatbotSettingsRoute: AuthenticatedAdminChatbotSettingsRoute,
+  AuthenticatedAdminHistoryAgentChatsRoute: AuthenticatedAdminHistoryAgentChatsRoute,
+  AuthenticatedAdminHistoryChatsRoute: AuthenticatedAdminHistoryChatsRoute,
+  AuthenticatedAdminHistoryIndexRoute: AuthenticatedAdminHistoryIndexRoute,
+  AuthenticatedAdminGlobalSettingsAgentsNewRoute: AuthenticatedAdminGlobalSettingsAgentsNewRoute,
+  AuthenticatedAdminGlobalSettingsDepartmentsNewRoute:
+    AuthenticatedAdminGlobalSettingsDepartmentsNewRoute,
+  AuthenticatedAdminGlobalSettingsRolesNewRoute: AuthenticatedAdminGlobalSettingsRolesNewRoute,
+  AuthenticatedAdminGlobalSettingsAgentsIndexRoute:
+    AuthenticatedAdminGlobalSettingsAgentsIndexRoute,
+  AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute:
+    AuthenticatedAdminGlobalSettingsDepartmentsIndexRoute,
+  AuthenticatedAdminGlobalSettingsRolesIndexRoute: AuthenticatedAdminGlobalSettingsRolesIndexRoute,
+  AuthenticatedAdminGlobalSettingsAgentsEditIdRoute:
+    AuthenticatedAdminGlobalSettingsAgentsEditIdRoute,
+  AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute:
+    AuthenticatedAdminGlobalSettingsDepartmentsEditIdRoute,
+  AuthenticatedAdminGlobalSettingsRolesEditIdRoute:
+    AuthenticatedAdminGlobalSettingsRolesEditIdRoute,
+};
 
-const AuthenticatedAdminRouteRouteWithChildren =
-  AuthenticatedAdminRouteRoute._addFileChildren(
-    AuthenticatedAdminRouteRouteChildren,
-  )
+const AuthenticatedAdminRouteRouteWithChildren = AuthenticatedAdminRouteRoute._addFileChildren(
+  AuthenticatedAdminRouteRouteChildren,
+);
 
 interface AuthenticatedPanelSettingsRouteRouteChildren {
-  AuthenticatedPanelSettingsAccountRoute: typeof AuthenticatedPanelSettingsAccountRoute
-  AuthenticatedPanelSettingsAppearanceRoute: typeof AuthenticatedPanelSettingsAppearanceRoute
-  AuthenticatedPanelSettingsDisplayRoute: typeof AuthenticatedPanelSettingsDisplayRoute
-  AuthenticatedPanelSettingsNotificationsRoute: typeof AuthenticatedPanelSettingsNotificationsRoute
-  AuthenticatedPanelSettingsIndexRoute: typeof AuthenticatedPanelSettingsIndexRoute
+  AuthenticatedPanelSettingsAccountRoute: typeof AuthenticatedPanelSettingsAccountRoute;
+  AuthenticatedPanelSettingsAppearanceRoute: typeof AuthenticatedPanelSettingsAppearanceRoute;
+  AuthenticatedPanelSettingsDisplayRoute: typeof AuthenticatedPanelSettingsDisplayRoute;
+  AuthenticatedPanelSettingsNotificationsRoute: typeof AuthenticatedPanelSettingsNotificationsRoute;
+  AuthenticatedPanelSettingsIndexRoute: typeof AuthenticatedPanelSettingsIndexRoute;
 }
 
-const AuthenticatedPanelSettingsRouteRouteChildren: AuthenticatedPanelSettingsRouteRouteChildren =
-  {
-    AuthenticatedPanelSettingsAccountRoute:
-      AuthenticatedPanelSettingsAccountRoute,
-    AuthenticatedPanelSettingsAppearanceRoute:
-      AuthenticatedPanelSettingsAppearanceRoute,
-    AuthenticatedPanelSettingsDisplayRoute:
-      AuthenticatedPanelSettingsDisplayRoute,
-    AuthenticatedPanelSettingsNotificationsRoute:
-      AuthenticatedPanelSettingsNotificationsRoute,
-    AuthenticatedPanelSettingsIndexRoute: AuthenticatedPanelSettingsIndexRoute,
-  }
+const AuthenticatedPanelSettingsRouteRouteChildren: AuthenticatedPanelSettingsRouteRouteChildren = {
+  AuthenticatedPanelSettingsAccountRoute: AuthenticatedPanelSettingsAccountRoute,
+  AuthenticatedPanelSettingsAppearanceRoute: AuthenticatedPanelSettingsAppearanceRoute,
+  AuthenticatedPanelSettingsDisplayRoute: AuthenticatedPanelSettingsDisplayRoute,
+  AuthenticatedPanelSettingsNotificationsRoute: AuthenticatedPanelSettingsNotificationsRoute,
+  AuthenticatedPanelSettingsIndexRoute: AuthenticatedPanelSettingsIndexRoute,
+};
 
 const AuthenticatedPanelSettingsRouteRouteWithChildren =
   AuthenticatedPanelSettingsRouteRoute._addFileChildren(
     AuthenticatedPanelSettingsRouteRouteChildren,
-  )
+  );
 
 interface AuthenticatedPanelRouteRouteChildren {
-  AuthenticatedPanelSettingsRouteRoute: typeof AuthenticatedPanelSettingsRouteRouteWithChildren
-  AuthenticatedPanelAnalyticsIndexRoute: typeof AuthenticatedPanelAnalyticsIndexRoute
-  AuthenticatedPanelDashboardIndexRoute: typeof AuthenticatedPanelDashboardIndexRoute
-  AuthenticatedPanelProjectsIndexRoute: typeof AuthenticatedPanelProjectsIndexRoute
-  AuthenticatedPanelTasksIndexRoute: typeof AuthenticatedPanelTasksIndexRoute
-  AuthenticatedPanelTeamIndexRoute: typeof AuthenticatedPanelTeamIndexRoute
+  AuthenticatedPanelSettingsRouteRoute: typeof AuthenticatedPanelSettingsRouteRouteWithChildren;
+  AuthenticatedPanelAnalyticsIndexRoute: typeof AuthenticatedPanelAnalyticsIndexRoute;
+  AuthenticatedPanelDashboardIndexRoute: typeof AuthenticatedPanelDashboardIndexRoute;
+  AuthenticatedPanelProjectsIndexRoute: typeof AuthenticatedPanelProjectsIndexRoute;
+  AuthenticatedPanelTasksIndexRoute: typeof AuthenticatedPanelTasksIndexRoute;
+  AuthenticatedPanelTeamIndexRoute: typeof AuthenticatedPanelTeamIndexRoute;
 }
 
-const AuthenticatedPanelRouteRouteChildren: AuthenticatedPanelRouteRouteChildren =
-  {
-    AuthenticatedPanelSettingsRouteRoute:
-      AuthenticatedPanelSettingsRouteRouteWithChildren,
-    AuthenticatedPanelAnalyticsIndexRoute:
-      AuthenticatedPanelAnalyticsIndexRoute,
-    AuthenticatedPanelDashboardIndexRoute:
-      AuthenticatedPanelDashboardIndexRoute,
-    AuthenticatedPanelProjectsIndexRoute: AuthenticatedPanelProjectsIndexRoute,
-    AuthenticatedPanelTasksIndexRoute: AuthenticatedPanelTasksIndexRoute,
-    AuthenticatedPanelTeamIndexRoute: AuthenticatedPanelTeamIndexRoute,
-  }
+const AuthenticatedPanelRouteRouteChildren: AuthenticatedPanelRouteRouteChildren = {
+  AuthenticatedPanelSettingsRouteRoute: AuthenticatedPanelSettingsRouteRouteWithChildren,
+  AuthenticatedPanelAnalyticsIndexRoute: AuthenticatedPanelAnalyticsIndexRoute,
+  AuthenticatedPanelDashboardIndexRoute: AuthenticatedPanelDashboardIndexRoute,
+  AuthenticatedPanelProjectsIndexRoute: AuthenticatedPanelProjectsIndexRoute,
+  AuthenticatedPanelTasksIndexRoute: AuthenticatedPanelTasksIndexRoute,
+  AuthenticatedPanelTeamIndexRoute: AuthenticatedPanelTeamIndexRoute,
+};
 
-const AuthenticatedPanelRouteRouteWithChildren =
-  AuthenticatedPanelRouteRoute._addFileChildren(
-    AuthenticatedPanelRouteRouteChildren,
-  )
+const AuthenticatedPanelRouteRouteWithChildren = AuthenticatedPanelRouteRoute._addFileChildren(
+  AuthenticatedPanelRouteRouteChildren,
+);
 
 interface AuthenticatedRouteRouteChildren {
-  AuthenticatedAdminRouteRoute: typeof AuthenticatedAdminRouteRouteWithChildren
-  AuthenticatedPanelRouteRoute: typeof AuthenticatedPanelRouteRouteWithChildren
-  AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+  AuthenticatedAdminRouteRoute: typeof AuthenticatedAdminRouteRouteWithChildren;
+  AuthenticatedPanelRouteRoute: typeof AuthenticatedPanelRouteRouteWithChildren;
+  AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute;
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminRouteRoute: AuthenticatedAdminRouteRouteWithChildren,
   AuthenticatedPanelRouteRoute: AuthenticatedPanelRouteRouteWithChildren,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
-}
+};
 
-const AuthenticatedRouteRouteWithChildren =
-  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+const AuthenticatedRouteRouteWithChildren = AuthenticatedRouteRoute._addFileChildren(
+  AuthenticatedRouteRouteChildren,
+);
 
 const rootRouteChildren: RootRouteChildren = {
   authRouteRoute: authRouteRouteWithChildren,
@@ -962,7 +931,7 @@ const rootRouteChildren: RootRouteChildren = {
   errors500Route: errors500Route,
   errors503Route: errors503Route,
   ChatIndexRoute: ChatIndexRoute,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
